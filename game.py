@@ -14,6 +14,10 @@ while True:
 
 
 def remove_punct(text):
+    """
+    >>> remove_punct("Testing%^$12$3")
+    'Testing123'
+    """
     txt = text
     for punct in string.punctuation:
         txt = txt.replace(punct, "")
@@ -26,7 +30,7 @@ def remove_spaces(text):
 
 
 def display_room(room):
-    print("\n\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n\n")
+    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
 
 
 def exit_leads_to(exits, direction):
@@ -120,7 +124,7 @@ def move(exits, direction):
 def main():
     # Start game at the room_1
     current_room = rooms["needs_name1"]
-    print("Type 'help' to see list of available commands.")
+    print("Type 'help' to see a list of available commands.")
     global in_room
     # Main game loop
     while True:

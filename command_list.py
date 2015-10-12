@@ -21,6 +21,7 @@ def change_room_desc(current_room, index):
     current_room["description"] = a
     current_room["objects"] = b
 
+
 # Turns all input to a simple string of ONLY lowercase letters.
 def normalise_input(text):
     """
@@ -35,12 +36,14 @@ def normalise_input(text):
     text = text.replace(" ", "")
     return text
 
+
 # Checks if chosen exit is valid (is there an exit to the west or no when you type in 'exit')?
 def is_valid_exit(exits, user_input):
     if user_input in exits:
         return True
     else:
         return False
+
 
 # Function checks if the user input is a command for direction. Returns 1 if exit is valid, 2 if direction is not an exit, 3 all else
 def command_direction(exits, user_input):
@@ -54,16 +57,19 @@ def command_direction(exits, user_input):
             else:
                 return 3
 
+
 # Prints a list of possible commands
 def help_menu():
     print("\nList of available commands:\n")
     for a in commands:
         print(str(a).upper() + " - " + commands[a])
 
+
 # Changes and returns new player name
 def player_name_change():
     user_input = input("Type your new name: ")
     return user_input
+
 
 # The way elements are inspected and outputs if element is not present (has debug for new rooms)
 def inspect_element(room, element, player_name):
