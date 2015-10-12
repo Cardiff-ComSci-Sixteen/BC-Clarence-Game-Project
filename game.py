@@ -42,8 +42,6 @@ def exit_leads_to(exits, direction):
 
     if direction not in exits:
         return 0
-
-
     return exits[direction]
 
 
@@ -118,6 +116,9 @@ def menu(exits):
 def move(exits, direction):
     return rooms[exits[direction]]
 
+def a(test, test_2):
+    return test + test_2
+
 
 def main():
     # Start game at the room_1
@@ -136,6 +137,5 @@ def main():
 
         current_room = move(exits, command_input)
         in_room = current_room["name_ID"]
-
 
 main()
