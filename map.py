@@ -124,4 +124,4 @@ rooms = {
     "needs_name8": room_8,
     "needs_name9": room_9,
     "needs_name10": room_10,
-}
+} # we need to decide on setting before creating names
