@@ -1,6 +1,7 @@
 from room_states import get_room_state
 import random
 from command_list import *
+import string
 
 in_room = "Reception"
 player_name = input("Type a player name (12 characters max): ")

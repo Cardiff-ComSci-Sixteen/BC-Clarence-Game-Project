@@ -81,6 +81,3 @@ def inspect_element(room, element, player_name):
         else:
             print("I'm afraid I cannot inspect that.")
             break
-
-
-print("commands")
