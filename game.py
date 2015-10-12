@@ -131,7 +131,7 @@ def main():
         exits = current_room["exits"]
 
         command_input = menu(exits)
-        if command_input == "south" and get_room_state(rooms_states["room_1"]) == 1:
+        if command_input == "help" and get_room_state(rooms_states["room_1"]) == 1:
             change_room_desc(current_room, 3)
 
         current_room = move(exits, command_input)
