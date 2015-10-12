@@ -1,7 +1,8 @@
-from room_states import get_room_state
 import random
 from command_list import *
 import string
+# import debug
+from map import rooms
 
 in_room = "room_1"
 player_name = input("Type a player name (12 characters max): ")
@@ -14,10 +15,6 @@ while True:
 
 
 def remove_punct(text):
-    """
-    >>> remove_punct("Testing%^$12$3")
-    'Testing123'
-    """
     txt = text
     for punct in string.punctuation:
         txt = txt.replace(punct, "")
@@ -123,18 +120,22 @@ def move(exits, direction):
 
 def main():
     # Start game at the room_1
-    current_room = rooms["needs_name1"]
+    current_room = rooms["room_1"]
     print("Type 'help' to see a list of available commands.")
     global in_room
     # Main game loop
     while True:
+        if current_room["name_ID"] == "room_1":
+            update_room_state(current_room["name_ID"])
+
         display_room(current_room)
 
         exits = current_room["exits"]
 
         command_input = menu(exits)
-        if command_input == "help" and get_room_state(rooms_states["room_1"]) == 1:
-            change_room_desc(current_room, 3)
+
+        if command_input == "south" and get_room_state(rooms_states["room_1"]) == 1:
+            rooms_states[current_room["name_ID"]]["state"] = 3
 
         current_room = move(exits, command_input)
         in_room = current_room["name_ID"]

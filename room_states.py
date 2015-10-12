@@ -18,28 +18,15 @@ room_1 = {
                            "\nThe ceiling has been irreversibly damaged."
                 }},
     "state": 1,
-    "solid_state": 0
 }
 
-# Function gets the current state of the room.
-def get_room_state(room):
-    n = room["state"]
-    # print("Get Room State = " + str(n))
-    return n
-
-# Function changes the room state depending on input
-def change_room_state(room, index):
-    rooms_states[room]["state"] = index
-    a = rooms_states[room]["state"]
-    # print("Change Room State to = " + str(a))
-    return a
-
-# Function changes elements inside dictionaries AFTER room state is changed
-def change_description(room):
-    # print("Change Desc to = " + str(get_room_state(rooms_states[room])))
-    return get_room_state(rooms_states[room])
+room_2 = {
+    "state_1": "NULL",
+    "state": 1,
+}
 
 # List of rooms with states
 rooms_states = {
     "room_1": room_1,
+    "room_2": room_2,
 }
