@@ -116,9 +116,6 @@ def menu(exits):
 def move(exits, direction):
     return rooms[exits[direction]]
 
-def a(test, test_2):
-    return test + test_2
-
 
 def main():
     # Start game at the room_1
