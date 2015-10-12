@@ -3,6 +3,7 @@ from map import rooms
 from room_states import change_room_state
 from room_states import change_description
 from room_states import rooms_states
+import string
 
 # List of direction to check against.
 dire = ["east", "west", "north", "south"]
@@ -22,12 +23,17 @@ def change_room_desc(current_room, index):
 
 # Turns all input to a simple string of ONLY lowercase letters.
 def normalise_input(text):
+    """
+    >>> normalise_input("Norm4lize this!")
+    'normlizethis'
+    """
     text = text.lower()
-    text_new = ""
-    for ch in text:
-        if ch in {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}:
-            text_new = text_new + ch
-    return text_new
+    for punct in string.punctuation:
+            text = text.replace(punct, "")
+    for digit in string.digits:
+            text = text.replace(digit, "")
+    text = text.replace(" ", "")
+    return text
 
 # Checks if chosen exit is valid (is there an exit to the west or no when you type in 'exit')?
 def is_valid_exit(exits, user_input):
