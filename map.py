@@ -3,21 +3,14 @@ from room_states import change_description
 
 
 
-room_reception = {
-    "name_ID": "Reception",
+room_1 = {
+    "name_ID": "room_1",
 
-    "name": "Reception",
+    "name": "needs_name1",
 
-    "description": rooms_states["Reception"]["state_" + str(change_description("Reception"))]["description"],
+    "description": rooms_states["room_1"]["state_" + str(change_description("room_1"))]["description"],
 
-    #     """You are in a maze of twisty little passages, all alike.
-    # Next to you is the School of Computer Science and
-    # Informatics reception. The receptionist, Matt Strangis,
-    # seems to be playing an old school text-based adventure
-    # game on his computer. There are corridors leading to the
-    # south and east. The exit is to the west.""",
-
-    "exits": {"south": "Admins"},
+    "exits": {"south": "needs_name2", "west": "needs_name3"},
 
     "objects": {"ceiling": "It looks rather unstable. The material will hardly stay strong forever."
                            "\nI cannot imagine what would happen if it collapsed atop of me!"
@@ -25,32 +18,28 @@ room_reception = {
 
 }
 
-room_admins = {
-    "name_ID": "Admins",
+room_2 = {
+    "name_ID": "room_2",
 
-    "name": "MJ and Simon's room",
+    "name": "needs_name2",
 
     "description":
-    """You are leaning against the door of the systems managers'
-room. Inside you notice Matt "MJ" John and Simon Jones. They
-ignore you. To the north is the reception.""",
+    """Need Discription""",
 
-    "exits": {"north": "Reception"},
+    "exits": {"north": "needs_name1"},
 
     # "objects": {"ceiling": "stuff like this"}
     # ADD EXITS HERE!
 }
 
-room_tutor = {
-    "name": "your personal tutor's office",
+room_3 = {
+    "name_ID": "room_3",
+    "name": "needs_name3",
 
     "description":
-    """You are in your personal tutor's office. He intently
-stares at his huge monitor, ignoring you completely.
-On the desk you notice a cup of coffee and an empty
-pack of biscuits. The reception is to the west.""",
+    """needs description""",
 
-    # ADD EXITS HERE!
+    "exits": {"east": "needs_name1"},
 }
 
 room_parking = {
@@ -82,9 +71,9 @@ Queen's Buildings.
 
 
 rooms = {
-    "Reception": room_reception,
-    "Admins": room_admins,
-    "Tutor": room_tutor,
+    "needs_name1": room_1,
+    "needs_name2": room_2,
+    "needs_name3": room_3,
     "Parking": room_parking,
     "Office": room_office
 }

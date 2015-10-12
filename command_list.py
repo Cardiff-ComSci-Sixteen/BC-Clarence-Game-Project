@@ -13,8 +13,8 @@ def change_room_desc(current_room, index):
     change_room_state(current_room["name_ID"], index)
 
     # Gets the new description as a string.
-    a = rooms_states["Reception"]["state_" + str(change_description("Reception"))]["description"]
-    b = rooms_states["Reception"]["state_" + str(change_description("Reception"))]["objects"]
+    a = rooms_states["room_1"]["state_" + str(change_description("room_1"))]["description"]
+    b = rooms_states["room_1"]["state_" + str(change_description("room_1"))]["objects"]
 
     # Changes the current description of the room to the new one.
     current_room["description"] = a

@@ -3,7 +3,7 @@ import random
 from command_list import *
 import string
 
-in_room = "Reception"
+in_room = "room_1"
 player_name = input("Type a player name (12 characters max): ")
 while True:
     if len(player_name) > 12:
@@ -120,8 +120,8 @@ def move(exits, direction):
 
 
 def main():
-    # Start game at the reception
-    current_room = rooms["Reception"]
+    # Start game at the room_1
+    current_room = rooms["needs_name1"]
     print("Type 'help' to see list of available commands.")
     global in_room
     # Main game loop
@@ -131,7 +131,7 @@ def main():
         exits = current_room["exits"]
 
         command_input = menu(exits)
-        if command_input == "south" and get_room_state(rooms_states["Reception"]) == 1:
+        if command_input == "south" and get_room_state(rooms_states["room_1"]) == 1:
             change_room_desc(current_room, 3)
 
         current_room = move(exits, command_input)

@@ -1,4 +1,4 @@
-room_reception = {
+room_1 = {
     "state_1": {"description": "The ceiling has a very darkish shade to it, "
                 "\nseemingly because of the moisture."
                 "\nWhen you look at the walls you can see water running down them."
@@ -8,7 +8,7 @@ room_reception = {
                            "\nI cannot imagine what would happen if it collapsed on me!"
                 }},
     "state_2": "You are not here.",
-    "state_3": {"description": "As you return to the Reception you see that the ceiling,"
+    "state_3": {"description": "As you return to the room_1 you see that the ceiling,"
                 "\nwhich used to cover the room, has now"
                 "\ncompletely been destroyed, most probably due"
                 "\nto the material having soaked up too much water.",
@@ -41,5 +41,5 @@ def change_description(room):
 
 # List of rooms with states
 rooms_states = {
-    "Reception": room_reception,
+    "room_1": room_1,
 }
