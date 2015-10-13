@@ -62,7 +62,6 @@ def is_valid_command(user_input):
 
 # Mainly replaces the command_execute function given during Exercise_2
 def command_execute(exits):
-    print_menu(exits)
     global player_name
     user_input = "a"
     while True:
@@ -120,6 +119,7 @@ def move(exits, direction):
 def menu(current_room):
     display_room(current_room)
     exits = current_room["exits"]
+    print_menu(exits)
     command_input = command_execute(exits)
 
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
