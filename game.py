@@ -1,6 +1,5 @@
 from command_list import *
-from map import rooms
-from player import inventory
+from player import *
 
 in_room = "Player Ship"
 player_name = input("Type a player name (12 characters max): ")
