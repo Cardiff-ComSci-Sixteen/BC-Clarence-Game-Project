@@ -1,6 +1,5 @@
 # Each room needs to have at least one state, else functions cause a supernova.
-
-room_1 = {
+player_ship = {
     "state_1": {"description": "The ceiling has a very darkish shade to it, "
                 "\nseemingly because of the moisture."
                 "\nWhen you look at the walls you can see water running down them."
@@ -10,7 +9,7 @@ room_1 = {
                            "\nI cannot imagine what would happen if it collapsed on me!"
                 }},
     "state_2": "You are not here.",
-    "state_3": {"description": "As you return to the room_1 you see that the ceiling,"
+    "state_3": {"description": "As you return to Hangar 1 you see that the ceiling,"
                 "\nwhich used to cover the room, has now"
                 "\ncompletely been destroyed, most probably due"
                 "\nto the material having soaked up too much water.",
@@ -22,13 +21,13 @@ room_1 = {
     "state": 1,
 }
 
-room_2 = {
+hangar_1 = {
     "state_1": {"description": "needsdescription2_state_1"},
     "state": 1,
 }
 
 # List of rooms with states
 rooms_states = {
-    "room_1": room_1,
-    "room_2": room_2,
+    "Player Ship": player_ship,
+    "Hangar 1": hangar_1,
 }

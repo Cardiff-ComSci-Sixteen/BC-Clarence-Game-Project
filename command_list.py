@@ -53,8 +53,11 @@ def filter_words(words, skip_words):
     """
     pass
     for word in skip_words:
-        if word in words:
-            words.remove(word)
+        while True:
+            if word in words:
+                words.remove(word)
+            else:
+                break
     return words
 
 
@@ -81,6 +84,7 @@ def remove_punct(text):
 # Checks if chosen exit is valid
 # (is there an exit to the west or no when you type in 'west')?
 def is_valid_exit(exits, user_input):
+    # user_input = normalise_input(user_input)
     if user_input in exits:
         return True
     else:
@@ -88,18 +92,51 @@ def is_valid_exit(exits, user_input):
 
 
 def command_go(exits, direction):
-    list_deny = ["Going " + direction.upper() + " is not an option.",
-                 "I cannot go " + direction.upper() + ".",
-                 "Walking " + direction.upper() + " is impossible!",
-                 "Something is blocking my path."]
     while True:
         if is_valid_exit(exits, direction):
             return direction
         else:
             cmd = random.randint(0, 3)
-            print(list_deny[cmd])
+            print(go_deny[cmd])
             break
 
+def command_go_superior(exits, in_room, cmd):
+    while True:
+        if len(cmd):
+            if cmd[0] == "go" or cmd[0] in rooms[in_room]["exits"]:
+                if len(cmd) > 1:
+                    direction = command_go(exits, cmd[1])
+                    if direction in rooms[in_room]["exits"]:
+                        return direction
+                    break
+                elif cmd[0] in rooms[in_room]["exits"]:
+                    direction = command_go(exits, cmd[0])
+                    if direction in rooms[in_room]["exits"]:
+                        return direction
+                    break
+                else:
+                    while True:
+                        cmd = input("Go where?")
+                        cmd = normalise_input(cmd)
+                        if len(cmd) > 1:
+                            if cmd[0] == "go" and len(cmd) > 2:
+                                cmd_changed = cmd[1] + "_" + cmd[2]
+                                del cmd[0:len(cmd)-1]
+                                cmd[0] = cmd_changed
+                                break
+                            else:
+                                cmd_changed = cmd[0] + "_" + cmd[1]
+                                del cmd[0:len(cmd)-1]
+                                cmd[0] = cmd_changed
+                                break
+                        if len(cmd) == 1:
+                            break
+            elif len(cmd):
+                print("I did not quite get that.")
+                # return cmd
+                break
+        else:
+            break
 
 def command_help():
     print("\nList of available commands:\n")
@@ -180,25 +217,12 @@ def update_room_state(room):
     for item in rooms[room]["objects"]:
         rooms[room]["objects"][item][0] = rooms_states[room]["state_" + str(current_state)]["objects"][item]
 
-# NEW
-# NEW
-# NEW
-#
-# def execute_take(item_id):
-#     """This function takes an item_id as an argument and moves this item from the
-#     list of items in the current room to the player's inventory. However, if
-#     there is no such item in the room, this function prints
-#     "You cannot take that."
-#     """
-#     pass
-#
-#
-# def execute_drop(item_id):
-#     """This function takes an item_id as an argument and moves this item from the
-#     player's inventory to list of items in the current room. However, if there is
-#     no such item in the inventory, this function prints "You cannot drop that."
-#     """
-#     pass
+
+def command_inventory(inventory):
+    # This function takes a list of inventory items and displays it nicely, in a
+    # manner similar to print_room_items(). The only difference is in formatting:
+    print("You have " + list_of_items(inventory))
+    print()
 
 
 def list_of_items(items):
@@ -213,13 +237,6 @@ def list_of_items(items):
         alpha = alpha + ", " + item
     alpha = alpha[2:len(alpha)]
     return alpha
-
-
-def print_inventory_items(items):
-    # This function takes a list of inventory items and displays it nicely, in a
-    # manner similar to print_room_items(). The only difference is in formatting:
-
-    print("You have " + list_of_items(items) + ".\n")
 
 
 def print_room_items(room):

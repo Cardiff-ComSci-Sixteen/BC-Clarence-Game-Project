@@ -1,7 +1,7 @@
 item_id = {
     "id": "id",
 
-    "name": "id card",
+    "name": "an id card",
 
     "description":
     """You new shiny student ID card. Expires 1 June 2017.
@@ -11,7 +11,7 @@ You wonder why they have printed a suicide hotline number on it?..."""
 item_laptop = {
     "id": "laptop",
 
-    "name": "laptop",
+    "name": "a laptop",
 
     "description":
     "It has seen better days. At least it has a WiFi card!"

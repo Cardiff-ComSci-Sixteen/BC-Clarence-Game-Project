@@ -4,8 +4,8 @@ from objects import *
 # address them and evaluate if there are any items/objects to interact with.
 # P.S. Objects are currently intended to be only inspected, items are the "room's inventory"
 
-Player_Ship = {
-    "name_ID": "Player_Ship",
+player_ship = {
+    "name_ID": "Player Ship",
 
     "name": "Player Ship",
 
@@ -14,7 +14,7 @@ Player_Ship = {
                    "\nWhen you look at the walls you can see water running down them."
                    "\nThe place looks like it will fall apart at any moment!",
 
-    "exits": {"Hanger 1": "Hanger_1"},
+    "exits": {"hangar_1": "Hangar 1"},
 
     "objects": {"ceiling": ["It looks rather unstable. The material will hardly stay strong forever."
                             "\nI cannot imagine what would happen if it collapsed atop of me!", 0]
@@ -23,14 +23,14 @@ Player_Ship = {
 
 }
 
-Hanger_1= {
-    "name_ID": "Hanger_1",
+hangar_1 = {
+    "name_ID": "Hangar 1",
 
-    "name": "Hanger 1",
+    "name": "Hangar #1",
 
     "description": """needs description2""",
 
-    "exits": {"Hanger 2": "Hanger_2", "Vehicle Maintence": "Vehicle_Maintence", 
+    "exits": {"player_ship": "Player Ship", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
     "Vehicle Storage": "Vehicle_Storage"},
 
     "items": [],
@@ -38,13 +38,13 @@ Hanger_1= {
     "objects": {}
 }
 
-Hanger_2 = {
-    "name_ID": "Hanger_2",
-    "name": "Hanger 2",
+hangar_2 = {
+    "name_ID": "hangar_2",
+    "name": "Hangar 2",
 
     "description": """needs description3""",
 
-    "exits": {"Hanger 1": "Hanger_1", "Vehicle Maintence": "Vehicle_Maintence",
+    "exits": {"hangar_1": "hangar_1", "Vehicle Maintence": "Vehicle_Maintence",
     "Vehicle Storage": "Vehicle_Storage"},
 
     "items": []
@@ -56,7 +56,7 @@ Vehicle_Maintence = {
 
     "description": """needs description4""",
 
-    "exits": {"Hanger 1": "Hanger_1", "Hanger 2": "Hanger_2", "Vehicle Storage": "Vehicle_Maintence",
+    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Storage": "Vehicle_Maintence",
     "Power Generator": "Power_Generator"},
 
     "items": []
@@ -69,7 +69,7 @@ Vehicle_Storage = {
     "description":
     """needs description5""",
 
-    "exits": {"Hanger 1": "Hanger_1", "Hanger 2": "Hanger_2", "Vehicle Maintence": "Vehicle_Maintence",
+    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
     "Crew Quarters": "Crew_Quarters"},
 
     "items": []
@@ -159,7 +159,7 @@ Officer_Deck = {
     """needs description10""",
 
     "exits": {"Main Engineering": "Main_Engineering", "Weapons Control": "Weapons_Control",
-    "Bridge": "Bridge", "Systems Control", "Systems_Control"},
+    "Bridge": "Bridge", "Systems Control": "Systems_Control"},
 
     "items": []
 }
@@ -276,25 +276,25 @@ Detention_Centre = {
 # Had to change room names so that they would be addressed as their
 # function name and ID. We can alter the names in the room dicts instead.
 rooms = {
-    "Player Ship": Player_Ship,
-    "Hanger 1": Hanger_1,
-    "Hanger 2": Hanger_2,
-    "Vehicle Maintence": Vehicle_Maintence,
-    "Vehicle Storage": Vehicle_Storage,
-    "Crew Quarters": Crew_Quarters,
-    "Power Generator": Power_Generator,
-    "Power Control": Power_Control,
-    "Main Engineering": Main_Engineering,
-    "Engine Room": Engine_Room,
-    "Weapons Control": Weapons_Control,
-    "Officer Deck": Officer_Deck,
+    "Player Ship": player_ship,
+    "Hangar 1": hangar_1,
+    "hangar_2": hangar_2,
+    "Vehicle_Maintence": Vehicle_Maintence,
+    "Vehicle_Storage": Vehicle_Storage,
+    "Crew_Quarters": Crew_Quarters,
+    "Power_Generator": Power_Generator,
+    "Power_Control": Power_Control,
+    "Main_Engineering": Main_Engineering,
+    "Engine_Room": Engine_Room,
+    "Weapons_Control": Weapons_Control,
+    "Officer_Deck": Officer_Deck,
     "Bridge": Bridge,
-    "Systems Control": Systems_Control,
-    "Main Gun": Main_Gun,
-    "Med Bay": Med_Bay,
-    "Room 5": Room_5,
-    "Room 139": Room_139,
-    "Room 12": Room_12,
-    "Room 203": Room_203,
+    "Systems_Control": Systems_Control,
+    "Main_Gun": Main_Gun,
+    "Med_Bay": Med_Bay,
+    "Room_5": Room_5,
+    "Room_139": Room_139,
+    "Room_12": Room_12,
+    "Room_203": Room_203,
     "Detention_Centre": Detention_Centre,
 }
