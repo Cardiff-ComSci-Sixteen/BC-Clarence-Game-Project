@@ -1,7 +1,9 @@
 from collections import OrderedDict
 
 # List of possible commands that could be used
-commands = OrderedDict([("east", "move EAST"), ("west", "move WEST"), ("north", "move NORTH"), ("south", "move SOUTH"),
+commands_expanded = {"playername": ["playername, name, changename"]}
+
+commands = OrderedDict([("go", "moves the player"),
                         ("inspect", "inspect the details of an element"), ("exits", "shows all available exits"),
                         ("help", "shows a list of available commands"), ("save", ""), ("load", ""), ("quit", "quits the game"),
                         ("playername", "change player's name")])

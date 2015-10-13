@@ -1,3 +1,5 @@
+# Each room needs to have at least one state, else functions cause a supernova.
+
 room_1 = {
     "state_1": {"description": "The ceiling has a very darkish shade to it, "
                 "\nseemingly because of the moisture."
@@ -21,7 +23,7 @@ room_1 = {
 }
 
 room_2 = {
-    "state_1": "NULL",
+    "state_1": {"description": "needsdescription2_state_1"},
     "state": 1,
 }
 
