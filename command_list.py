@@ -10,6 +10,7 @@ import random
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
 dire = ["east", "west", "north", "south"]
+
 # List of "unimportant" words (feel free to add more)
 skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'bad', 'beautiful', 'been', 'better', 'big', 'can', 'every', 'for',
@@ -20,6 +21,7 @@ skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'that', 'the', 'then', 'this', 'those', 'through', 'till', 'to',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
               'wish', 'with', 'would']
+
 
 # Turns all input to a simple string of ONLY lowercase letters.
 def normalise_input(user_input):
@@ -75,19 +77,6 @@ def remove_punct(text):
 
     return text
 
-# def normalise_input(text):
-#     """
-#     >>> normalise_input("Norm4lize this!")
-#     'normlizethis'
-#     """
-#     text = text.lower()
-#     for punct in string.punctuation:
-#             text = text.replace(punct, "")
-#     for digit in string.digits:
-#             text = text.replace(digit, "")
-#     text = text.replace(" ", "")
-#     # return text
-
 
 # Checks if chosen exit is valid
 # (is there an exit to the west or no when you type in 'west')?
@@ -97,19 +86,6 @@ def is_valid_exit(exits, user_input):
     else:
         return False
 
-
-# Function checks if the user input is a command for direction.
-# Returns 1 if exit is valid, 2 if direction is not an exit, 3 all else
-# def command_direction(exits, user_input):
-#     while True:
-#         if is_valid_exit(exits, user_input):
-#             return 1
-#             break
-#         else:
-#             if user_input in dire:
-#                 return 2
-#             else:
-#                 return 3
 
 def command_go(exits, direction):
     list_deny = ["Going " + direction.upper() + " is not an option.",
@@ -129,6 +105,8 @@ def command_help():
     print("\nList of available commands:\n")
     for a in commands:
         print(str(a).upper() + " - " + commands[a])
+
+
 # When used, asks for player input and changes the player's name based on that input.
 # Currently max characters is set to 12 (to keep things tidy).
 def command_name_change():
@@ -154,10 +132,10 @@ def inspect_element(room, element, player_name):
                 break
             if element[0] in room["objects"]:
                 print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
-                print(room["objects"][element[0]][0] + "\n")
+                print(room["objects"][element[0]][0])
                 break
             elif element[0] == "room":
-                print("\n\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n\n")
+                print("\n\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
                 break
             else:
                 print("I'm afraid I cannot inspect that.")
@@ -166,14 +144,15 @@ def inspect_element(room, element, player_name):
             print("What do you want to inspect?")
             while True:
                 element = input(player_name + ": ")
-                if element.strip() == "":
+                if len(element) == 0:
                     pass
                 else:
-                    element = element.replace("inspect", "")
-                    element = [element.strip()]
-                    break
-            #
-
+                    element = normalise_input(element)
+                    if "inspect" in element:
+                        element.remove("inspect")
+                        break
+                    else:
+                        break
 
 
 # Function gets the current state of the room.

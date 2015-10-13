@@ -89,44 +89,49 @@ def menu(exits):
             user_input = user_input.lower()
             cmd = user_input
             cmd = normalise_input(cmd)
-            cmdn = cmd[0]
-            if is_valid_command(cmd[0]) or cmdn in dire or (user_input.find("inspect") >= 0):
-                # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
-                if cmdn == "go" or cmd[0] in dire:
-                    while True:
-                        if (cmd[0] == "go" and len(cmd) == 1) or (cmd[0] == "go" and cmd[1] in dire) or cmd[0] in dire:
-                            if len(cmd) > 1:
-                                direction = command_go(exits, cmd[1])
-                                if direction in dire:
-                                    return direction
-                                break
-                            elif cmd[0] in dire:
-                                direction = command_go(exits, cmd[0])
-                                if direction in dire:
-                                    return direction
-                                break
+            if len(cmd) >= 1:
+                cmdn = cmd[0]
+                if is_valid_command(cmd[0]) or cmdn in dire or (user_input.find("inspect") >= 0):
+                    # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
+                    if cmdn == "go" or cmd[0] in dire:
+                        while True:
+                            if len(cmd):
+                                if (cmd[0] == "go" and len(cmd) == 1) or (cmd[0] == "go" and cmd[1] in dire) or cmd[0] in dire:
+                                    if len(cmd) > 1:
+                                        direction = command_go(exits, cmd[1])
+                                        if direction in dire:
+                                            return direction
+                                        break
+                                    elif cmd[0] in dire:
+                                        direction = command_go(exits, cmd[0])
+                                        if direction in dire:
+                                            return direction
+                                        break
+                                    else:
+                                        cmd = input("Go where?")
+                                        cmd = normalise_input(cmd)
+                                elif len(cmd):
+                                    print("I did not quite get that.\n")
+                                    user_input = ""
+                                    break
                             else:
-                                cmd = input("Go where?")
-                                cmd = normalise_input(cmd)
-                        else:
-                            print("I did not quite get that.")
-                            break
-                if cmdn == "playername":
-                    player_name = command_name_change()
-                if cmdn == "exits":
-                    print_menu(exits)
-                if cmdn == "help":
-                    command_help()
-                if cmdn == "quit":
-                    quit()
-                if user_input.find("inspect") >= 0:
-                    user_input = user_input.replace("inspect", "")
-                    cmd = normalise_input(user_input)
-                    inspect_element(rooms[in_room], cmd, player_name)
-            else:
-                i = random.randint(0, len(command_unknown) - 1)
-                print(command_unknown[i])
-
+                                break
+                    if cmdn == "playername":
+                        player_name = command_name_change()
+                    if cmdn == "exits":
+                        print_menu(exits)
+                    if cmdn == "help":
+                        command_help()
+                    if cmdn == "quit":
+                        quit()
+                    if user_input.find("inspect") >= 0:
+                        user_input = user_input.replace("inspect", "")
+                        cmd = normalise_input(user_input)
+                        inspect_element(rooms[in_room], cmd, player_name)
+                        user_input = str(cmd)
+                else:
+                    i = random.randint(0, len(command_unknown) - 1)
+                    print(command_unknown[i])
 
 def move(exits, direction):
     return rooms[exits[direction]]
