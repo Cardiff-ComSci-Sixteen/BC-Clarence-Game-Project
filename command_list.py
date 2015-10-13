@@ -1,11 +1,8 @@
 from feedback_lists import *
-# This import will be needed when the 'debug' import is removed
 from room_states import rooms_states
 from map import rooms
-# from parser import *
 import string
 import random
-# from debug import *
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
@@ -100,6 +97,7 @@ def command_go(exits, direction):
             print(go_deny[cmd])
             break
 
+
 def command_go_superior(exits, in_room, cmd):
     while True:
         if len(cmd):
@@ -138,6 +136,7 @@ def command_go_superior(exits, in_room, cmd):
         else:
             break
 
+
 def command_help():
     print("\nList of available commands:\n")
     for a in commands:
@@ -159,7 +158,7 @@ def command_name_change():
 
 # The main logic through which objects (elements) are inspected.
 # If an unknown element is requested to be inspected, the function will return a deny message.
-def inspect_element(room, element, player_name):
+def inspect_element(room, element, player_name, inventory):
     while True:
         if len(element) > 0:
             if "objects" in room:
@@ -173,6 +172,9 @@ def inspect_element(room, element, player_name):
                 break
             elif element[0] == "room":
                 print("\n\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
+                break
+            elif element[0] == "inventory":
+                command_inventory(inventory)
                 break
             else:
                 print("I'm afraid I cannot inspect that.")
@@ -222,7 +224,6 @@ def command_inventory(inventory):
     # This function takes a list of inventory items and displays it nicely, in a
     # manner similar to print_room_items(). The only difference is in formatting:
     print("You have " + list_of_items(inventory))
-    print()
 
 
 def list_of_items(items):
@@ -234,7 +235,10 @@ def list_of_items(items):
     for item in items:
         item_names.append(item["name"])
     for item in item_names:
-        alpha = alpha + ", " + item
+        if item == item_names[len(item_names) - 1]:
+            alpha = alpha[:len(alpha)] + " and " + item + "."
+        else:
+            alpha = alpha + ", " + item
     alpha = alpha[2:len(alpha)]
     return alpha
 

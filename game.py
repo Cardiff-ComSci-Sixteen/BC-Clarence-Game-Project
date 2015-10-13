@@ -1,10 +1,6 @@
-import random
 from command_list import *
-# # import string
-# import debug
 from map import rooms
 from player import inventory
-from objects import *
 
 in_room = "Player Ship"
 player_name = input("Type a player name (12 characters max): ")
@@ -92,7 +88,7 @@ def command_execute(exits):
                     cmd[1] = cmd_combined
                 cmdn = cmd[0]
 
-                if is_valid_command(cmdn) or cmdn in dire or (user_input.find("inspect") >= 0):
+                if is_valid_command(cmdn) or (user_input.find("inspect") >= 0):
                     # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
                     if cmdn == "go":
                         valid = command_go_superior(exits, in_room, cmd)
@@ -111,7 +107,7 @@ def command_execute(exits):
                     if user_input.find("inspect") >= 0:
                         user_input = user_input.replace("inspect", "")
                         cmd = normalise_input(user_input)
-                        inspect_element(rooms[in_room], cmd, player_name)
+                        inspect_element(rooms[in_room], cmd, player_name, inventory)
                         user_input = str(cmd)
                 else:
                     i = random.randint(0, len(command_unknown) - 1)
