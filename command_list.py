@@ -2,7 +2,7 @@ from feedback_lists import *
 from room_states import rooms_states
 import string
 import random
-from player import *
+from player import inventory
 from map import rooms
 
 # List of directions for the functions to check against.
@@ -89,6 +89,7 @@ def is_valid_exit(exits, user_input):
         return False
 
 
+# Actually returns the direction.
 def command_go(exits, direction):
     while True:
         if is_valid_exit(exits, direction):
@@ -99,6 +100,7 @@ def command_go(exits, direction):
             break
 
 
+# Holds the logic of input and different types of direction addressing.
 def command_go_superior(exits, in_room, cmd):
     while True:
         if len(cmd):
@@ -115,7 +117,7 @@ def command_go_superior(exits, in_room, cmd):
                     break
                 else:
                     while True:
-                        cmd = input("Go where?")
+                        cmd = input("Go where? ")
                         cmd = normalise_input(cmd)
                         if len(cmd) > 1:
                             if cmd[0] == "go" and len(cmd) > 2:
@@ -211,6 +213,17 @@ def command_drop(player_name, room, item):
                     b = str(a["id"] + " dropped!")
                     print(b[0].upper() + b[1:])
                     return
+            if "everything" in item or "all" in item:
+                while True:
+                    if len(inventory) > 0:
+                        for item_a in inventory:
+                            inventory.remove(item_a)
+                            rooms[room]["items"].append(item_a)
+                            break
+                    else:
+                        print("I dropped everything!")
+                        break
+                return
             if "bass" in item:
                 if item_bass in inventory:
                     inventory.remove(item_bass)

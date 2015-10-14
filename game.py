@@ -1,22 +1,22 @@
 from command_list import *
-from player import *
+from player import inventory
+import player
 from map import rooms
 import time
 
-def loading(seconds):
+
+def loading():
     a = 0
     while a < 100:
-        for b_1 in range(0, 4):
+            seconds = random.randint(1, 25)
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
-            time.sleep(seconds)
-
-loading(0.02)
+            time.sleep(seconds/1000)
+# loading()
 
 print("Loading complete!")
-
 in_room = "Player Ship"
-player_name = input("What is your name (12 characters max)?\n")
+player_name = input("What is your name? ")
 while True:
     if len(player_name) > 12:
         print("Your name should be 12 characters or less!")
@@ -38,7 +38,10 @@ def remove_spaces(text):
 
 
 def display_room(room):
-    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
+    print("\n┌" + (len(room["name"]) * "-") + "┐")
+    print("╣" + room["name"].upper() + "│")
+    print("└" + str(len(room["name"]) * "-") + "┘")
+    print("\n" + room["description"] + "\n")
     print_room_items(room)
 
 
@@ -52,11 +55,11 @@ def print_menu_line(leads_to):
     if leads_to == 0:
         return 0
     else:
-        return "Go to " + leads_to
+        return leads_to
 
 
 def print_menu(exits):
-    print("You can:")
+    print("\n┌-----┐\n╣EXITS│\n└-----┘")
     exit_list = []
     for ch in rooms[in_room]["exits"]:
         if ch not in exits:
@@ -65,7 +68,6 @@ def print_menu(exits):
             exit_list.append(ch)
             print(print_menu_line(rooms[exit_leads_to(exits, ch)]["name"]))
     return exit_list
-
 
 def is_valid_command(user_input):
     if user_input in commands:
