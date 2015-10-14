@@ -290,7 +290,7 @@ rooms = {
     "Officer_Deck": Officer_Deck,
     "Bridge": Bridge,
     "Systems_Control": Systems_Control,
-    "Main_Gun": Main_Gun,
+    "Armory": Armory,
     "Med_Bay": Med_Bay,
     "Room_5": Room_5,
     "Room_139": Room_139,

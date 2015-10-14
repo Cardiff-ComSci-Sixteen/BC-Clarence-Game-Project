@@ -155,13 +155,10 @@ def menu(current_room):
     exits = current_room["exits"]
     print_menu(exits)
     command_input = command_execute(exits)
-
+    player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
     if command_input == "hangar_1" and get_room_state(rooms_states["Hangar 1"]) == 1:
         rooms_states[current_room["name_ID"]]["state"] = 3
-
-    current_room = move(exits, command_input)
-    in_room = current_room["name_ID"]
     return move(exits, command_input)
 
 
@@ -174,6 +171,7 @@ def main():
     while True:
         update_room_state(current_room["name_ID"])
         update_player_stats()
+        print("LAST ROOM IS: " + player.last_room)
         current_room = menu(current_room)
         in_room = current_room["name_ID"]
 main()
