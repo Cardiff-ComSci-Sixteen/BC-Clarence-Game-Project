@@ -49,3 +49,28 @@ item_handbook = {
 
     "description": "This student handbook explains everything. Seriously."
 }
+
+item_screwdriver = {
+    "id": "screwdriver",
+
+    "name": "a screwdriver",
+
+    "description": "I shouldn't poke my out with this."
+}
+
+item_rose = {
+    "id": "rose",
+
+    "name": "a rose",
+
+    "description": "Just a lovely red, charming rose!"
+}
+
+
+item_bass = {
+    "id": "bass",
+
+    "name": "some bass",
+
+    "description": "The low frequency makes your body tremble!"
+}

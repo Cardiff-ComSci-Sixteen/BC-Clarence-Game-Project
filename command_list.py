@@ -1,21 +1,22 @@
 from feedback_lists import *
 from room_states import rooms_states
-from map import rooms
 import string
 import random
+from player import *
+from map import rooms
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
 dire = ["east", "west", "north", "south"]
 
 # List of "unimportant" words (feel free to add more)
-skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
+skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at', 'are',
               'bad', 'beautiful', 'been', 'better', 'big', 'can', 'every', 'for',
               'from', 'good', 'have', 'her', 'here', 'hers', 'his', 'how',
               'i', 'if', 'in', 'into', 'is', 'it', 'its', 'large', 'later',
               'like', 'little', 'main', 'me', 'mine', 'more', 'my', 'now',
               'of', 'off', 'oh', 'on', 'please', 'small', 'some', 'soon',
-              'that', 'the', 'then', 'this', 'those', 'through', 'till', 'to',
+              'that', 'the', 'then', 'there', 'this', 'those', 'through', 'till', 'to',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
               'wish', 'with', 'would']
 
@@ -156,6 +157,70 @@ def command_name_change():
     return user_input
 
 
+def command_take(player_name, room, item):
+    while True:
+        if len(item) == 0 or (item[0] == "drop" and len(item) == 1):
+            print("What do you want me to take?")
+            while True:
+                item = input(player_name + ": ")
+                if len(item) == 0:
+                    pass
+                else:
+                    item = normalise_input(item)
+                    if "take" in item:
+                        item.remove("take")
+                        break
+                    else:
+                        break
+        elif len(item) > 0:
+            for a in rooms[room]["items"]:
+                if a["id"] in item:
+                    rooms[room]["items"].remove(a)
+                    inventory.append(a)
+                    print("You have taken " + a["id"] + "!")
+                    return
+            if "bass" in item:
+                inventory.append(item_bass)
+                print("Well, you just put some bass in your pocket!")
+                return
+            i = random.randint(0, len(take_deny) - 1)
+            print(take_deny[i])
+            break
+
+
+def command_drop(player_name, room, item):
+    while True:
+        if len(item) == 0 or (item[0] == "drop" and len(item) == 1):
+            print("What do you want me to drop?")
+            while True:
+                item = input(player_name + ": ")
+                if len(item) == 0:
+                    pass
+                else:
+                    item = normalise_input(item)
+                    if "drop" in item:
+                        item.remove("drop")
+                        break
+                    else:
+                        break
+        elif len(item) > 0:
+            for a in inventory:
+                if a["id"] in item:
+                    inventory.remove(a)
+                    rooms[room]["items"].append(a)
+                    b = str(a["id"] + " dropped!")
+                    print(b[0].upper() + b[1:])
+                    return
+            if "bass" in item:
+                if item_bass in inventory:
+                    inventory.remove(item_bass)
+                print("You just dropped the bass!")
+                return
+            i = random.randint(0, len(drop_deny) - 1)
+            print(drop_deny[i])
+            break
+
+
 # The main logic through which objects (elements) are inspected.
 # If an unknown element is requested to be inspected, the function will return a deny message.
 def inspect_element(room, element, player_name, inventory):
@@ -170,9 +235,14 @@ def inspect_element(room, element, player_name, inventory):
                 print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
                 print(room["objects"][element[0]][0])
                 break
-            elif element[0] == "room":
-                print("\n\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
-                break
+            elif "room" in element or "rooms" in element:
+                if "items" in element:
+                    print_room_items(room)
+                    break
+                else:
+                    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
+                    print_room_items(room)
+                    break
             elif element[0] == "inventory":
                 command_inventory(inventory)
                 break
@@ -223,7 +293,7 @@ def update_room_state(room):
 def command_inventory(inventory):
     # This function takes a list of inventory items and displays it nicely, in a
     # manner similar to print_room_items(). The only difference is in formatting:
-    print("You have " + list_of_items(inventory))
+    print("You have " + list_of_items(inventory) + ".")
 
 
 def list_of_items(items):
@@ -235,8 +305,10 @@ def list_of_items(items):
     for item in items:
         item_names.append(item["name"])
     for item in item_names:
-        if item == item_names[len(item_names) - 1]:
-            alpha = alpha[:len(alpha)] + " and " + item + "."
+        if len(item_names) == 1:
+            alpha = item[0:2] + item
+        elif item == item_names[len(item_names) - 1]:
+            alpha = alpha[:len(alpha)] + " and " + item
         else:
             alpha = alpha + ", " + item
     alpha = alpha[2:len(alpha)]
@@ -254,7 +326,7 @@ def print_room_items(room):
     for item in room["items"]:
         room_items.append(item)
     if room_items:
-        print("There is " + list_of_items(room_items) + " here.\n")
+        print("There is " + list_of_items(room_items) + " here.")
 
 
 def print_room(room):

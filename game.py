@@ -1,5 +1,6 @@
 from command_list import *
 from player import *
+from map import rooms
 
 in_room = "Player Ship"
 player_name = input("Type a player name (12 characters max): ")
@@ -85,7 +86,7 @@ def command_execute(exits):
                     del cmd[1:len(cmd) - 1]
                     cmd[1] = cmd_combined
                 cmdn = cmd[0]
-
+                # Actually checks and executes the requested by the player command.
                 if is_valid_command(cmdn) or (user_input.find("inspect") >= 0):
                     # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
                     if cmdn == "go":
@@ -94,6 +95,10 @@ def command_execute(exits):
                             return valid
                     if cmdn == "playername":
                         player_name = command_name_change()
+                    if cmdn == "take":
+                        command_take(player_name, in_room, cmd)
+                    if cmdn == "drop":
+                        command_drop(player_name, in_room, cmd)
                     if cmdn == "exits":
                         print_menu(exits)
                     if cmdn == "help":
@@ -141,27 +146,4 @@ def main():
         update_room_state(current_room["name_ID"])
         current_room = menu(current_room)
         in_room = current_room["name_ID"]
-
-# NEW
-# NEW
-# NEW
-# def menu(exits, room_items, inv_items):
-#     """This function, given a dictionary of possible exits from a room, and a list
-#     of items found in the room and carried by the player, prints the menu of
-#     actions using print_menu() function. It then prompts the player to type an
-#     action. The players's input is normalised using the normalise_input()
-#     function before being returned.
-#
-#     """
-#
-#     # Display menu
-#     print_menu(exits, room_items, inv_items)
-#
-#     # Read player's input
-#     user_input = input("> ")
-#
-#     # Normalise the input
-#     normalised_user_input = normalise_input(user_input)
-#
-#     return normalised_user_input
 main()

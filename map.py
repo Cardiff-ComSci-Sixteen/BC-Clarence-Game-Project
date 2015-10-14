@@ -33,7 +33,7 @@ hangar_1 = {
     "exits": {"player_ship": "Player Ship", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
     "Vehicle Storage": "Vehicle_Storage"},
 
-    "items": [],
+    "items": [item_screwdriver, item_rose],
 
     "objects": {}
 }
