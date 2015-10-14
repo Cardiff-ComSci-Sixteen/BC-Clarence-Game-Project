@@ -19,7 +19,7 @@ player_ship = {
     "objects": {"ceiling": ["It looks rather unstable. The material will hardly stay strong forever."
                             "\nI cannot imagine what would happen if it collapsed atop of me!", 0]
                 },
-    "items": [item_biscuits, item_handbook]
+    "items": [item_biscuits, item_handbook, item_scanner]
 
 }
 
