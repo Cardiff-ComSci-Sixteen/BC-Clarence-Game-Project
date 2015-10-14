@@ -1,9 +1,22 @@
 from command_list import *
 from player import *
 from map import rooms
+import time
+
+def loading(seconds):
+    a = 0
+    while a < 100:
+        for b_1 in range(0, 4):
+            print("Loading: " + str(a) + "% done", end="\r")
+            a += 1
+            time.sleep(seconds)
+
+loading(0.02)
+
+print("Loading complete!")
 
 in_room = "Player Ship"
-player_name = input("Type a player name (12 characters max): ")
+player_name = input("What is your name (12 characters max)?\n")
 while True:
     if len(player_name) > 12:
         print("Your name should be 12 characters or less!")
