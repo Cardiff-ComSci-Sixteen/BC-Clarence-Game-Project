@@ -13,7 +13,6 @@ def loading():
             a += 1
             time.sleep(seconds/1000)
 # loading()
-
 print("Loading complete!")
 in_room = "Player Ship"
 player_name = input("What is your name? ")
@@ -38,9 +37,16 @@ def remove_spaces(text):
 
 
 def display_room(room):
-    print("\n┌" + (len(room["name"]) * "-") + "┐")
-    print("╣" + room["name"].upper() + "│")
-    print("└" + str(len(room["name"]) * "-") + "┘")
+    # CMD Version
+    # print("\n    ╗ ┌" + (len(room["name"]) * "─") + "┐ ╔ ")
+    # print("    ╠═╣" + room["name"].upper() + "╠═╣")
+    # print("    ╝ └" + str(len(room["name"]) * "─") + "┘ ╚ ")
+
+    # Normal Version
+    print("\n    ╗┌" + (len(room["name"]) * "-") + "┐╔ ")
+    print("    ╠╣" + room["name"].upper() + "╠╣")
+    print("    ╝└" + str(len(room["name"]) * "-") + "┘╚ ")
+
     print("\n" + room["description"] + "\n")
     print_room_items(room)
 
@@ -59,7 +65,9 @@ def print_menu_line(leads_to):
 
 
 def print_menu(exits):
-    print("\n┌-----┐\n╣EXITS│\n└-----┘")
+    print("\n┌-----┐")
+    print("│EXITS│")
+    print("└-----┘")
     exit_list = []
     for ch in rooms[in_room]["exits"]:
         if ch not in exits:
