@@ -1,0 +1,31 @@
+Possible Items - Linked with Map.jpg		Key:(x) - Cannot be picked up
+1:- A cup of coffee (u)		    		    (e) - Can be examined
+  - Scanner (c)			    		    (q) - Useful Item
+  - Jacket (c)			    		    (c) - Can be picked up
+  - Awesome Mix Vol.1 (e)(x)	    		    (u) - Can be used
+2:- Tools (x)
+  - Broken Rifle (e)(x)
+3:- An X shaped fighter (e)(q)(x)
+4:- Several Heavly Damaged Fighters (e)(x)
+5:- Several Odd Shaped Fighters (e)(x)
+6:- Bottles (e)
+  - Bottle of liquid (e)(u)
+  - Lots of Bunks (e)(x)
+7:- ???
+8:- ???
+9:- Warp Core (e)(q)(x)
+10:- ???
+11:- ???
+12:- Officer Uniform (c)(q)(e)
+   - Key Card (c)(q)(e)
+13:- Main Controls (u)(q)(e)(x)
+14:- Life Support Controls (u)(q)(e)(x)
+15:- Phaser (c)(e)
+  :- Blaster Rifle (c)(e)
+  :- Cylinder Thing (Lightsaber) (c)(e)
+16:- Med-kits (c)(q)(e)(u)
+17:- Captains Attire (c)(e)
+18:- ???
+19:- ???
+20:- ???
+21:- ???

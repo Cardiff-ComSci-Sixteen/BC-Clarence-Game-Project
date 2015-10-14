@@ -145,7 +145,7 @@ Weapons_Control = {
     "description":
     """needs description10""",
 
-    "exits": {"Main Engineering": "Main_Engineering", "Main Gun": "Main_Gun",
+    "exits": {"Main Engineering": "Main_Engineering", "Armory": "Armory",
     "Officer Deck": "Officer_Deck"},
 
     "items": []
@@ -188,9 +188,9 @@ Systems_Control = {
     "items": []
 }
 
-Main_Gun = {
-    "name_ID": "Main_Gun",
-    "name": "Main Gun",
+Armory = {
+    "name_ID": "Armory",
+    "name": "Armory",
 
     "description":
     """needs description10""",
