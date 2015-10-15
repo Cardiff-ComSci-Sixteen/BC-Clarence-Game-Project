@@ -7,13 +7,24 @@ import time
 
 def loading(rate):
     a = 0
+    b = random.randint(0, 10)
     while a < 100:
+            if a > (15 - b):
+                rate = 80
+                if a > (25 + b):
+                    rate = 75
+                    if a > (50 - b):
+                        rate = 20
+                        if a > (70 - b/2):
+                            rate = 150
+                            if a > (80 - b):
+                                rate = 50
             seconds = random.randint(1, rate)
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
             time.sleep(seconds/1000)
-
 # loading(100)
+
 in_room = "Player Ship"
 player.player_name = input("What is your name? ")
 while True:
@@ -27,7 +38,6 @@ while True:
         player.player_name = input("\nType a player name: ")
     else:
         break
-
 
 def remove_punct(text):
     txt = text
@@ -176,6 +186,8 @@ def main():
     # Start game at the room_1
     current_room = rooms["Player Ship"]
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
+    print()
+    print("Hello " + player.player_name + "!")
     global in_room
     # Main game loop
     while True:
