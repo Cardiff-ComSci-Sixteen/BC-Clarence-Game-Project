@@ -107,7 +107,6 @@ def command_execute(exits):
             if len(cmd) >= 1:
                 # Checks if user input (command) is less or more than 3 words in length. If less, does nothing, if more, makes the second word
                 # the same as the second and third word combined, so if we have ["go", "hangar", "1"] it will give ["go", "hangar_1"]
-                print(cmd)
                 if len(cmd) < 3:
                     pass
                 elif len(cmd) >= 3:

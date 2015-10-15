@@ -335,7 +335,6 @@ def command_inspect(room, element, player_name, inventory):
                     break
                 for alpha in room["items"]:
                     if element[0] == alpha["id"]:
-                        # print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
                         print(alpha["description"])
                         return
                     else:
