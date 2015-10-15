@@ -2,7 +2,7 @@ from objects import *
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
 # address them and evaluate if there are any items/objects to interact with.
-# P.S. Objects are currently intended to be only inspected, items are the "room's inventory"
+# P.S. Objects are currently intended to be only inspected, items are the "room's inventory".
 
 player_ship = {
     "name_ID": "Player Ship",

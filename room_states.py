@@ -1,4 +1,4 @@
-# Each room needs to have at least one state, else functions cause a supernova.
+# Each room needs to have at least one state or else the functions will cause a supernova.
 player_ship = {
     "state_1": {"description": "The ceiling has a very darkish shade to it, "
                 "\nseemingly because of the moisture."

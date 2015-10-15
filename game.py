@@ -13,7 +13,7 @@ def loading(rate):
             a += 1
             time.sleep(seconds/1000)
 
-loading(10)
+#loading(10)
 in_room = "Player Ship"
 player.player_name = input("What is your name? ")
 while True:
