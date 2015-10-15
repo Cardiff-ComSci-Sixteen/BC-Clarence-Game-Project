@@ -93,28 +93,40 @@ def is_valid_exit(exits, user_input):
 # Actually returns the direction.
 def command_go(exits, direction):
     while True:
-        if is_valid_exit(exits, direction):
-            return direction
+        if direction == "back":
+            direction = normalise_input(player.last_room)
+            if len(direction) > 1:
+                cmd_changed = direction[0] + "_" + direction[1]
+                del direction[0:len(direction)-1]
+                direction[0] = cmd_changed
+            return direction[0]
         else:
-            cmd = random.randint(0, 3)
-            print(go_deny[cmd])
-            break
+            if is_valid_exit(exits, direction):
+                return direction
+            else:
+                cmd = random.randint(0, 3)
+                print(go_deny[cmd])
+                break
 
 
 # Holds the logic of input and different types of direction addressing.
 def command_go_superior(exits, in_room, cmd):
     while True:
         if len(cmd):
-            if cmd[0] == "go" or cmd[0] in rooms[in_room]["exits"]:
+            if cmd[0] == "go" or cmd[0] == "back" or cmd[0] in rooms[in_room]["exits"]:
                 if len(cmd) > 1:
                     direction = command_go(exits, cmd[1])
                     if direction in rooms[in_room]["exits"]:
                         return direction
+                    elif cmd[1] == "back":
+                        print("I cannot go back.")
                     break
-                elif cmd[0] in rooms[in_room]["exits"]:
+                elif cmd[0] in rooms[in_room]["exits"] or cmd[0] == "back":
                     direction = command_go(exits, cmd[0])
                     if direction in rooms[in_room]["exits"]:
                         return direction
+                    elif cmd[0] == "back":
+                        print("I cannot go back.")
                     break
                 else:
                     while True:
@@ -145,12 +157,12 @@ def command_help(user_input):
     if "help" in user_input and "detailed" not in user_input:
         print("\nList of available commands:\n")
         for a in commands:
-            print(str(a).upper() + " - " + commands[a])
+            print(str(a).upper().ljust(12, " ") + commands[a])
     elif "help" in user_input and "detail" in user_input:
         print("\nList of available commands:\n")
         for a in commands_detailed:
-            print(len(a) * "=")
-            print(str(a).upper() + " - " + commands_detailed[a])
+            # print((len(a)+1) * "-" + "|")
+            print(str(a).upper().ljust(12, " ") + commands_detailed[a])
 
 
 # When used, asks for player input and changes the player's name based on that input.
@@ -269,45 +281,87 @@ def scan_element(room, element, player_name, inventory):
                 print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
                 print(room["objects"][element[0]][0])
                 break
-            elif "room" in element or "rooms" in element:
-                if "items" in element:
-                    print_room_items(room)
-                    break
-                else:
-                    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
-                    print_room_items(room)
-                    break
-            elif element[0] == "inventory":
-                command_inventory(inventory)
-                break
             elif item_scanner not in inventory:
                 print("I need something to scan this with!")
                 break
-            elif ("item_" + str(element[0])) in inventory:
-                print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
-                print(["item_" + str(element[0])]["description"])
             else:
                 print("I'm afraid I cannot scan that.")
                 break
         elif len(element) == 0:
-            print("What do you want to scan?")
-            while True:
-                element = input(player_name + ": ")
-                if len(element) == 0:
+            if item_scanner in inventory:
+                print("What do you want to scan?")
+                while True:
+                    element = input(player_name + ": ")
+                    if len(element) == 0:
+                        pass
+                    else:
+                        element = normalise_input(element)
+                        if "scan" in element:
+                            element.remove("scan")
+                            break
+                        else:
+                            for alpha in commands_aliases:
+                                if alpha in element:
+                                    element.remove(alpha)
+                            break
+            else:
+                print("I need something to scan this with!")
+                break
+
+
+def command_inspect(room, element, player_name, inventory):
+    while True:
+            if len(element) > 0:
+                if "item" in element:
+                    element.remove("item")
+                if "items" in room:
                     pass
                 else:
-                    element = normalise_input(element)
-                    if "scan" in element:
-                        element.remove("scan")
+                    print("DEBUG_NOTICE: 'items' dict Key not in " + room["name_ID"])
+                    break
+                if "room" in element or "rooms" in element:
+                    if "items" in element:
+                        print_room_items(room)
                         break
                     else:
-                        for alpha in commands_aliases:
-                            if alpha in element:
-                                element.remove(alpha)
+                        print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
+                        print_room_items(room)
                         break
-
-
+                elif element[0] == "inventory":
+                    command_inventory(inventory)
+                    break
+                for alpha in room["items"]:
+                    if element[0] == alpha["id"]:
+                        # print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
+                        print(alpha["description"])
+                        return
+                    else:
+                        for bravo in inventory:
+                            if element[0] == bravo["id"]:
+                                print(bravo["description"])
+                                return
+                else:
+                    print("I can't inspect this.")
+                    break
+            elif len(element) == 0:
+                print("What do you want to inspect?")
+                while True:
+                    element = input(player_name + ": ")
+                    if len(element) == 0:
+                        pass
+                    else:
+                        element = normalise_input(element)
+                        if "scan" in element:
+                            element.remove("scan")
+                            break
+                        else:
+                            for alpha in commands_aliases:
+                                if alpha in element:
+                                    element.remove(alpha)
+                            break
 # Function gets the current state of the room.
+
+
 def get_room_state(room):
     n = room["state"]
     return n

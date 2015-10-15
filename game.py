@@ -5,21 +5,26 @@ from map import rooms
 import time
 
 
-def loading():
+def loading(rate):
     a = 0
     while a < 100:
-            seconds = random.randint(1, 25)
+            seconds = random.randint(1, rate)
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
             time.sleep(seconds/1000)
-# loading()
-print("Loading complete!")
+
+loading(10)
 in_room = "Player Ship"
 player.player_name = input("What is your name? ")
 while True:
-    if len(player.player_name) > 12:
+    if player.player_name.strip() == "quit":
+        quit()
+    elif player.player_name.strip() == "":
+        print("Your name should include something!")
+        player.player_name = input("\nType a player name: ")
+    elif len(player.player_name) > 12:
         print("Your name should be 12 characters or less!")
-        player.player_name = input("Type a player name: ")
+        player.player_name = input("\nType a player name: ")
     else:
         break
 
@@ -130,6 +135,11 @@ def command_execute(exits):
                         print_menu(exits)
                     if cmdn == "help":
                         command_help(user_input)
+                    if cmdn == "inspect":
+                        user_input = user_input.replace("inspect", "")
+                        cmd = normalise_input(user_input)
+                        command_inspect(rooms[in_room], cmd, player.player_name, inventory)
+                        user_input = "a"
                     if cmdn == "quit":
                         quit()
                     if cmdn == "inventory":
@@ -171,7 +181,6 @@ def main():
     while True:
         update_room_state(current_room["name_ID"])
         update_player_stats()
-        print("LAST ROOM IS: " + player.last_room)
         current_room = menu(current_room)
         in_room = current_room["name_ID"]
 main()
