@@ -92,6 +92,7 @@ def is_valid_exit(exits, user_input):
 
 # Actually returns the direction.
 def command_go(exits, direction):
+    print("Command Go: " + direction)
     while True:
         if direction == "back":
             direction = normalise_input(player.last_room)
@@ -101,6 +102,8 @@ def command_go(exits, direction):
                 direction[0] = cmd_changed
             return direction[0]
         else:
+            print(exits)
+            print(direction)
             if is_valid_exit(exits, direction):
                 return direction
             else:

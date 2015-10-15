@@ -26,8 +26,14 @@ hangar_1 = {
     "state": 1,
 }
 
+vehicle_maintence = {
+    "state_1": {"description": "needsdescription2_state_1"},
+    "state": 1,
+}
+
 # List of rooms with states
 rooms_states = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
+    "Vehicle Maintence": vehicle_maintence
 }

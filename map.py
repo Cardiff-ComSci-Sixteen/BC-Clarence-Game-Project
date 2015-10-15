@@ -30,8 +30,8 @@ hangar_1 = {
 
     "description": """needs description2""",
 
-    "exits": {"player_ship": "Player Ship", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
-    "Vehicle Storage": "Vehicle_Storage"},
+    "exits": {"player_ship": "Player Ship", "Hangar 2": "hangar_2", "vehicle_maintence": "Vehicle Maintence",
+    "vehicle_storage": "Vehicle Storage"},
 
     "items": [item_screwdriver, item_rose],
 
@@ -51,19 +51,21 @@ hangar_2 = {
 }
 
 Vehicle_Maintence = {
-    "name_ID": "Vehicle_Maintence",
+    "name_ID": "Vehicle Maintence",
     "name": "Vehicle Maintence",
 
     "description": """needs description4""",
 
-    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Storage": "Vehicle_Maintence",
+    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Storage": "Vehicle_Storage",
     "Power Generator": "Power_Generator"},
+
+    "objects": {},
 
     "items": []
 }
 
 Vehicle_Storage = {
-    "name_ID": "Vehicle_Storage",
+    "name_ID": "Vehicle Storage",
     "name": "Vehicle Storage",
 
     "description":
@@ -279,8 +281,8 @@ rooms = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
     "hangar_2": hangar_2,
-    "Vehicle_Maintence": Vehicle_Maintence,
-    "Vehicle_Storage": Vehicle_Storage,
+    "Vehicle Maintence": Vehicle_Maintence,
+    "Vehicle Storage": Vehicle_Storage,
     "Crew_Quarters": Crew_Quarters,
     "Power_Generator": Power_Generator,
     "Power_Control": Power_Control,
