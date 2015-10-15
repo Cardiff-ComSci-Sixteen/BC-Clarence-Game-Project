@@ -5,21 +5,26 @@ from map import rooms
 import time
 
 
-def loading():
+def loading(rate):
     a = 0
     while a < 100:
-            seconds = random.randint(1, 25)
+            seconds = random.randint(1, rate)
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
             time.sleep(seconds/1000)
-# loading()
-print("Loading complete!")
+
+#loading(10)
 in_room = "Player Ship"
-player_name = input("What is your name? ")
+player.player_name = input("What is your name? ")
 while True:
-    if len(player_name) > 12:
+    if player.player_name.strip() == "quit":
+        quit()
+    elif player.player_name.strip() == "":
+        print("Your name should include something!")
+        player.player_name = input("\nType a player name: ")
+    elif len(player.player_name) > 12:
         print("Your name should be 12 characters or less!")
-        player_name = input("Type a player name: ")
+        player.player_name = input("\nType a player name: ")
     else:
         break
 
@@ -66,7 +71,7 @@ def print_menu_line(leads_to):
 
 def print_menu(exits):
     print("\n┌-----┐")
-    print("│EXITS│")
+    print("╣EXITS│")
     print("└-----┘")
     exit_list = []
     for ch in rooms[in_room]["exits"]:
@@ -77,6 +82,7 @@ def print_menu(exits):
             print(print_menu_line(rooms[exit_leads_to(exits, ch)]["name"]))
     return exit_list
 
+
 def is_valid_command(user_input):
     if user_input in commands:
         return True
@@ -86,13 +92,12 @@ def is_valid_command(user_input):
 
 # Mainly replaces the command_execute function given during Exercise_2
 def command_execute(exits):
-    global player_name
     user_input = "a"
     while True:
         if user_input.strip() == "":
-            user_input = input(player_name + ": ")
+            user_input = input(player.player_name + ": ")
         else:
-            user_input = input("\n" + player_name + ": ")
+            user_input = input("\n" + player.player_name + ": ")
         if user_input.strip() == "":
             pass
         else:
@@ -110,30 +115,41 @@ def command_execute(exits):
                     cmd[1] = cmd_combined
                 cmdn = cmd[0]
                 # Actually checks and executes the requested by the player command.
-                if is_valid_command(cmdn) or (user_input.find("inspect") >= 0):
+                if is_valid_command(cmdn) or cmdn in commands_aliases or ((user_input.find("scan") >= 0) and (user_input.find("scanner") < 0)):
                     # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
                     if cmdn == "go":
                         valid = command_go_superior(exits, in_room, cmd)
                         if valid:
                             return valid
                     if cmdn == "playername":
-                        player_name = command_name_change()
+                        player.player_name = command_name_change()
                     if cmdn == "take":
-                        command_take(player_name, in_room, cmd)
+                        command_take(player.player_name, in_room, cmd)
+                        update_player_stats()
                     if cmdn == "drop":
-                        command_drop(player_name, in_room, cmd)
+                        command_drop(player.player_name, in_room, cmd)
+                        update_player_stats()
+                    if cmdn == "stats":
+                        command_stats(in_room)
                     if cmdn == "exits":
                         print_menu(exits)
                     if cmdn == "help":
-                        command_help()
+                        command_help(user_input)
+                    if cmdn == "inspect":
+                        user_input = user_input.replace("inspect", "")
+                        cmd = normalise_input(user_input)
+                        command_inspect(rooms[in_room], cmd, player.player_name, inventory)
+                        user_input = "a"
                     if cmdn == "quit":
                         quit()
                     if cmdn == "inventory":
                         command_inventory(inventory)
-                    if user_input.find("inspect") >= 0:
-                        user_input = user_input.replace("inspect", "")
+                    if (user_input.find("scan") >= 0 or cmdn in commands_aliases) and (user_input.find("take") < 0) and (user_input.find("drop") < 0):
+                        user_input = user_input.replace("scan", "")
+                        for alpha in commands_aliases:
+                            user_input = user_input.replace(alpha, "")
                         cmd = normalise_input(user_input)
-                        inspect_element(rooms[in_room], cmd, player_name, inventory)
+                        scan_element(rooms[in_room], cmd, player.player_name, inventory)
                         user_input = str(cmd)
                 else:
                     i = random.randint(0, len(command_unknown) - 1)
@@ -149,24 +165,22 @@ def menu(current_room):
     exits = current_room["exits"]
     print_menu(exits)
     command_input = command_execute(exits)
-
+    player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
     if command_input == "hangar_1" and get_room_state(rooms_states["Hangar 1"]) == 1:
         rooms_states[current_room["name_ID"]]["state"] = 3
-
-    current_room = move(exits, command_input)
-    in_room = current_room["name_ID"]
     return move(exits, command_input)
 
 
 def main():
     # Start game at the room_1
     current_room = rooms["Player Ship"]
-    print("Type 'help' to see a list of available commands.")
+    print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     global in_room
     # Main game loop
     while True:
         update_room_state(current_room["name_ID"])
+        update_player_stats()
         current_room = menu(current_room)
         in_room = current_room["name_ID"]
 main()

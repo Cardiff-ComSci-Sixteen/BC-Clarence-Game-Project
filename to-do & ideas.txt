@@ -17,7 +17,9 @@ All feedback is welcome!
 To-Do:
 =====
 
-
+Think of basic plot, room descriptions, review room items (choose and add/remove), talk about the items' function,
+what they will do, where they will be used, anything special the room might have but is unobtainable
+(like a big board on which a number is written which you can use to open something, maybe) and such.
 
 =====
 Ideas:
@@ -26,4 +28,5 @@ Ideas:
 Plot - For now, the idea is to go with a Sci-Fi, space-like setting.
 Plot - As player enters new spaceship, he gets locked behind - has to find a keycard if they want to get out later.
 Plot - Power goes out, must be switched on to use anything involving electricity (like swiping keycards and opening doors).
-
+Plot/Extra - Player has to obtain a random key each time a new game is started and use it to unlock a door/something where they can
+    find/get/do something.

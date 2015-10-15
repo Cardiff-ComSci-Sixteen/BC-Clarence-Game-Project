@@ -2,7 +2,7 @@ from objects import *
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
 # address them and evaluate if there are any items/objects to interact with.
-# P.S. Objects are currently intended to be only inspected, items are the "room's inventory"
+# P.S. Objects are currently intended to be only inspected, items are the "room's inventory".
 
 player_ship = {
     "name_ID": "Player Ship",
@@ -19,7 +19,7 @@ player_ship = {
     "objects": {"ceiling": ["It looks rather unstable. The material will hardly stay strong forever."
                             "\nI cannot imagine what would happen if it collapsed atop of me!", 0]
                 },
-    "items": [item_biscuits, item_handbook]
+    "items": [item_biscuits, item_handbook, item_scanner]
 
 }
 
@@ -30,8 +30,8 @@ hangar_1 = {
 
     "description": """needs description2""",
 
-    "exits": {"player_ship": "Player Ship", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
-    "Vehicle Storage": "Vehicle_Storage"},
+    "exits": {"player_ship": "Player Ship", "hangar_2": "Hangar 2", "vehicle_maintence": "Vehicle Maintence",
+    "vehicle_storage": "Vehicle Storage"},
 
     "items": [item_screwdriver, item_rose],
 
@@ -39,237 +39,275 @@ hangar_1 = {
 }
 
 hangar_2 = {
-    "name_ID": "hangar_2",
-    "name": "Hangar 2",
+    "name_ID": "Hangar 2",
+    "name": "Hangar #2",
 
     "description": """needs description3""",
 
-    "exits": {"hangar_1": "hangar_1", "Vehicle Maintence": "Vehicle_Maintence",
-    "Vehicle Storage": "Vehicle_Storage"},
+    "exits": {"hangar_1": "Hangar 1", "vehicle_maintence": "Vehicle Maintence",
+    "vehicle_storage": "Vehicle Storage"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Vehicle_Maintence = {
-    "name_ID": "Vehicle_Maintence",
+vehicle_maintence = {
+    "name_ID": "Vehicle Maintence",
     "name": "Vehicle Maintence",
 
     "description": """needs description4""",
 
-    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Storage": "Vehicle_Maintence",
-    "Power Generator": "Power_Generator"},
+    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
+    "power_generator": "Power Generator"},
+
+    "objects": {},
 
     "items": []
 }
 
-Vehicle_Storage = {
-    "name_ID": "Vehicle_Storage",
+vehicle_storage = {
+    "name_ID": "Vehicle Storage",
     "name": "Vehicle Storage",
 
     "description":
     """needs description5""",
 
-    "exits": {"Hangar 1": "hangar_1", "Hangar 2": "hangar_2", "Vehicle Maintence": "Vehicle_Maintence",
-    "Crew Quarters": "Crew_Quarters"},
+    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_maintence": "Vehicle Maintence",
+    "crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Crew_Quarters = {
-    "name_ID": "Crew_Quarters",
+crew_quarters = {
+    "name_ID": "Crew Quarters",
     "name": "Crew Quarters",
 
     "description":
     """needs description6""",
 
-    "exits": {"Vehicle_Storage": "Vehicle_Storage", "Power Generator": "Power_Generator", "Room 203": "Room_203", "Room 12": "Room _12", "Room 139": "Room_139",
-    "Room 5": "Room_5", "Detention Centre": "Detention_Centre"},
+    "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
+    "room_5": "Room 5", "detention_centre": "Detention Centre"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Power_Generator = {
-    "name_ID": "Power_Generator",
+power_generator = {
+    "name_ID": "Power Generator",
     "name": "Power Generator",
 
     "description":
     """needs description7""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters", "Vehicle Maintence": "Vehicle_Maintence",
-    "Power Control": "Power_Control", "Main Engineering": "Main_Engineering"},
+    "exits": {"crew_quarters": "Crew Quarters", "vehicle_maintence": "Vehicle Maintence",
+    "power_control": "Power Control", "main_engineering": "Main Engineering"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Power_Control = {
-    "name_ID": "Power_Control",
+power_control = {
+    "name_ID": "Power Control",
     "name": "Power Control",
 
     "description":
     """needs description8""",
 
-    "exits": {"Power Generator": "Power_Generator"},
+    "exits": {"power_generator": "Power Generator"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Main_Engineering = {
-    "name_ID": "Main_Engineering",
+main_engineering = {
+    "name_ID": "Main Engineering",
     "name": "Main Engineering",
 
     "description":
     """needs description9""",
 
-    "exits": {"Power Generator": "Power_Generator", "Engine Room": "Engine_Room",
-    "Weapons Control": "Weapons_Control", "Officer Deck": "Officer_Deck"},
+    "exits": {"power_generator": "Power Generator", "engine_room": "Engine Room",
+    "weapons_control": "Weapons Control", "officer_deck": "Officer Deck"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Engine_Room = {
-    "name_ID": "Engine_Room",
+engine_room = {
+    "name_ID": "Engine Room",
     "name": "Engine Room",
 
     "description":
     """needs description10""",
 
-    "exits": {"Main Engineering": "Main_Engineering"},
+    "exits": {"main_engineering": "Main Engineering"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Weapons_Control = {
-    "name_ID": "Weapons_Control",
+weapons_control = {
+    "name_ID": "Weapons Control",
     "name": "Weapons Control",
 
     "description":
     """needs description10""",
 
-    "exits": {"Main Engineering": "Main_Engineering", "Armory": "Armory",
-    "Officer Deck": "Officer_Deck"},
+    "exits": {"main_engineering": "Main Engineering", "armory": "Armory",
+    "officer_deck": "Officer Deck"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Officer_Deck = {
-    "name_ID": "Officer_Deck",
+officer_deck = {
+    "name_ID": "Officer Deck",
     "name": "Officer Deck",
 
     "description":
     """needs description10""",
 
-    "exits": {"Main Engineering": "Main_Engineering", "Weapons Control": "Weapons_Control",
-    "Bridge": "Bridge", "Systems Control": "Systems_Control"},
+    "exits": {"main_engineering": "Main Engineering", "weapons_control": "Weapons Control",
+    "bridge": "Bridge", "systems_control": "Systems Control"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Bridge = {
+bridge = {
     "name_ID": "Bridge",
     "name": "Bridge",
 
     "description":
     """needs description10""",
 
-    "exits": {"Officer Deck": "Officer_Deck", "Systems Control": "Systems_Control"},
+    "exits": {"officer_deck": "Officer Deck", "systems_control": "Systems Control"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Systems_Control = {
-    "name_ID": "Systems_Control",
+systems_control = {
+    "name_ID": "Systems Control",
     "name": "Systems Control",
 
     "description":
     """needs description10""",
 
-    "exits": {"Officer Deck": "Officer_Deck", "Bridge": "Bridge"},
+    "exits": {"officer_deck": "Officer Deck", "bridge": "Bridge"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Armory = {
+armory = {
     "name_ID": "Armory",
     "name": "Armory",
 
     "description":
     """needs description10""",
 
-    "exits": {"Weapons Control": "Weapons_Control"},
+    "exits": {"weapons_control": "Weapons Control"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Med_Bay = {
-    "name_ID": "Med_Bay",
+med_bay = {
+    "name_ID": "Med Bay",
     "name": "Med Bay",
 
     "description":
     """needs description10""",
 
-    "exits": {"Officer Deck": "Officer_Deck", "Crew Quarters": "Crew_Quarters"},
+    "exits": {"officer_deck": "Officer Deck", "crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Room_5 = {
-    "name_ID": "Room_5",
+room_5 = {
+    "name_ID": "Room 5",
     "name": "Room 5",
 
     "description":
     """needs description10""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Room_139 = {
-    "name_ID": "Room_139",
+room_139 = {
+    "name_ID": "Room 139",
     "name": "Room 139",
 
     "description":
     """needs description10""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Room_12 = {
-    "name_ID": "Room_12",
+room_12 = {
+    "name_ID": "Room 12",
     "name": "Room 12",
 
     "description":
     """needs description10""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Room_203 = {
-    "name_ID": "Room_203",
+room_203 = {
+    "name_ID": "Room 203",
     "name": "Room 203",
 
     "description":
     """needs description10""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
-Detention_Centre = {
-    "name_ID": "Detention_Centre",
+detention_centre = {
+    "name_ID": "Detention Centre",
     "name": "Detention Centre",
 
     "description":
     """needs description10""",
 
-    "exits": {"Crew Quarters": "Crew_Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": []
+    "items": [],
+
+    "objects": {}
 }
 
 
@@ -278,23 +316,23 @@ Detention_Centre = {
 rooms = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
-    "hangar_2": hangar_2,
-    "Vehicle_Maintence": Vehicle_Maintence,
-    "Vehicle_Storage": Vehicle_Storage,
-    "Crew_Quarters": Crew_Quarters,
-    "Power_Generator": Power_Generator,
-    "Power_Control": Power_Control,
-    "Main_Engineering": Main_Engineering,
-    "Engine_Room": Engine_Room,
-    "Weapons_Control": Weapons_Control,
-    "Officer_Deck": Officer_Deck,
-    "Bridge": Bridge,
-    "Systems_Control": Systems_Control,
-    "Main_Gun": Main_Gun,
-    "Med_Bay": Med_Bay,
-    "Room_5": Room_5,
-    "Room_139": Room_139,
-    "Room_12": Room_12,
-    "Room_203": Room_203,
-    "Detention_Centre": Detention_Centre,
+    "Hangar 2": hangar_2,
+    "Vehicle Maintence": vehicle_maintence,
+    "Vehicle Storage": vehicle_storage,
+    "Crew Quarters": crew_quarters,
+    "Power Generator": power_generator,
+    "Power Control": power_control,
+    "Main Engineering": main_engineering,
+    "Engine Room": engine_room,
+    "Weapons Control": weapons_control,
+    "Officer Deck": officer_deck,
+    "Bridge": bridge,
+    "Systems Control": systems_control,
+    "Armory": armory,
+    "Med Bay": med_bay,
+    "Room 5": room_5,
+    "Room 139": room_139,
+    "Room 12": room_12,
+    "Room 203": room_203,
+    "Detention Centre": detention_centre,
 }

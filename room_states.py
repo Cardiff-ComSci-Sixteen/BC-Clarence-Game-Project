@@ -1,4 +1,4 @@
-# Each room needs to have at least one state, else functions cause a supernova.
+# Each room needs to have at least one state or else the functions will cause a supernova.
 player_ship = {
     "state_1": {"description": "The ceiling has a very darkish shade to it, "
                 "\nseemingly because of the moisture."
@@ -26,8 +26,14 @@ hangar_1 = {
     "state": 1,
 }
 
+vehicle_maintence = {
+    "state_1": {"description": "needsdescription2_state_1"},
+    "state": 1,
+}
+
 # List of rooms with states
 rooms_states = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
+    "Vehicle Maintence": vehicle_maintence
 }

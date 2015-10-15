@@ -3,25 +3,59 @@ from collections import OrderedDict
 # List of possible commands that could be used
 commands_expanded = {"playername": ["playername, name, changename"]}
 
-commands = OrderedDict([("go", "moves the player"),
-                        ("inspect", "inspect the details of an element"), ("inventory", "see what you are carrying"),
-                        ("exits", "shows all available exits"), ("take", "pick up an item to your inventory"),
-                        ("drop", "drop an item from your inventory"),
-                        ("help", "shows a list of available commands"), ("save", ""), ("load", ""), ("quit", "quits the game"),
-                        ("playername", "change player's name")])
+commands = OrderedDict([
+    ("drop", "drop an item from your inventory"),
+    ("exits", "show all available exits"),
+    ("go", "enter a new room"),
+    ("help", "show a list of available commands ('help detailed' for more info)"),
+    ("inspect", "inspect the details of an item"),
+    ("inventory", "see what you are carrying"),
+    ("load", ""),
+    ("playername", "change your name"),
+    ("quit", "quits the game"),
+    ("save", ""),
+    ("scan", "analyze an element in a room"),
+    ("stats", "view valuable information about your character"),
+    ("take", "pick up an item to your inventory")])
+
+commands_detailed = OrderedDict([
+    ("drop", "drop an item from your inventory,"
+             "\n            alternatively, you can use 'drop everything'"
+             "\n            to let go of all items in your inventory"),
+    ("exits", "shows all available exits that are in"
+              "\n            the room you are currently in"),
+    ("go", "go to a new room"),
+    ("help", "shows a list of available commands"),
+    ("inspect", "you can inspect a room, item or your inventory"
+                "\n            to get information about what is inside or the item is"
+                "\n            by typing 'scan inventory' (alternative of INVENTORY)"
+                "\n            'scan room' to get name, description and room contents"
+                "\n            or 'inspect item' to get details about an item"),
+    ("inventory", "you can see a list of all the items"
+                  "\n            that you are currently carrying in your inventory"),
+    ("load", ""),
+    ("playername", "use this if you don't like your name and want to change it"),
+    ("quit", "quits the game"),
+    ("save", ""),
+    ("scan", "analyze an element in a room with your SCANNER"),
+    ("stats", "view information about your character such as"
+              "\n            how many items you are carrying, their weight, health, etc."),
+    ("take", "pick up an item and add it to your inventory")])
+
+commands_aliases = ["look", "analyze"]
 
 # Feedback for invalid input
-command_unknown = ["Am I drunk? Let me try that again.",
+command_unknown = ["Am I drunk? Let me try that again - I KNOW I can do it!",
                    "I do not know how to do that.",
                    "What is the point of doing this?",
                    "I cannot accomplish that without breaking a bone.",
                    "What will mom say if I did that?",
-                   "I do not want to be chased by the FBI."
+                   "I do not want to be chased by space FBI."
                    ]
 
 go_deny = ["Going there is not an option.",
            "I cannot go there.",
-           "What's in it for me by going there?",
+           "Destination unknown!",
            "This location is unfamiliar to me."]
 
 take_deny = ["This looks scary, I do not want it.",
@@ -34,4 +68,5 @@ drop_deny = ["I wish I had it in the first place.",
              "I'd love to, but nah.",
              "See, this could work... Well, it didn't, I do not have this item.",
              "Someone give it to me so I can drop it!",
+             "What's in it for me by going there?",
              "Take first, drop second. I'm still on stage 1!"]
