@@ -30,8 +30,8 @@ hangar_1 = {
 
     "description": """needs description2""",
 
-    "exits": {"player_ship": "Player Ship", "hangar_2": "Hangar 2", "vehicle_maintence": "Vehicle Maintence",
-    "vehicle_storage": "Vehicle Storage"},
+    "exits": {"player_ship": "Player Ship", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
+              "vehicle_storage": "Vehicle Storage"},
 
     "items": [item_screwdriver, item_rose],
 
@@ -44,22 +44,22 @@ hangar_2 = {
 
     "description": """needs description3""",
 
-    "exits": {"hangar_1": "Hangar 1", "vehicle_maintence": "Vehicle Maintence",
-    "vehicle_storage": "Vehicle Storage"},
+    "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance",
+              "vehicle_storage": "Vehicle Storage"},
 
     "items": [],
 
     "objects": {}
 }
 
-vehicle_maintence = {
-    "name_ID": "Vehicle Maintence",
-    "name": "Vehicle Maintence",
+vehicle_maintenance = {
+    "name_ID": "Vehicle Maintenance",
+    "name": "Vehicle Maintenance",
 
     "description": """needs description4""",
 
     "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
-    "power_generator": "Power Generator"},
+              "power_generator": "Power Generator"},
 
     "objects": {},
 
@@ -73,8 +73,8 @@ vehicle_storage = {
     "description":
     """needs description5""",
 
-    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_maintence": "Vehicle Maintence",
-    "crew_quarters": "Crew Quarters"},
+    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
+              "crew_quarters": "Crew Quarters"},
 
     "items": [],
 
@@ -89,7 +89,7 @@ crew_quarters = {
     """needs description6""",
 
     "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
-    "room_5": "Room 5", "detention_centre": "Detention Centre"},
+              "room_5": "Room 5", "detention_centre": "Detention Centre"},
 
     "items": [],
 
@@ -103,8 +103,8 @@ power_generator = {
     "description":
     """needs description7""",
 
-    "exits": {"crew_quarters": "Crew Quarters", "vehicle_maintence": "Vehicle Maintence",
-    "power_control": "Power Control", "main_engineering": "Main Engineering"},
+    "exits": {"crew_quarters": "Crew Quarters", "vehicle_maintenance": "Vehicle Maintenance",
+              "power_control": "Power Control", "main_engineering": "Main Engineering"},
 
     "items": [],
 
@@ -133,7 +133,7 @@ main_engineering = {
     """needs description9""",
 
     "exits": {"power_generator": "Power Generator", "engine_room": "Engine Room",
-    "weapons_control": "Weapons Control", "officer_deck": "Officer Deck"},
+              "weapons_control": "Weapons Control", "officer_deck": "Officer Deck"},
 
     "items": [],
 
@@ -162,7 +162,7 @@ weapons_control = {
     """needs description10""",
 
     "exits": {"main_engineering": "Main Engineering", "armory": "Armory",
-    "officer_deck": "Officer Deck"},
+              "officer_deck": "Officer Deck"},
 
     "items": [],
 
@@ -177,7 +177,7 @@ officer_deck = {
     """needs description10""",
 
     "exits": {"main_engineering": "Main Engineering", "weapons_control": "Weapons Control",
-    "bridge": "Bridge", "systems_control": "Systems Control"},
+              "bridge": "Bridge", "systems_control": "Systems Control"},
 
     "items": [],
 
@@ -317,7 +317,7 @@ rooms = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
     "Hangar 2": hangar_2,
-    "Vehicle Maintence": vehicle_maintence,
+    "Vehicle Maintenance": vehicle_maintenance,
     "Vehicle Storage": vehicle_storage,
     "Crew Quarters": crew_quarters,
     "Power Generator": power_generator,
