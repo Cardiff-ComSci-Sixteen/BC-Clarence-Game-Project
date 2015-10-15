@@ -14,6 +14,17 @@ decide if something is worth it or not, if it is a good idea or not, etc.
 All feedback is welcome!
 
 =====
+Chiefs:
+=====
+
+Combat Systems - Elliot
+Plot, Events, Items, Description - Thomas, Jed
+Tester - Connor
+Game Fixing - Teodor
+Mechanics (Commands, Logic) - Combined Task
+Presentation - Ryan
+
+=====
 To-Do:
 =====
 
