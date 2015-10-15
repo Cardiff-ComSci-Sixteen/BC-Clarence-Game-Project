@@ -115,7 +115,7 @@ detention_centre = {
 }
 
 # List of rooms with states
-armory = {
+rooms_states = {
     "Player Ship": player_ship,
     "Hangar 1": hangar_1,
     "Hangar 2": hangar_2,
