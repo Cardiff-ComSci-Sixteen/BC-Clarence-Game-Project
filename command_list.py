@@ -419,13 +419,13 @@ def print_room_items(room):
     # found in this room (followed by a blank line). If there are no items in
     # the room, nothing is printed. See map.py for the definition of a room, and
     # items.py for the definition of an item. This function uses list_of_items()
-    # to produce a comma-separated list of item names.
+    # to produce a comma-separated list of item names."""
 
     room_items = []
     for item in room["items"]:
         room_items.append(item)
     if room_items:
-        print("There is " + list_of_items(room_items) + " here.")
+        print("There is " + list_of_items(room_items) + " here.\n")
     else:
         print("There is no special item in the room.")
 
