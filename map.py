@@ -1,3 +1,4 @@
+from items import *
 from objects import *
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
@@ -16,9 +17,8 @@ player_ship = {
 
     "exits": {"hangar_1": "Hangar 1"},
 
-    "objects": {"ceiling": ["It looks rather unstable. The material will hardly stay strong forever."
-                            "\nI cannot imagine what would happen if it collapsed atop of me!", 0]
-                },
+    "objects": [object_ceiling],
+
     "items": [item_biscuits, item_handbook, item_scanner]
 
 }

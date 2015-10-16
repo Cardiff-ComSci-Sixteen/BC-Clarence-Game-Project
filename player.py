@@ -1,4 +1,4 @@
-from objects import *
+from items import *
 
 # Variables are dynamic - they change as the game progresses.
 player_name = ""
