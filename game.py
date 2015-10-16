@@ -39,6 +39,7 @@ while True:
     else:
         break
 
+
 def remove_punct(text):
     txt = text
     for punct in string.punctuation:

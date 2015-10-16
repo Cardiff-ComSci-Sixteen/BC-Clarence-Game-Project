@@ -1,8 +1,8 @@
-Possible Items - Linked with Map.jpg		Key:(x) - Cannot be picked up
-1:- A cup of coffee (u)		    		    (e) - Can be examined
-  - Scanner (c)			    		    (q) - Useful Item
-  - Jacket (c)			    		    (c) - Can be picked up
-  - Awesome Mix Vol.1 (e)(x)	    		    (u) - Can be used
+Possible Items - Linked with Map.jpg		
+1:- A cup of coffee (u, s)	   		    		    		    
+  - Jacket (c)    		    
+  - Awesome Mix Vol.1 (e)(x)	    		    
+  - 
 2:- Tools (x)
   - Broken Rifle (e)(x)
 3:- An X shaped fighter (e)(q)(x)
@@ -30,3 +30,12 @@ Possible Items - Linked with Map.jpg		Key:(x) - Cannot be picked up
 19:- A bowl of porridge (c)(u)
 20:- A bottle of water (c)(u)
 21:- Handcuffs? (c)(u)
+
+  - Scanner (c)	
+
+Key:
+(x) - Cannot be picked up
+(e) - Can be examined
+(q) - Useful Item
+(c) - Can be picked up
+(u) - Can be used (s) - Special Item

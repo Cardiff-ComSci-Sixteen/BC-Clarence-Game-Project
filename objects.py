@@ -100,7 +100,9 @@ item_screwdriver = {
 
     "name": "a screwdriver",
 
-    "description": "I shouldn't poke my out with this."
+    "description": "I shouldn't poke my out with this.",
+
+    "description_inspect": "Banana"
 }
 
 item_rose = {

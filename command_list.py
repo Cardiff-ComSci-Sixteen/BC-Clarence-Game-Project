@@ -340,7 +340,7 @@ def command_inspect(room, element, player_name, inventory):
                     else:
                         for bravo in inventory:
                             if element[0] == bravo["id"]:
-                                print(bravo["description"])
+                                print(bravo["description_inspect"])
                                 return
                 else:
                     print("I can't inspect this.")
