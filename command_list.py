@@ -270,6 +270,7 @@ def command_stats(room):
     print("Weight: " + str(player.weight) + " space units")
     print("Items: " + str(len(inventory)))
     print("Room: " + room)
+    print("Score: " + str(player.score))
 
 
 # The main logic through which objects (elements) are inspected.
@@ -430,7 +431,10 @@ def update_room_state(room):
 def command_inventory(inventory):
     # This function takes a list of inventory items and displays it nicely, in a
     # manner similar to print_room_items(). The only difference is in formatting:
-    print("I am carrying " + list_of_items(inventory) + ".")
+    if list_of_items(inventory):
+        print("I am carrying " + list_of_items(inventory) + ".")
+    else:
+        print("I don't have anything on me at the moment.")
 
 
 def list_of_items(items):
