@@ -1,3 +1,8 @@
+# for now each object will be called as object_<object> in the room["objects"] list.
+# object "id" is how each object will be called when inspected or scanned - they cannot be taken
+# description_scan works the same way as with items - check items.py for more
+# state is currently not implemented with objects, only rooms and their descriptions/exits
+
 object_ceiling = {
     "id": "ceiling",
 

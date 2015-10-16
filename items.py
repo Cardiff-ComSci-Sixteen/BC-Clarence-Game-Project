@@ -5,6 +5,17 @@ def key_generate():
     return str(key_number).zfill(4)
 key = key_generate()
 
+# the new "id" of each item is a list as the SCAN and INSPECT commands will not go through it
+# and check if a keyword is there. Check biscuits for example - the player can time biscuits, pack or pack_biscuits (pack of biscuits)
+# and it will detect it and interact with it, like take, drop, inspect, scan
+
+# the first description is used when INSPECTING the item, the second is when SCANNING it
+# if description_scan is omitted, the SCAN command will tell the player that there is nothing special about the item
+
+# name is just what will be printed when player inspects inventory/item or scans it - will probably have to change
+# so that when scanning it does not say: "A PACK OF BISCUITS" and says "PACK OF BISCUITS" instead. Could be simply using a new
+# dictionary for that. item_<object> goes into either room["items"] or player inventory.
+
 item_scanner = {
     "id": ["scanner"],
 
