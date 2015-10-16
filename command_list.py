@@ -293,8 +293,6 @@ def scan_element(room, element, player_name, inventory):
                         print("\n" + item["id"].upper() + ":")
                         print(item["description_scan"])
                         return
-                    else:
-                        break
             for item in room["items"]:
                 for id_index in item["id"]:
                     if id_index in element:
@@ -307,8 +305,6 @@ def scan_element(room, element, player_name, inventory):
                         print("\n" + item["name"].upper() + ":")
                         print(item["description_scan"])
                         return
-                    else:
-                        break
             for item in inventory:
                 for id_index in item["id"]:
                     if id_index in element:
@@ -321,8 +317,6 @@ def scan_element(room, element, player_name, inventory):
                         print("\n" + item["name"].upper() + ":")
                         print(item["description_scan"])
                         return
-                    else:
-                        break
             if item_scanner not in inventory:
                 print("I need something to scan this with!")
                 break
@@ -377,7 +371,6 @@ def command_inspect(room, element, player_name, inventory):
                         print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
                         print(item["description"])
                         return
-                print(element)
                 for alpha in room["items"]:
                     for id_index in alpha["id"]:
                         if id_index in element:

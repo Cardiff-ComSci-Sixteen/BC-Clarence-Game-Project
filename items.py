@@ -67,7 +67,7 @@ item_money = {
 }
 
 item_biscuits = {
-    "id": ["biscuits", "pack_biscuits"],
+    "id": ["biscuits", "pack_biscuits", "pack"],
 
     "weight": 10,
 
