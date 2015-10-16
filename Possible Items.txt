@@ -1,31 +1,34 @@
 Possible Items - Linked with Map.jpg		
-1:- A cup of coffee (u, s)	   		    		    		    
-  - Jacket (c)    		    
-  - Awesome Mix Vol.1 (e)(x)	    		    
-  - 
-2:- Tools (x)
-  - Broken Rifle (e)(x)
-3:- An X shaped fighter (e)(q)(x)
+1:- Power Sword (c)(e)(w)
+  - Las Pistol (c)(e)(w)
+  - Sword-Gun (c)(e)(w)
+  - Basic Spacesuit (c)(e)(a)
+  - Basic Combat Armour (c)(e)(a)
+  - Coffee (c)(e)(u)
+  - Biscuits (c)(e)(u)
+  - Med-kit (c)(e)(u)
+2:- Your Crashed Ship (x)(e)
+3:- An X shaped fighter (e)(q)(x)(*)
 4:- Several Heavly Damaged Fighters (e)(x)
 5:- Several Odd Shaped Fighters (e)(x)
-6:- Bottles (e)
-  - Bottle of liquid (e)(u)
+6:- Empty Vodka Bottles (e)
+  - Vodka (e)(u)
   - Lots of Bunks (e)(x)
 7:- Radiation suit (c)(e)(u)(q)
-  - Space Helmet (c)(e)(u)(q)
 8:- ???
 9:- Warp Core (e)(q)(x)
+  - Scanner (c)(s)(e)
 10:- Toolbox containing basic tools (u)(c)
 11:- Set of keys that open the Armory (u)(c)
 12:- Officer Uniform (c)(q)(e)
    - Key Card (c)(q)(e)
-13:- Main Controls (u)(q)(e)(x)
-14:- Life Support Controls (u)(q)(e)(x)
+13:- Main Controls (u)(q)(e)(x)(*)
+14:- Life Support Controls (u)(q)(e)(x)(*)
 15:- Phaser (c)(e)
   :- Blaster Rifle (c)(e)
-  :- Cylinder Thing (Lightsaber) (c)(e)
+  :- Cylinder Thing (Lightsaber) (c)(e)(*)
 16:- Med-kits (c)(q)(e)(u)
-17:- Captains Attire (c)(e)
+17:- ???
 18:- Easter egg? 
 19:- A bowl of porridge (c)(u)
 20:- A bottle of water (c)(u)
@@ -38,4 +41,8 @@ Key:
 (e) - Can be examined
 (q) - Useful Item
 (c) - Can be picked up
-(u) - Can be used (s) - Special Item
+(u) - Can be used 
+(s) - Special Item
+(w) - Weapon
+(a) - Armour
+(*) - Can Be Scanned
