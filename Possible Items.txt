@@ -15,6 +15,7 @@ Possible Items - Linked with Map.jpg
   - Vodka (e)(u)
   - Lots of Bunks (e)(x)
 7:- Radiation suit (c)(e)(u)(q)
+ :- Main Reactor (x)(e)(*)
 8:- ???
 9:- Warp Core (e)(q)(x)
   - Scanner (c)(s)(e)
@@ -23,9 +24,10 @@ Possible Items - Linked with Map.jpg
 12:- Officer Uniform (c)(q)(e)
    - Key Card (c)(q)(e)
 13:- Main Controls (u)(q)(e)(x)(*)
+  :- Window (e)(x)
 14:- Life Support Controls (u)(q)(e)(x)(*)
 15:- Phaser (c)(e)
-  :- Blaster Rifle (c)(e)
+  :- Blaster pistol (DL-44 blaster pistol) (c)(e)
   :- Cylinder Thing (Lightsaber) (c)(e)(*)
 16:- Med-kits (c)(q)(e)(u)
 17:- ???
