@@ -38,6 +38,8 @@ Ideas:
 
 Bottle in room, broken, "----a, 40%" - IT IS VODKA - Kiril drinks a lot everywhere. Matt stole one and got killed. He is handcuffed. Unlock with something.
 
+Plot - You find matt -> Sit next to Matt -> Give Matt Pills -> Matt shrinks to Little Matt -> Take Matt -> You put Matt in your pocket.
+(Give matt Red/Blue pill -> Red Shrinks, Blue makes Matt huge -> he destroys the ship, you die)
 Plot - Vodka next to dead Matt
 Item - Sword-Gun
 
@@ -47,7 +49,10 @@ promt - Do you want to help?
 yes - Go and help!
 no - Your systems malfunction and your ship slowly starts heading towards the distressed ship.
 
----> As you travel for around 40 minutes you soon spot a massive vessel, seemingly badly damaged. As you slowly approach towards the ship you suddenly get jolted forward with a massive bang. You panic as your ship board AI warns you that you are on a collision course with BC Clarence. You are preparing for a crash landing after your AI notifies you of an emergency docking procedure taking place.
+---> As you travel for around 40 minutes you soon spot a massive vessel, seemingly badly damaged.
+As you slowly approach towards the ship you suddenly get jolted forward with a massive bang.
+You panic as your ship board AI warns you that you are on a collision course with BC Clarence.
+You are preparing for a crash landing after your AI notifies you of an emergency docking procedure taking place.
 
 You decide to get a weapon, armor and a consumable from your emergency closet.
 Pick a weapon to take: 

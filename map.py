@@ -1,3 +1,4 @@
+from items import *
 from objects import *
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
@@ -16,9 +17,8 @@ player_ship = {
 
     "exits": {"hangar_1": "Hangar 1"},
 
-    "objects": {"ceiling": ["It looks rather unstable. The material will hardly stay strong forever."
-                            "\nI cannot imagine what would happen if it collapsed atop of me!", 0]
-                },
+    "objects": [object_ceiling],
+
     "items": [item_biscuits, item_handbook, item_scanner]
 
 }
@@ -35,7 +35,7 @@ hangar_1 = {
 
     "items": [item_screwdriver, item_rose],
 
-    "objects": {}
+    "objects": []
 }
 
 hangar_2 = {
@@ -49,7 +49,7 @@ hangar_2 = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 vehicle_maintenance = {
@@ -61,7 +61,7 @@ vehicle_maintenance = {
     "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
               "power_generator": "Power Generator"},
 
-    "objects": {},
+    "objects": [],
 
     "items": []
 }
@@ -78,7 +78,7 @@ vehicle_storage = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 crew_quarters = {
@@ -93,7 +93,7 @@ crew_quarters = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 power_generator = {
@@ -108,7 +108,7 @@ power_generator = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 power_control = {
@@ -122,7 +122,7 @@ power_control = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 main_engineering = {
@@ -137,7 +137,7 @@ main_engineering = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 engine_room = {
@@ -151,7 +151,7 @@ engine_room = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 weapons_control = {
@@ -166,7 +166,7 @@ weapons_control = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 officer_deck = {
@@ -181,7 +181,7 @@ officer_deck = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 bridge = {
@@ -195,7 +195,7 @@ bridge = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 systems_control = {
@@ -209,7 +209,7 @@ systems_control = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 armory = {
@@ -223,7 +223,7 @@ armory = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 med_bay = {
@@ -237,7 +237,7 @@ med_bay = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 room_5 = {
@@ -251,7 +251,7 @@ room_5 = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 room_139 = {
@@ -265,7 +265,7 @@ room_139 = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 room_12 = {
@@ -279,7 +279,7 @@ room_12 = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 room_203 = {
@@ -293,7 +293,7 @@ room_203 = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 detention_centre = {
@@ -307,7 +307,7 @@ detention_centre = {
 
     "items": [],
 
-    "objects": {}
+    "objects": []
 }
 
 

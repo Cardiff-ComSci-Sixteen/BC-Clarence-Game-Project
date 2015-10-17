@@ -178,8 +178,9 @@ def menu(current_room):
     command_input = command_execute(exits)
     player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
+    print(current_room)
     if command_input == "hangar_1" and get_room_state(rooms_states["Hangar 1"]) == 1:
-        rooms_states[current_room["name_ID"]]["state"] = 3
+        rooms_states["Player Ship"]["state"] = 3
     return move(exits, command_input)
 
 

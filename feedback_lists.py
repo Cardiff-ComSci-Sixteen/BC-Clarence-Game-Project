@@ -70,3 +70,7 @@ drop_deny = ["I wish I had it in the first place.",
              "Someone give it to me so I can drop it!",
              "What's in it for me by going there?",
              "Take first, drop second. I'm still on stage 1!"]
+
+scanner_deny = ["The scanner does not show anything.",
+                "There is nothing special about this.",
+                "It says 'no new information found'."]

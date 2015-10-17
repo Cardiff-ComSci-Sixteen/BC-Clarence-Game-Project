@@ -3,7 +3,7 @@ from room_states import rooms_states
 import string
 from player import inventory
 from map import rooms
-from objects import *
+from items import *
 import player
 
 # List of directions for the functions to check against.
@@ -198,15 +198,16 @@ def command_take(player_name, room, item):
                         break
         elif len(item) > 0:
             for a in rooms[room]["items"]:
-                if a["id"] in item:
-                    if a["weight"] + player.weight <= 100:
-                        rooms[room]["items"].remove(a)
-                        inventory.append(a)
-                        print("You have taken " + a["id"] + "!")
-                        return
-                    else:
-                        print("Taking this item will make me too heavy!")
-                        return
+                for id_index in a["id"]:
+                    if id_index in item:
+                        if a["weight"] + player.weight <= 100:
+                            rooms[room]["items"].remove(a)
+                            inventory.append(a)
+                            print("You have taken " + a["name"] + "!")
+                            return
+                        else:
+                            print("Taking this item will make me too heavy!")
+                            return
             if "bass" in item:
                 inventory.append(item_bass)
                 print("Well, you just put some bass in your pocket!")
@@ -238,12 +239,13 @@ def command_drop(player_name, room, item):
                 print("You just dropped the bass!")
                 return
             for a in inventory:
-                if a["id"] in item:
-                    inventory.remove(a)
-                    rooms[room]["items"].append(a)
-                    b = str(a["id"] + " dropped!")
-                    print(b[0].upper() + b[1:])
-                    return
+                for id_index in a["id"]:
+                    if id_index in item:
+                        inventory.remove(a)
+                        rooms[room]["items"].append(a)
+                        b = str(a["name"] + " dropped!")
+                        print(b[0].upper() + b[1:])
+                        return
             if "everything" in item or "all" in item:
                 while True:
                     if len(inventory) > 0:
@@ -268,6 +270,7 @@ def command_stats(room):
     print("Weight: " + str(player.weight) + " space units")
     print("Items: " + str(len(inventory)))
     print("Room: " + room)
+    print("Score: " + str(player.score))
 
 
 # The main logic through which objects (elements) are inspected.
@@ -280,11 +283,42 @@ def scan_element(room, element, player_name, inventory):
             else:
                 print("DEBUG_NOTICE: 'objects' dict Key not in " + room["name_ID"])
                 break
-            if element[0] in room["objects"] and item_scanner in inventory:
-                print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
-                print(room["objects"][element[0]][0])
-                break
-            elif item_scanner not in inventory:
+            for item in room["objects"]:
+                    if item_scanner not in inventory:
+                        break
+                    if element[0] == item["id"] and item_scanner in inventory:
+                        if "description_scan" not in item:
+                            a = random.randint(0, 2)
+                            print(scanner_deny[a])
+                            return
+                        print("\n" + item["id"].upper() + ":")
+                        print(item["description_scan"])
+                        return
+            for item in room["items"]:
+                for id_index in item["id"]:
+                    if id_index in element:
+                        if item_scanner not in inventory:
+                            break
+                        if "description_scan" not in item:
+                            a = random.randint(0, 2)
+                            print(scanner_deny[a])
+                            return
+                        print("\n" + item["name"].upper() + ":")
+                        print(item["description_scan"])
+                        return
+            for item in inventory:
+                for id_index in item["id"]:
+                    if id_index in element:
+                        if item_scanner not in inventory:
+                            break
+                        if "description_scan" not in item:
+                            a = random.randint(0, 2)
+                            print(scanner_deny[a])
+                            return
+                        print("\n" + item["name"].upper() + ":")
+                        print(item["description_scan"])
+                        return
+            if item_scanner not in inventory:
                 print("I need something to scan this with!")
                 break
             else:
@@ -333,15 +367,22 @@ def command_inspect(room, element, player_name, inventory):
                 elif element[0] == "inventory":
                     command_inventory(inventory)
                     break
-                for alpha in room["items"]:
-                    if element[0] == alpha["id"]:
-                        print(alpha["description"])
+                for item in room["objects"]:
+                    if element[0] == item["id"]:
+                        print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
+                        print(item["description"])
                         return
-                    else:
-                        for bravo in inventory:
-                            if element[0] == bravo["id"]:
-                                print(bravo["description_inspect"])
-                                return
+                for alpha in room["items"]:
+                    for id_index in alpha["id"]:
+                        if id_index in element:
+                            print(alpha["description"])
+                            return
+                        else:
+                            for bravo in inventory:
+                                for id_index_1 in bravo["id"]:
+                                    if id_index_1 in element:
+                                        print(bravo["description"])
+                                        return
                 else:
                     print("I can't inspect this.")
                     break
@@ -353,8 +394,8 @@ def command_inspect(room, element, player_name, inventory):
                         pass
                     else:
                         element = normalise_input(element)
-                        if "scan" in element:
-                            element.remove("scan")
+                        if "inspect" in element:
+                            element.remove("inspect")
                             break
                         else:
                             for alpha in commands_aliases:
@@ -385,14 +426,15 @@ def update_room_state(room):
     current_state = get_room_state(rooms_states[room])
     # Makes the actual changes based on the current room state.
     rooms[room]["description"] = rooms_states[room]["state_" + str(current_state)]["description"]
-    for item in rooms[room]["objects"]:
-        rooms[room]["objects"][item][0] = rooms_states[room]["state_" + str(current_state)]["objects"][item]
 
 
 def command_inventory(inventory):
     # This function takes a list of inventory items and displays it nicely, in a
     # manner similar to print_room_items(). The only difference is in formatting:
-    print("I am carrying " + list_of_items(inventory) + ".")
+    if list_of_items(inventory):
+        print("I am carrying " + list_of_items(inventory) + ".")
+    else:
+        print("I don't have anything on me at the moment.")
 
 
 def list_of_items(items):
