@@ -9,6 +9,10 @@ key = key_generate()
 # and check if a keyword is there. Check biscuits for example - the player can time biscuits, pack or pack_biscuits (pack of biscuits)
 # and it will detect it and interact with it, like take, drop, inspect, scan
 
+
+
+
+
 # the first description is used when INSPECTING the item, the second is when SCANNING it
 # if description_scan is omitted, the SCAN command will tell the player that there is nothing special about the item
 
