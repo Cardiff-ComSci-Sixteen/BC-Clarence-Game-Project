@@ -1,5 +1,5 @@
 Room Discriptions (use map for reference):
-1:- ???
+1:- N/A
 2:- ???
 3:- You walk into Hangar #2, it also to appears to be on emergancy power, so can't see very 
 much. From what you can see, it is very similar to Hangar #1 except, it is not very badly damaged,
@@ -9,21 +9,23 @@ the main door is also closed and there is a fighter docked here.
 with what appear to be power lifters smashed together. You also notice a pools of blood near to where to lifter are, but no bodies.
 5:- You enter the Vehicle Storage, there is not much to see in here other than some fighters and bombers that kind of
 look like H's.
-6:- ???
-7:- ???
-8:- ???
+6:- You are in the Crew Quarters, you notice that there is a few empty vodka bottles on a table with one full one.
+There is also lots of bunkbeds
+7:- As you enter the Power Generator you see a large nuclear reactor, and a few radation suits.
+8:- You are in Power Control there is a large console in here, and some hard hats.
 9:- When you enter Main Engineering you are greeted by quiet hum, which you realise is the warp core for the ship.
 As you wander further into Main Engineering you see what appears to be some sort of scanner on a console.
-10:- ???
-11:- ???
-12:- You enter the Officers Deck, there is what appears to be a large meeting table and a dead body.
+10:- You are in the engine room, there is not much in here other than large cooling tanks
+11:- You are in Weapons control, other than the large number of terminals, there is not much to see.
+12:- You enter the Officers Deck, there is what appears to be a large meeting table and a dead body with keys to the Detention Centre.
 13:- When you walk into the Bridge, you are greeted with a full view of the outside of the ship. There a large
 window here and lots of control panels.
 14:- You are in life support, there are lots of small consoles with one large one in the middle of the room
 15:- You are in the armory, there are lots of weapons and armour in here, but only a few catch your eye; a phaser,
 a blaster pistol, a chainsword, power armour, heavy space suit and a cylindrical object.
-16:- ???
-17:- ???
-18:- ???
-19:- ???
-20:- ???
+16:- You enter the med-bay, there are lots of medical beds. You also notice a pile of what look like med kits
+17:- As you enter Room 5 you notice that there is blood everywhere, but no body.
+18:- Congratulations, you have found a secret, however there is nothing here. -_-
+19:- You enter Room 12, there is a large bed, console, some fish tanks and an offical looking jacket.
+20:- You are in Room 203, there is a cup of coffee here and some biscuits.
+21:- You have entered the Detention Centre, there is a very off putting smell in here and lots of pools of blood.
