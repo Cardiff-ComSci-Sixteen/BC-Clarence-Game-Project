@@ -1,4 +1,3 @@
-import player
 from command_list import *
 
 
@@ -65,24 +64,79 @@ def intro():
           "\ncourse with BC Clarence and notifies you of an emergency docking"
           "\nprocedure in effect.")
     enter()
-    print("You prepare for a crash landing as there is no other option for you."
-          "\nYou go to the emergency bay of your ship and decide to take some"
-          "\nstuff with you just in case things go wrong afterwards.")
-    # input("Pick a weapon: ")
-    while True:
-        a = input("DEBUG Type END to stop intro loop and get to game loop.")
-        if a == "end":
-            break
 
 
 def intro_prompt():
     player_name()
-    intro_input = input("Play intro?")
+    intro_input = input("Skip Intro? ")
     intro_input = normalise_input(intro_input)
+    if intro_input:
+        pass
+    else:
+        intro_input = ["null"]
     while True:
-            if intro_input[0] == "yes":
+            if intro_input[0] == "no":
                 intro()
                 break
-            elif intro_input[0] == "no":
+            elif intro_input[0] == "yes":
                 break
             intro_input = input_hang(intro_input, "Yes or No?")
+
+
+def post_intro_prompt():
+    print()
+    print("You prepare for a crash landing as there is no other option for you."
+          "\nYou go to the emergency bay of your ship and decide to take some"
+          "\nstuff with you just in case things go wrong afterwards.")
+    print()
+    print("Pick a weapon: ")
+    print("1. " + item_powersword["name"])
+    print("2. " + item_laspistol["name"])
+    print("3. " + item_swordgun["name"])
+    weapon_choice = input("")
+    while True:
+        if weapon_choice == "1":
+            inventory.append(item_powersword)
+            break
+        if weapon_choice == "2":
+            inventory.append(item_laspistol)
+            break
+        if weapon_choice == "3":
+            inventory.append(item_swordgun)
+            break
+        else:
+            weapon_choice = input("Type 1, 2 or 3 to select weapon. ")
+    print("\nPick armor: ")
+    print("1. Basic Spacesuit")
+    print("2. Basic Armor")
+    print("3. No Clothing")
+    armor_choice = input()
+    while True:
+        if armor_choice == "1":
+            inventory.append(item_basic_spacesuit)
+            break
+        if armor_choice == "2":
+            inventory.append(item_basic_armor)
+            break
+        if armor_choice == "3":
+            player.is_nakedked = 1
+            break
+        else:
+            armor_choice = input("Type 1, 2 or 3 to select armor. ")
+    print("\nPick a consumable: ")
+    print("1. Biscuits")
+    print("2. Coffee")
+    print("3. Med-Kit")
+    consumable_choice = input()
+    while True:
+        if consumable_choice == "1":
+            inventory.append(item_biscuits)
+            break
+        if consumable_choice == "2":
+            inventory.append(item_coffee)
+            break
+        if consumable_choice == "3":
+            inventory.append(item_medkit)
+            break
+        else:
+            consumable_choice = input("Type 1, 2 or 3 to select consumable. ")
