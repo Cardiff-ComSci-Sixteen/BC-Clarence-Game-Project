@@ -5,6 +5,9 @@ from map import rooms
 import time
 import events
 
+# Variable included as rooms change. Similar to current_room but used a bit differently.
+in_room = "Player Ship"
+
 
 def loading(rate):
     a = 0
@@ -25,11 +28,6 @@ def loading(rate):
             a += 1
             time.sleep(seconds/1000)
 # loading(100)
-
-# Variable included as rooms change. Similar to current_room but used a bit differently.
-in_room = "Player Ship"
-
-events.intro_prompt()
 
 
 def remove_punct(text):
@@ -177,6 +175,9 @@ def menu(current_room):
 
 
 def main():
+    events.intro_prompt()
+    events.post_intro_prompt()
+
     # Start game at the room_1
     current_room = rooms["Player Ship"]
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")

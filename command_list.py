@@ -193,7 +193,11 @@ def input_hang(user_input, feed):
             user_input = user_input.lower()
             cmd = user_input
             cmd = normalise_input(cmd)
-            return cmd
+            if cmd:
+                return cmd
+            else:
+                cmd = ["null"]
+                return cmd
 
 
 # Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
@@ -381,7 +385,10 @@ def command_inspect(room, element, player_name, inventory):
                         print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
                         print_room_items(room)
                         break
-                elif element[0] == "inventory":
+                if len(element) > 1:
+                    element[0] = str(element[0]) + "_" + str(element[1])
+                    element = element[:1]
+                if element[0] == "inventory":
                     command_inventory(inventory)
                     break
                 for item in room["objects"]:

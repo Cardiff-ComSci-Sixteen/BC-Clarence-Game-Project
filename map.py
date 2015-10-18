@@ -19,7 +19,7 @@ player_ship = {
 
     "objects": [object_ceiling],
 
-    "items": [item_biscuits, item_handbook, item_scanner]
+    "items": [item_handbook, item_scanner]
 
 }
 

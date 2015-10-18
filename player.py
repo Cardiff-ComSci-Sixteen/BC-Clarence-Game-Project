@@ -7,4 +7,6 @@ weight = 0
 inventory = [item_id, item_laptop, item_money]
 score = 0
 
+is_naked = 0
+
 last_room = "None"

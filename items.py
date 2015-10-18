@@ -20,6 +20,94 @@ key = key_generate()
 # so that when scanning it does not say: "A PACK OF BISCUITS" and says "PACK OF BISCUITS" instead. Could be simply using a new
 # dictionary for that. item_<object> goes into either room["items"] or player inventory.
 
+item_powersword = {
+    "id": ["power_sword", "power"],
+
+    "weight": 20,
+
+    "name": "Power Sword",
+
+    "description":
+    """A unique item that needs description!"""
+}
+
+item_laspistol = {
+    "id": ["laspistol"],
+
+    "weight": 20,
+
+    "name": "Laspistol",
+
+    "description":
+    """An another unique item that needs description!"""
+}
+
+item_swordgun = {
+    "id": ["swordgun", "sword_gun"],
+
+    "weight": 20,
+
+    "name": "Sword-Gun",
+
+    "description":
+    """A third unique item that needs description!"""
+}
+
+item_basic_spacesuit = {
+    "id": ["spacesuit", "basic_spacesuit", "suit"],
+
+    "weight": 20,
+
+    "name": "a basic spacesuit",
+
+    "description":
+    """Just a simple spacesuit to prevent me from dying out in the open and cold space."""
+}
+
+item_basic_armor = {
+    "id": ["basic_armor"],
+
+    "weight": 20,
+
+    "name": "basic armor",
+
+    "description":
+    """This armor is nothing more than a couple of iron plates stuck together.
+    It can't hold against the pressure of space vacuum for a long time."""
+}
+
+item_biscuits = {
+    "id": ["biscuits", "pack_biscuits", "pack"],
+
+    "weight": 10,
+
+    "name": "a pack of biscuits",
+
+    "description": "A pack of biscuits.",
+
+    "description_scan": "The pack is contaminated!"
+}
+
+item_coffee = {
+    "id": ["coffee"],
+
+    "weight": 10,
+
+    "name": "a cup of coffee",
+
+    "description": "A fine cup of coffee."
+}
+
+item_medkit = {
+    "id": ["medkit", "med_kit"],
+
+    "weight": 10,
+
+    "name": "a Med-Kit",
+
+    "description": "A kit with medicine inside. Might find it useful if I got hurt!"
+}
+
 item_scanner = {
     "id": ["scanner"],
 
@@ -45,7 +133,7 @@ item_note = {
 }
 
 item_id = {
-    "id": ["id"],
+    "id": ["id", "id_card"],
 
     "weight": 5,
 
@@ -79,18 +167,6 @@ item_money = {
 
     "description":
     "This wad of cash is barely enough to pay your tuition fees."
-}
-
-item_biscuits = {
-    "id": ["biscuits", "pack_biscuits", "pack"],
-
-    "weight": 10,
-
-    "name": "a pack of biscuits",
-
-    "description": "A pack of biscuits.",
-
-    "description_scan": "The pack is contaminated!"
 }
 
 item_pen = {
