@@ -20,11 +20,12 @@ Possible Items - Linked with Map.jpg
 9:- Warp Core (e)(q)(x)
   - Scanner (c)(s)(e)
 10:- Toolbox containing basic tools (u)(c)
-11:- Set of keys that open the Armory (u)(c)
+11:- Some weapon terminals
 12:- Officer Uniform (c)(q)(e)
    - Key Card (c)(q)(e)
 13:- Main Controls (u)(q)(e)(x)(*)
   :- Window (e)(x)
+  :-  Set of keys that open the Armory (u)(c)
 14:- Life Support Controls (u)(q)(e)(x)(*)
 15:- Phaser (c)(e)
   :- Blaster pistol (DL-44 blaster pistol) (c)(e)
