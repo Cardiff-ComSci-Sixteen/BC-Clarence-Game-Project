@@ -3,6 +3,7 @@ from player import inventory
 import player
 from map import rooms
 import time
+import events
 
 
 def loading(rate):
@@ -25,19 +26,10 @@ def loading(rate):
             time.sleep(seconds/1000)
 # loading(100)
 
+# Variable included as rooms change. Similar to current_room but used a bit differently.
 in_room = "Player Ship"
-player.player_name = input("What is your name? ")
-while True:
-    if player.player_name.strip() == "quit":
-        quit()
-    elif player.player_name.strip() == "":
-        print("Your name should include something!")
-        player.player_name = input("\nType a player name: ")
-    elif len(player.player_name) > 12:
-        print("Your name should be 12 characters or less!")
-        player.player_name = input("\nType a player name: ")
-    else:
-        break
+
+events.intro_prompt()
 
 
 def remove_punct(text):

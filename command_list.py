@@ -181,6 +181,23 @@ def command_name_change():
     return user_input
 
 
+def input_hang(user_input, feed):
+    while True:
+        if str(user_input).strip() == "":
+            user_input = input(player.player_name + ": ")
+        else:
+            user_input = input(feed + ": ")
+        if str(user_input).strip() == "":
+            pass
+        else:
+            user_input = user_input.lower()
+            cmd = user_input
+            cmd = normalise_input(cmd)
+            return cmd
+
+
+# Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
+
 def command_take(player_name, room, item):
     while True:
         if len(item) == 0 or (item[0] == "take" and len(item) == 1):
