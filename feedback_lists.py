@@ -8,13 +8,13 @@ commands = OrderedDict([
     ("exits", "show all available exits"),
     ("go", "enter a new room"),
     ("help", "show a list of available commands ('help detailed' for more info)"),
-    ("inspect", "inspect the details of an item"),
+    ("inspect", "inspect the details of an object"),
     ("inventory", "see what you are carrying"),
     ("load", ""),
     ("playername", "change your name"),
     ("quit", "quits the game"),
     ("save", ""),
-    ("scan", "analyze an element in a room"),
+    ("scan", "analyze an object for more information"),
     ("stats", "view valuable information about your character"),
     ("take", "pick up an item to your inventory")])
 
@@ -26,18 +26,17 @@ commands_detailed = OrderedDict([
               "\n            the room you are currently in"),
     ("go", "go to a new room"),
     ("help", "shows a list of available commands"),
-    ("inspect", "you can inspect a room, item or your inventory"
-                "\n            to get information about what is inside or the item is"
-                "\n            by typing 'scan inventory' (alternative of INVENTORY)"
-                "\n            'scan room' to get name, description and room contents"
-                "\n            or 'inspect item' to get details about an item"),
+    ("inspect", "you can inspect a room, item object in room or your inventory"
+                "\n            to get basic information about what the item/object is"
+                "\n            as well as what the inventory/room's contents are"),
     ("inventory", "you can see a list of all the items"
                   "\n            that you are currently carrying in your inventory"),
     ("load", ""),
     ("playername", "use this if you don't like your name and want to change it"),
     ("quit", "quits the game"),
     ("save", ""),
-    ("scan", "analyze an element in a room with your SCANNER"),
+    ("scan", "use your SCANNER to further analyze an object in the room/inventory"
+             "\nto get more information about it, if there is any"),
     ("stats", "view information about your character such as"
               "\n            how many items you are carrying, their weight, health, etc."),
     ("take", "pick up an item and add it to your inventory")])

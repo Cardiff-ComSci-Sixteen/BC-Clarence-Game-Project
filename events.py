@@ -19,6 +19,10 @@ def player_name():
 def intro_help_prompt():
     text = input("Do you want to help the vessel?")
     text = normalise_input(text)
+    if text:
+        pass
+    else:
+        text = ["null"]
     while True:
         if text[0] == "yes":
             print("\nAs you decide to help the distressed ship you adjust"
@@ -58,7 +62,7 @@ def intro():
           "\n\nEventually, after around 40 minutes you see a big, dark-brown"
           "\nship with barely any light emitting from it, several panels seemingly"
           "\ntorn apart from the hull, probably due to an explosion."
-          "\nYou approach very close at about 2 space miles from BC Clarence as all of a sudden"
+          "\nYou approach very close to about 2 space miles from BC Clarence as all of a sudden"
           "\nyour ship is jolted forward, followed by a loud bang from the engine compartment."
           "\n\nYou panic as your board AI warns you that you are on a collision"
           "\ncourse with BC Clarence and notifies you of an emergency docking"
@@ -119,7 +123,7 @@ def post_intro_prompt():
             inventory.append(item_basic_armor)
             break
         if armor_choice == "3":
-            player.is_nakedked = 1
+            player.is_naked = 1
             break
         else:
             armor_choice = input("Type 1, 2 or 3 to select armor. ")
