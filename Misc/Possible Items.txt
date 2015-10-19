@@ -1,0 +1,51 @@
+Possible Items - Linked with Map.jpg		
+1:- Power Sword (c)(e)(w)
+  - Las Pistol (c)(e)(w)
+  - Sword-Gun (c)(e)(w)
+  - Basic Spacesuit (c)(e)(a)
+  - Basic Combat Armour (c)(e)(a)
+  - Coffee (c)(e)(u)
+  - Biscuits (c)(e)(u)
+  - Med-kit (c)(e)(u)
+2:- Your Crashed Ship (x)(e)
+3:- An X shaped fighter (e)(q)(x)(*)
+4:- Several Heavly Damaged Fighters (e)(x)
+5:- Several Odd Shaped Fighters (e)(x)
+6:- Empty Vodka Bottles (e)
+  - Vodka (e)(u)
+  - Lots of Bunks (e)(x)
+7:- Radiation suit (c)(e)(u)(q)
+ :- Main Reactor (x)(e)(*)
+8:- ???
+9:- Warp Core (e)(q)(x)
+  - Scanner (c)(s)(e)
+10:- Toolbox containing basic tools (u)(c)
+11:- Some weapon terminals
+12:- Officer Uniform (c)(q)(e)
+   - Key Card (c)(q)(e)
+13:- Main Controls (u)(q)(e)(x)(*)
+  :- Window (e)(x)
+  :-  Set of keys that open the Armory (u)(c)
+14:- Life Support Controls (u)(q)(e)(x)(*)
+15:- Phaser (c)(e)
+  :- Blaster pistol (DL-44 blaster pistol) (c)(e)
+  :- Cylinder Thing (Lightsaber) (c)(e)(*)
+16:- Med-kits (c)(q)(e)(u)
+17:- ???
+18:- Easter egg? 
+19:- A bowl of porridge (c)(u)
+20:- A bottle of water (c)(u)
+21:- Handcuffs? (c)(u)
+
+  - Scanner (c)	
+
+Key:
+(x) - Cannot be picked up
+(e) - Can be examined
+(q) - Useful Item
+(c) - Can be picked up
+(u) - Can be used 
+(s) - Special Item
+(w) - Weapon
+(a) - Armour
+(*) - Can Be Scanned

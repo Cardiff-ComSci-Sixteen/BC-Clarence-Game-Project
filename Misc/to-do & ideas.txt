@@ -1,0 +1,80 @@
+Here we can write down all that we have to do, so that we know what each person
+has to do or thinks should be done with the game.
+If anyone wants to take lead of something, write down your name so we don't mess up.
+That way we can both give and have a selection of things that can/should be done.
+
+And same goes for the ideas:
+If anyone comes up with a cool mechanic, cool scenario or really, anything,
+type it down under the ideas so we can review them.
+Same for the plot - what the player may have to do, where, when, how, what may happen if they
+fail to do so, what events may happen during their journey, anything of that sort.
+
+Make sure to share your thoughts, that way we can best
+decide if something is worth it or not, if it is a good idea or not, etc.
+All feedback is welcome!
+
+=====
+Chiefs:
+=====
+
+Combat Systems - Elliot
+Plot, Events, Items, Description - Thomas, Jed
+Tester - Connor
+Game Fixing - Teodor
+Mechanics (Commands, Logic) - Combined Task
+Presentation - Ryan
+
+=====
+To-Do:
+=====
+
+Think of basic plot, room descriptions, review room items (choose and add/remove), talk about the items' function,
+what they will do, where they will be used, anything special the room might have but is unobtainable
+(like a big board on which a number is written which you can use to open something, maybe) and such.
+
+=====
+Ideas:
+=====
+
+Bottle in room, broken, "----a, 40%" - IT IS VODKA - Kiril drinks a lot everywhere. Matt stole one and got killed. He is handcuffed. Unlock with something.
+
+Plot - You find matt -> Sit next to Matt -> Give Matt Pills -> Matt shrinks to Little Matt -> Take Matt -> You put Matt in your pocket.
+(Give matt Red/Blue pill -> Red Shrinks, Blue makes Matt huge -> he destroys the ship, you die)
+Plot - Vodka next to dead Matt
+Item - Sword-Gun
+
+---> We are on a trade route to a Star Base. We are on Sparrow the Space Lorry (player ship) and receive a distress signal from BC Clarence. <- palyer ship descriptions (items, objects, etcl)
+promt - Do you want to help?
+
+yes - Go and help!
+no - Your systems malfunction and your ship slowly starts heading towards the distressed ship.
+
+---> As you travel for around 40 minutes you soon spot a massive vessel, seemingly badly damaged.
+As you slowly approach towards the ship you suddenly get jolted forward with a massive bang.
+You panic as your ship board AI warns you that you are on a collision course with BC Clarence.
+You are preparing for a crash landing after your AI notifies you of an emergency docking procedure taking place.
+
+You decide to get a weapon, armor and a consumable from your emergency closet.
+Pick a weapon to take: 
+1. 
+2. 
+3. 
+
+Pick an armor:
+1.
+2.
+3. No Clothing - Enemies are stunned for 1 turns.
+
+Pick a consumable:
+1. Coffee
+2. Biscuits
+3. Med-Kit
+
+After picking x, y, z you brace for impact.
+
+Press Enter to continue...
+main() 
+
+Plot - Power goes out, must be switched on to use anything involving electricity (like swiping keycards and opening doors).
+Plot/Extra - Player has to obtain a random key each time a new game is started and use it to unlock a door/something where they can
+    find/get/do something.
