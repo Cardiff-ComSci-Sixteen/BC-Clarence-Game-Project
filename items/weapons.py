@@ -8,7 +8,7 @@ weapon_powersword = {
     "name": "Power Sword",
 
     "description":
-    """A unique item that needs description!"""
+    "This sword is powered, it should be able to slice enemies up"
 }
 
 weapon_laspistol = {
@@ -16,12 +16,12 @@ weapon_laspistol = {
 
     "class": 1,
 
-    "weight": 20,
+    "weight": 15,
 
     "name": "Laspistol",
 
     "description":
-    """An another unique item that needs description!"""
+    "This pistol fires a concentrated beam of light, however due to its size it is not very powerful"
 }
 
 weapon_swordgun = {
@@ -29,10 +29,89 @@ weapon_swordgun = {
 
     "class": 1,
 
-    "weight": 20,
+    "weight": 25,
 
     "name": "a sword-gun",
 
     "description":
-    """A third unique item that needs description!"""
+    "Its a sword with a small gun attached to it"
+}
+
+weapon_pulse = {
+    "id": ["pulserifle", "pulse_rifle"],
+
+    "class": 1,
+
+    "weight": 20,
+
+    "name": "M41A Pulse Rifle",
+
+    "description":
+    "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition."
+}
+
+weapon_energysword = {
+    "id": ["energysword", "energy_sword"],
+
+    "class": 1,
+
+    "weight": 15,
+
+    "name": "The Energy Sword",
+
+    "description":
+    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade. "
+}
+
+weapon_sonicemitter = {
+    "id": ["sonicemitter", "sonic_emitter"],
+
+    "class": 1,
+
+    "weight": 20,
+
+    "name": "Sonic Emitter",
+
+    "description":
+    "The Soniic Emitter chassis is composed of a gray metallic tube outfitted with four vacuum tubes, a housing for a small energy cell, a conical muzzle,\n"
+    "and a rear-mounted oscilloscope, all attached to a pistol grip."
+}
+
+weapon_phaser = {
+    "id": ["phaser"],
+
+    "class": 1,
+
+    "weight": 10,
+
+    "name": "Phaser",
+
+    "description":
+    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
+}
+
+weapon_phaser = {
+    "id": ["phaser"],
+
+    "class": 1,
+
+    "weight": 10,
+
+    "name": "Phaser",
+
+    "description":
+    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
+}
+
+weapon_blaster = {
+    "id": ["blaster_pistol", "blasterpistol", "dl-44", "dl-44_blaster_pistol"],
+
+    "class": 1,
+
+    "weight": 10,
+
+    "name": "The DL-44 Blaster Pistol",
+
+    "description":
+    "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy, "
 }
