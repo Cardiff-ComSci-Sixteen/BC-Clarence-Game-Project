@@ -187,6 +187,5 @@ def main():
         update_player_stats()
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]
-        if player.in_room == "Hangar 2":
-            del rooms["Hangar 1"]["exits"]["hangar_2"]
+        events.event_update()
 main()

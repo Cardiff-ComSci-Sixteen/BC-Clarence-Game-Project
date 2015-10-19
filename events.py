@@ -144,3 +144,9 @@ def post_intro_prompt():
             break
         else:
             consumable_choice = input("Type 1, 2 or 3 to select consumable. ")
+
+
+def event_update():
+    if player.current_room["name_ID"] == "Hangar 1" and player.last_room == "Hangar 2":
+        print("You hear a loud bang behind you. You turn around and see that the exit to Hangar 2 has collapsed.")
+        del player.current_room["exits"]["hangar_2"]
