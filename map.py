@@ -1,5 +1,5 @@
-from items import *
-from objects import *
+from items.items import *
+from items.objects import *
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
 # address them and evaluate if there are any items/objects to interact with.
@@ -19,7 +19,7 @@ player_ship = {
 
     "objects": [object_ceiling],
 
-    "items": [item_handbook, item_scanner]
+    "items": [item_scanner]
 
 }
 
@@ -33,7 +33,7 @@ hangar_1 = {
     "exits": {"player_ship": "Player Ship", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
               "vehicle_storage": "Vehicle Storage"},
 
-    "items": [item_screwdriver, item_rose],
+    "items": [item_screwdriver],
 
     "objects": []
 }

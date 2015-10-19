@@ -1,4 +1,4 @@
-from command_list import *
+from lists.command_list import *
 from player import inventory
 import player
 from map import rooms

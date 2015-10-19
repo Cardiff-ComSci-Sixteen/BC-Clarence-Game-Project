@@ -1,4 +1,4 @@
-from command_list import *
+from lists.command_list import *
 
 
 def player_name():
@@ -16,8 +16,12 @@ def player_name():
             break
 
 
+def enter():
+    input("\nPress to continue.\n")
+
+
 def intro_help_prompt():
-    text = input("Do you want to help the vessel?")
+    text = input("Do you want to help the vessel? ")
     text = normalise_input(text)
     if text:
         pass
@@ -37,10 +41,6 @@ def intro_help_prompt():
                   "\nbut to no avail.")
             break
         text = input_hang(text, "Yes or No?")
-
-
-def enter():
-    input("\nPress to continue.\n")
 
 
 def intro():
@@ -84,7 +84,7 @@ def intro_prompt():
                 break
             elif intro_input[0] == "yes":
                 break
-            intro_input = input_hang(intro_input, "Yes or No?")
+            intro_input = input_hang(intro_input, "Yes or No? ")
 
 
 def post_intro_prompt():
@@ -94,19 +94,19 @@ def post_intro_prompt():
           "\nstuff with you just in case things go wrong afterwards.")
     print()
     print("Pick a weapon: ")
-    print("1. " + item_powersword["name"])
-    print("2. " + item_laspistol["name"])
-    print("3. " + item_swordgun["name"])
+    print("1. Power Sword")
+    print("2. Laspistol")
+    print("3. Sword-Gun")
     weapon_choice = input("")
     while True:
         if weapon_choice == "1":
-            inventory.append(item_powersword)
+            inventory.append(weapon_powersword)
             break
         if weapon_choice == "2":
-            inventory.append(item_laspistol)
+            inventory.append(weapon_laspistol)
             break
         if weapon_choice == "3":
-            inventory.append(item_swordgun)
+            inventory.append(weapon_swordgun)
             break
         else:
             weapon_choice = input("Type 1, 2 or 3 to select weapon. ")
@@ -117,10 +117,10 @@ def post_intro_prompt():
     armor_choice = input()
     while True:
         if armor_choice == "1":
-            inventory.append(item_basic_spacesuit)
+            inventory.append(armor_basic_spacesuit)
             break
         if armor_choice == "2":
-            inventory.append(item_basic_armor)
+            inventory.append(armor_basic_armor)
             break
         if armor_choice == "3":
             player.is_naked = 1
