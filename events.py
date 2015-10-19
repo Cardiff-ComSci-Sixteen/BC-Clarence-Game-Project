@@ -1,5 +1,5 @@
 from lists.command_list import *
-
+import combat_system
 
 def player_name():
     player.player_name = input("What is your name? ")
@@ -146,7 +146,20 @@ def post_intro_prompt():
             consumable_choice = input("Type 1, 2 or 3 to select consumable. ")
 
 
+# Events checked each time you change rooms
 def event_update():
     if player.current_room["name_ID"] == "Hangar 1" and player.last_room == "Hangar 2":
         print("You hear a loud bang behind you. You turn around and see that the exit to Hangar 2 has collapsed.")
         del player.current_room["exits"]["hangar_2"]
+
+
+# Events checked each time you give input
+def input_event_update(user_input):
+    if (user_input == ['eat', 'biscuits'] or user_input == ['eat', 'pack_biscuits'] or user_input == ['eat', 'pack']) and item_biscuits in inventory:
+        inventory.remove(item_biscuits)
+        print("You ate the biscuits and soon start feeling ill. As a result you lose 10 hp!")
+        player.hp -= 10
+        return True
+    if user_input == ["battle"]:
+        combat_system.main_fight()
+    return False

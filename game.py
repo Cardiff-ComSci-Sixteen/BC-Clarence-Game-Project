@@ -152,6 +152,8 @@ def command_execute(exits):
                         cmd = normalise_input(user_input)
                         scan_element(rooms[player.in_room], cmd, player.player_name, inventory)
                         user_input = str(cmd)
+                elif events.input_event_update(cmd):
+                    pass
                 else:
                     i = random.randint(0, len(command_unknown) - 1)
                     print(command_unknown[i])
@@ -187,5 +189,5 @@ def main():
         update_player_stats()
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]
-        events.event_update()
+        events.event_update(input)
 main()

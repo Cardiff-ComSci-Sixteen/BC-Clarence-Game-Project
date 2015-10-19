@@ -40,7 +40,7 @@ item_biscuits = {
 
     "name": "a pack of biscuits",
 
-    "description": "A pack of biscuits.",
+    "description": "A pack of biscuits of delicious-looking biscuits.",
 
     "description_scan": "The pack is contaminated!"
 }
