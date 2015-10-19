@@ -8,9 +8,7 @@ weapon_powersword = {
     "name": "Power Sword",
 
     "description":
-    "This sword is powered, it should be able to slice enemies up",
-
-    "attributes": {"damage": 15}
+    "This sword is powered, it should be able to slice enemies up"
 }
 
 weapon_laspistol = {
@@ -23,9 +21,7 @@ weapon_laspistol = {
     "name": "Laspistol",
 
     "description":
-    "This pistol fires a concentrated beam of light, however due to its size it is not very powerful",
-
-    "attributes": {"damage": 25}
+    "This pistol fires a concentrated beam of light, however due to its size it is not very powerful"
 }
 
 weapon_swordgun = {
@@ -38,13 +34,11 @@ weapon_swordgun = {
     "name": "a sword-gun",
 
     "description":
-    "Its a sword with a small gun attached to it",
-
-    "attributes": {"damage": 10}
+    "Its a sword with a small gun attached to it"
 }
 
 weapon_pulse = {
-    "id": ["pulserifle", "pulse_rifle", "m41a_pulse", "rifle"],
+    "id": ["pulserifle", "pulse_rifle"],
 
     "class": 1,
 
@@ -53,9 +47,7 @@ weapon_pulse = {
     "name": "M41A Pulse Rifle",
 
     "description":
-    "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition.",
-
-    "attributes": {"damage": 20}
+    "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition."
 }
 
 weapon_energysword = {
@@ -68,9 +60,7 @@ weapon_energysword = {
     "name": "The Energy Sword",
 
     "description":
-    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade. ",
-
-    "attributes": {"damage": 20}
+    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade. "
 }
 
 weapon_sonicemitter = {
@@ -84,9 +74,7 @@ weapon_sonicemitter = {
 
     "description":
     "The Soniic Emitter chassis is composed of a gray metallic tube outfitted with four vacuum tubes, a housing for a small energy cell, a conical muzzle,\n"
-    "and a rear-mounted oscilloscope, all attached to a pistol grip.",
-
-    "attributes": {"damage": 20}
+    "and a rear-mounted oscilloscope, all attached to a pistol grip."
 }
 
 weapon_phaser = {
@@ -99,24 +87,21 @@ weapon_phaser = {
     "name": "Phaser",
 
     "description":
-    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it",
-
-    "attributes": {"damage": 20}
+    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
 }
 
-weapon_phaser = {
-    "id": ["phaser"],
+weapon_saber = {
+    "id": ["saber"],
 
     "class": 1,
 
     "weight": 10,
 
-    "name": "Phaser",
+    "name": "Lightsaber",
 
     "description":
-    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it",
-
-    "attributes": {"damage": 20}
+    "The weapon consisted of a blade of pure plasma emitted from the hilt and suspended in a force containment field.\n"
+    "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape."
 }
 
 weapon_blaster = {
@@ -129,7 +114,5 @@ weapon_blaster = {
     "name": "The DL-44 Blaster Pistol",
 
     "description":
-    "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy, ",
-
-    "attributes": {"damage": 20}
+    "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy, "
 }
