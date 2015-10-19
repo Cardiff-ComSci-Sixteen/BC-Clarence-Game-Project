@@ -73,3 +73,7 @@ drop_deny = ["I wish I had it in the first place.",
 scanner_deny = ["The scanner does not show anything.",
                 "There is nothing special about this.",
                 "It says 'no new information found'."]
+
+weapon_power_sword_attack = ["You swing your sword with fierce force in for a successful strike!",
+                             "You charge at the enemy, swinging your Power Sword at the enemy!",
+                             "You spin 360 degrees with your Power Sword, striking the enemy!"]

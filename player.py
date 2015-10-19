@@ -18,3 +18,5 @@ current_room = rooms["Player Ship"]
 
 # For certain commands, tells the player in which room he is. Variable is set to room's name_ID value
 in_room = "Player Ship"
+
+enemy = {"Name":"Kirill", "HP": 100, "Current Weapon": "spoon"}

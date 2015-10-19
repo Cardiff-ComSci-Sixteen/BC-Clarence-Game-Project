@@ -162,4 +162,5 @@ def input_event_update(user_input):
         return True
     if user_input == ["battle"]:
         combat_system.main_fight()
+        return True
     return False
