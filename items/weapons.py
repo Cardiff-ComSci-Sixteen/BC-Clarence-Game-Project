@@ -90,17 +90,18 @@ weapon_phaser = {
     "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
 }
 
-weapon_phaser = {
-    "id": ["phaser"],
+weapon_saber = {
+    "id": ["saber"],
 
     "class": 1,
 
     "weight": 10,
 
-    "name": "Phaser",
+    "name": "Lightsaber",
 
     "description":
-    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
+    "The weapon consisted of a blade of pure plasma emitted from the hilt and suspended in a force containment field.\n"
+    "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape."
 }
 
 weapon_blaster = {

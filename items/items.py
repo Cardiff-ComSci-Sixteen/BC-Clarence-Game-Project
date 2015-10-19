@@ -72,7 +72,7 @@ item_medkit = {
 item_scanner = {
     "id": ["scanner"],
 
-    "class": 0,
+    "class": 5,
 
     "weight": 20,
 
@@ -97,27 +97,54 @@ item_note = {
     "to unlock my door, so here it is: " + str(key)
 }
 
-item_screwdriver = {
-    "id": ["screwdriver"],
+item_keyA = {
+    "id": ["keyA"],
 
-    "class": 0,
-
-    "weight": 10,
-
-    "name": "a screwdriver",
-
-    "description": "I shouldn't poke my out with this.",
-}
-
-
-item_bass = {
-    "id": ["bass"],
-
-    "class": 0,
+    "class": 4,
 
     "weight": 0,
 
-    "name": "some bass",
+    "name": "Armory Key Card",
 
-    "description": "The low frequency makes your body tremble!"
+    "description":
+    "This should allow me to access the Armory"
+}
+
+item_keyD = {
+    "id": ["keyD"],
+
+    "class": 4,
+
+    "weight": 0,
+
+    "name": "Detention Centre Key Card",
+
+    "description":
+    "This should allow me to access the Detention Centre"
+}
+
+item_keyP = {
+    "id": ["keyP"],
+
+    "class": 4,
+
+    "weight": 0,
+
+    "name": "Power Control Key Card",
+
+    "description":
+    "This should allow me to access the Power Control"
+}
+
+
+item_vodka = {
+    "id": ["vodka"],
+
+    "class": 3,
+
+    "weight": 10,
+
+    "name": "Vodka",
+
+    "description": "If I drink this I will get drunk"
 }
