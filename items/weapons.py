@@ -8,7 +8,9 @@ weapon_powersword = {
     "name": "Power Sword",
 
     "description":
-    "This sword is powered, it should be able to slice enemies up"
+    "This sword is powered, it should be able to slice enemies up",
+
+    "attributes": {"damage": 15}
 }
 
 weapon_laspistol = {
@@ -21,7 +23,9 @@ weapon_laspistol = {
     "name": "Laspistol",
 
     "description":
-    "This pistol fires a concentrated beam of light, however due to its size it is not very powerful"
+    "This pistol fires a concentrated beam of light, however due to its size it is not very powerful",
+
+    "attributes": {"damage": 25}
 }
 
 weapon_swordgun = {
@@ -34,7 +38,9 @@ weapon_swordgun = {
     "name": "a sword-gun",
 
     "description":
-    "Its a sword with a small gun attached to it"
+    "Its a sword with a small gun attached to it",
+
+    "attributes": {"damage": 10}
 }
 
 weapon_pulse = {

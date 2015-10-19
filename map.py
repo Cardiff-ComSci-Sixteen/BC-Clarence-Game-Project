@@ -34,7 +34,7 @@ hangar_1 = {
     "exits": OrderedDict([("player_ship", "Player Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
 ("vehicle_storage", "Vehicle Storage")]),
 
-    "items": [item_screwdriver],
+    "items": [],
 
     "objects": []
 }

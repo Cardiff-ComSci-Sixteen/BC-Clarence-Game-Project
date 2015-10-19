@@ -148,3 +148,15 @@ item_vodka = {
 
     "description": "If I drink this I will get drunk"
 }
+
+item_bass = {
+    "id": ["bass"],
+
+    "class": 0,
+
+    "weight": 0,
+
+    "name": "some bass",
+
+    "description": "The low frequency makes your body tremble!"
+}

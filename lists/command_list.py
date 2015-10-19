@@ -317,6 +317,9 @@ def scan_element(room, element, player_name, inventory):
             else:
                 print("DEBUG_NOTICE: 'objects' dict Key not in " + room["name_ID"])
                 break
+            if len(element) > 1:
+                    element[0] = str(element[0]) + "_" + str(element[1])
+                    element = element[:1]
             for item in room["objects"]:
                     if item_scanner not in inventory:
                         break
@@ -407,6 +410,7 @@ def command_inspect(room, element, player_name, inventory):
                 for item in room["objects"]:
                     if element[0] == item["id"]:
                         print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
+                        print(item["description"])
                         return
                 for alpha in room["items"]:
                     for id_index in alpha["id"]:
@@ -415,14 +419,13 @@ def command_inspect(room, element, player_name, inventory):
                             print("Class: " + item_class(alpha["class"]))
                             print(alpha["description"])
                             return
-                        else:
-                            for bravo in inventory:
-                                for id_index_1 in bravo["id"]:
-                                    if id_index_1 in element:
-                                        print()
-                                        print("Class: " + item_class(bravo["class"]))
-                                        print(bravo["description"])
-                                        return
+                for bravo in inventory:
+                    for id_index_1 in bravo["id"]:
+                        if id_index_1 in element:
+                            print()
+                            print("Class: " + item_class(bravo["class"]))
+                            print(bravo["description"])
+                            return
                 else:
                     print("I can't inspect this.")
                     break

@@ -17,7 +17,7 @@ object_ceiling = {
 object_player_ship = {
     "id": "Plaeyer_Ship",
 
-    "description": "My ship is badly damaged I don't think i'll be able to use it to escape"
+    "description": "My ship is badly damaged I don't think i'll be able to use it to escape",
 
     "description_scan": "I cannot scan this",
 
@@ -28,7 +28,7 @@ object_xfighter = {
     "id": "xfighter",
 
     "description": "This fighter is odd in it's design, as it appears its wings open to form an 'x' shape.\n"
-    "I could probably scan this to see if it works"
+    "I could probably scan this to see if it works",
 
     "description_scan": "This fighter appears to be functional I could use it to escape",
 
@@ -38,7 +38,7 @@ object_xfighter = {
 object_damagedfighters = {
     "id": "damagedfighters",
 
-    "description": "These fighters have seen better days"
+    "description": "These fighters have seen better days",
 
     "description_scan": "I cannot scan this",
 
@@ -48,7 +48,7 @@ object_damagedfighters = {
 object_oddfighters = {
     "id": "oddfighters",
 
-    "description": "These fighters are shaped like a 'H' for some reason maybe I could scan them to see if they work."
+    "description": "These fighters are shaped like a 'H' for some reason maybe I could scan them to see if they work.",
 
     "description_scan": "None of them seem to be funtional",
 
@@ -58,7 +58,7 @@ object_oddfighters = {
 object_emptyvodka = {
     "id": "emptyvodka",
 
-    "description": "This bottle of vodka is empty, I wonder why."
+    "description": "This bottle of vodka is empty, I wonder why.",
 
     "description_scan": "I cannot scan this",
 
@@ -68,7 +68,7 @@ object_emptyvodka = {
 object_bunks = {
     "id": "bunks",
 
-    "description": "These don't look very confortable"
+    "description": "These don't look very confortable",
 
     "description_scan": "I cannot scan this",
 
@@ -78,7 +78,7 @@ object_bunks = {
 object_mainreactor = {
     "id": "mainreactor",
 
-    "description": "This large reactor powers this ship, I could probably scan it."
+    "description": "This large reactor powers this ship, I could probably scan it.",
 
     "description_scan": "It is a nuclear reactor, better not get to close.",
 
