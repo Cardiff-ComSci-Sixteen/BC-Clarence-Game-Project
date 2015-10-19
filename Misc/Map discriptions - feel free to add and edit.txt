@@ -11,7 +11,7 @@ with what appear to be power lifters smashed together. You also notice a pools o
 look like H's.
 6:- You are in the Crew Quarters, you notice that there is a few empty vodka bottles on a table with one full one.
 There is also lots of bunkbeds
-7:- As you enter the Power Generator you see a large nuclear reactor, and a few radation suits.
+7:- As you enter the Power Generator you see a large reactor, and a few radation suits.
 8:- You are in Power Control there is a large console in here, and some hard hats.
 9:- When you enter Main Engineering you are greeted by quiet hum, which you realise is the warp core for the ship.
 As you wander further into Main Engineering you see what appears to be some sort of scanner on a console.
