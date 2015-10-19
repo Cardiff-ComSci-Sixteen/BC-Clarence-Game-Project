@@ -189,5 +189,5 @@ def main():
         update_player_stats()
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]
-        events.event_update(input)
+        events.event_update()
 main()
