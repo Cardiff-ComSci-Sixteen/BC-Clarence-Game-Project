@@ -93,7 +93,6 @@ def is_valid_exit(exits, user_input):
 
 # Actually returns the direction.
 def command_go(exits, direction):
-    print("Command Go: " + direction)
     while True:
         if direction == "back":
             direction = normalise_input(player.last_room)
@@ -103,8 +102,6 @@ def command_go(exits, direction):
                 direction[0] = cmd_changed
             return direction[0]
         else:
-            print(exits)
-            print(direction)
             if is_valid_exit(exits, direction):
                 return direction
             else:
@@ -410,7 +407,6 @@ def command_inspect(room, element, player_name, inventory):
                 for item in room["objects"]:
                     if element[0] == item["id"]:
                         print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
-                        print("Class: " + item["description"])
                         return
                 for alpha in room["items"]:
                     for id_index in alpha["id"]:

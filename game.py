@@ -6,7 +6,7 @@ import time
 import events
 
 # Variable included as rooms change. Similar to current_room but used a bit differently.
-in_room = "Player Ship"
+# player.in_room = "Player Ship"
 
 
 def loading(rate):
@@ -75,7 +75,7 @@ def print_menu(exits):
     print("╣EXITS│")
     print("└-----┘")
     exit_list = []
-    for ch in rooms[in_room]["exits"]:
+    for ch in rooms[player.in_room]["exits"]:
         if ch not in exits:
             pass
         else:
@@ -119,19 +119,19 @@ def command_execute(exits):
                 if is_valid_command(cmdn) or cmdn in commands_aliases or ((user_input.find("scan") >= 0) and (user_input.find("scanner") < 0)):
                     # Checks if you type "go <dir>", "go" + "<dir>" or just <dir> (dir = direction)
                     if cmdn == "go":
-                        valid = command_go_superior(exits, in_room, cmd)
+                        valid = command_go_superior(exits, player.in_room, cmd)
                         if valid:
                             return valid
                     if cmdn == "playername":
                         player.player_name = command_name_change()
                     if cmdn == "take":
-                        command_take(player.player_name, in_room, cmd)
+                        command_take(player.player_name, player.in_room, cmd)
                         update_player_stats()
                     if cmdn == "drop":
-                        command_drop(player.player_name, in_room, cmd)
+                        command_drop(player.player_name, player.in_room, cmd)
                         update_player_stats()
                     if cmdn == "stats":
-                        command_stats(in_room)
+                        command_stats(player.in_room)
                     if cmdn == "exits":
                         print_menu(exits)
                     if cmdn == "help":
@@ -139,7 +139,7 @@ def command_execute(exits):
                     if cmdn == "inspect":
                         user_input = user_input.replace("inspect", "")
                         cmd = normalise_input(user_input)
-                        command_inspect(rooms[in_room], cmd, player.player_name, inventory)
+                        command_inspect(rooms[player.in_room], cmd, player.player_name, inventory)
                         user_input = "a"
                     if cmdn == "quit":
                         quit()
@@ -150,7 +150,7 @@ def command_execute(exits):
                         for alpha in commands_aliases:
                             user_input = user_input.replace(alpha, "")
                         cmd = normalise_input(user_input)
-                        scan_element(rooms[in_room], cmd, player.player_name, inventory)
+                        scan_element(rooms[player.in_room], cmd, player.player_name, inventory)
                         user_input = str(cmd)
                 else:
                     i = random.randint(0, len(command_unknown) - 1)
@@ -168,7 +168,6 @@ def menu(current_room):
     command_input = command_execute(exits)
     player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
-    print(current_room)
     if command_input == "hangar_1" and get_room_state(rooms_states["Hangar 1"]) == 1:
         rooms_states["Player Ship"]["state"] = 3
     return move(exits, command_input)
@@ -179,15 +178,15 @@ def main():
     events.post_intro_prompt()
 
     # Start game at the room_1
-    current_room = rooms["Player Ship"]
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
     print("Hello " + player.player_name + "!")
-    global in_room
     # Main game loop
     while True:
-        update_room_state(current_room["name_ID"])
+        update_room_state(player.current_room["name_ID"])
         update_player_stats()
-        current_room = menu(current_room)
-        in_room = current_room["name_ID"]
+        player.current_room = menu(player.current_room)
+        player.in_room = player.current_room["name_ID"]
+        if player.in_room == "Hangar 2":
+            del rooms["Hangar 1"]["exits"]["hangar_2"]
 main()

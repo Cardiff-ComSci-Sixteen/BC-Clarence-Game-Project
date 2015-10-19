@@ -1,5 +1,6 @@
 from items.items import *
 from items.objects import *
+from collections import OrderedDict
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
 # address them and evaluate if there are any items/objects to interact with.
@@ -30,8 +31,8 @@ hangar_1 = {
 
     "description": """needs description2""",
 
-    "exits": {"player_ship": "Player Ship", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
-              "vehicle_storage": "Vehicle Storage"},
+    "exits": OrderedDict([("player_ship", "Player Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
+("vehicle_storage", "Vehicle Storage")]),
 
     "items": [item_screwdriver],
 
