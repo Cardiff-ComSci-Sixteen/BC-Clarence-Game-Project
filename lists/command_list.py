@@ -1,10 +1,11 @@
-from feedback_lists import *
+from lists.feedback_lists import *
 from room_states import rooms_states
 import string
 from player import inventory
 from map import rooms
-from items import *
+from items.items import *
 import player
+
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
@@ -294,6 +295,21 @@ def command_stats(room):
     print("Score: " + str(player.score))
 
 
+def item_class(item):
+    if item == 0:
+        return "Misc"
+    if item == 1:
+        return "Weapon"
+    if item == 2:
+        return "Armor"
+    if item == 3:
+        return "Consumable"
+    if item == 4:
+        return "Key"
+    if item == 5:
+        return "Objective Item"
+
+
 # The main logic through which objects (elements) are inspected.
 # If an unknown element is requested to be inspected, the function will return a deny message.
 def scan_element(room, element, player_name, inventory):
@@ -394,17 +410,21 @@ def command_inspect(room, element, player_name, inventory):
                 for item in room["objects"]:
                     if element[0] == item["id"]:
                         print("\n" + element[0][0].upper() + str(element[0][1:len(element[0])] + ":"))
-                        print(item["description"])
+                        print("Class: " + item["description"])
                         return
                 for alpha in room["items"]:
                     for id_index in alpha["id"]:
                         if id_index in element:
+                            print()
+                            print("Class: " + item_class(alpha["class"]))
                             print(alpha["description"])
                             return
                         else:
                             for bravo in inventory:
                                 for id_index_1 in bravo["id"]:
                                     if id_index_1 in element:
+                                        print()
+                                        print("Class: " + item_class(bravo["class"]))
                                         print(bravo["description"])
                                         return
                 else:
