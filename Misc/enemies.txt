@@ -1,0 +1,50 @@
+Enemies:
+
+Basic:
+
+Name: Needs Name
+HP: 20
+Weapon: - Gun
+	5-10 damage
+	Low Accuracy
+	- Sword
+	1-10 damage
+	High Accuracy
+Low dodge chance
+
+Mini Boss 1
+
+Name: Needs Name
+HP: 40
+Weapon: - Minigun
+	10-30 damage
+	Low Accuracy
+	- No melee
+Med dodge chance
+
+Mini Boss 2
+
+Name: Needs Name
+HP: 50
+Weapon: - Battle-axe
+	10-20 damage
+	Med Accuracy
+	- No Ranged
+Med dodge chance
+
+Boss
+
+Name: Kiril
+HP: 100
+Weapon: - Vodka
+	Heals Kiril 10
+	- Wooden Spoon
+	15-20 damage
+	High Accuracy
+	- Rocket Lancher
+	15-30 damage
+	Low Accuracy
+	- A Laptop
+	5 damage
+	Never Misses
+Med-High Chance to dodge
