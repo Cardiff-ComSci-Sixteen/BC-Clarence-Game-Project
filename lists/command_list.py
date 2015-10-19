@@ -510,7 +510,7 @@ def print_room_items(room):
     for item in room["items"]:
         room_items.append(item)
     if room_items:
-        print("There is " + list_of_items(room_items) + " here.\n")
+        print("There is " + list_of_items(room_items) + " here.")
     else:
         print("There is no special item in the room.")
 
