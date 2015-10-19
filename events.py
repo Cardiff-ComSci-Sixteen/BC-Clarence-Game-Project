@@ -163,4 +163,8 @@ def input_event_update(user_input):
     if user_input == ["battle"]:
         combat_system.main_fight()
         return True
+    if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
+        print("You have successfully recharged your scanner!")
+        item_scanner["attributes"]["power"] = 50
+        return True
     return False

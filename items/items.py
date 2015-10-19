@@ -79,7 +79,9 @@ item_scanner = {
     "name": "a scanner",
 
     "description":
-    """With this I will finally be able to analyze things around me!"""
+    """With this I will finally be able to analyze things around me!""",
+
+    "attributes": {"power": 12}
 }
 
 item_note = {

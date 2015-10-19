@@ -150,8 +150,23 @@ def command_execute(exits):
                         for alpha in commands_aliases:
                             user_input = user_input.replace(alpha, "")
                         cmd = normalise_input(user_input)
-                        scan_element(rooms[player.in_room], cmd, player.player_name, inventory)
-                        user_input = str(cmd)
+                        power = item_scanner["attributes"]["power"]
+                        if item_scanner in inventory:
+                            if power >= 1:
+                                if scan_element(rooms[player.in_room], cmd, player.player_name, inventory):
+                                    item_scanner["attributes"]["power"] -= 1
+                                    power -= 1
+                                    if power > 10:
+                                        print(str(power) + "% Charge Left")
+                                    elif power > 0:
+                                        print("\nWARNING: Charge Low!\n" + str(power) + "% Charge Left")
+                                    else:
+                                        print("No Charge Left")
+                                user_input = str(cmd)
+                            else:
+                                print("There is no charge in the scanner at the moment. I need to recharge it somehow.")
+                        else:
+                            print("I need something to scan this with!")
                 elif events.input_event_update(cmd):
                     pass
                 else:
@@ -170,8 +185,6 @@ def menu(current_room):
     command_input = command_execute(exits)
     player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
-    if command_input == "hangar_1" and get_room_state(rooms_states["Hangar 1"]) == 1:
-        rooms_states["Player Ship"]["state"] = 3
     return move(exits, command_input)
 
 
@@ -185,7 +198,7 @@ def main():
     print("Hello " + player.player_name + "!")
     # Main game loop
     while True:
-        update_room_state(player.current_room["name_ID"])
+        # update_room_state(player.current_room["name_ID"])
         update_player_stats()
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]

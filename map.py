@@ -6,19 +6,22 @@ from collections import OrderedDict
 # address them and evaluate if there are any items/objects to interact with.
 # P.S. Objects are currently intended to be only inspected, items are the "room's inventory".
 
-player_ship = {
-    "name_ID": "Player Ship",
+# Description has to be input in room's room_states
 
-    "name": "Player Ship",
+wrecked_ship = {
+    "name_ID": "Wrecked Ship",
 
-    "description": "The ceiling has a very darkish shade to it, "
-                   "\nseemingly because of the moisture."
-                   "\nWhen you look at the walls you can see water running down them."
-                   "\nThe place looks like it will fall apart at any moment!",
+    "name": "Wrecked Ship",
+
+    "description": "Just the wrecked remains of Sparrow are all that is left"
+                   "\nof the ship. The passage to the back is blocked and I cannot"
+                   "\naccess the emergency locker anymore. The board AI has malfunctioned"
+                   "\nand there are cables sticking out. One of them is a universal charger,"
+                   "\nI might find that handy. The ship has some reserve power left as well!",
 
     "exits": {"hangar_1": "Hangar 1"},
 
-    "objects": [object_ceiling],
+    "objects": [object_board_AI, object_ceiling, object_wrecked_ship],
 
     "items": [item_scanner]
 
@@ -31,7 +34,7 @@ hangar_1 = {
 
     "description": """needs description2""",
 
-    "exits": OrderedDict([("player_ship", "Player Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
+    "exits": OrderedDict([("wrecked_ship", "Wrecked Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
 ("vehicle_storage", "Vehicle Storage")]),
 
     "items": [],
@@ -315,7 +318,7 @@ detention_centre = {
 # Had to change room names so that they would be addressed as their
 # function name and ID. We can alter the names in the room dicts instead.
 rooms = {
-    "Player Ship": player_ship,
+    "Wrecked Ship": wrecked_ship,
     "Hangar 1": hangar_1,
     "Hangar 2": hangar_2,
     "Vehicle Maintenance": vehicle_maintenance,
