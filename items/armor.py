@@ -1,3 +1,4 @@
+
 armor_basic_spacesuit = {
     "id": ["spacesuit", "basic_spacesuit", "suit"],
 
