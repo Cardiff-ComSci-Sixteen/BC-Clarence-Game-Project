@@ -156,7 +156,6 @@ def menu(current_room):
     print_menu(exits)
     print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
     command_input = command_execute(exits)
-    player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
     return move(exits, command_input)
 

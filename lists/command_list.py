@@ -169,7 +169,7 @@ def print_menu(exits):
     print("╣EXITS│")
     print("└-----┘")
     exit_list = []
-    for ch in rooms[player.in_room]["exits"]:
+    for ch in sorted(rooms[player.in_room]["exits"]):
         if ch not in exits:
             pass
         else:
@@ -181,15 +181,22 @@ def print_menu(exits):
 # Actually returns the direction.
 def command_go(exits, direction):
     while True:
-        if direction == "back":
-            direction = normalise_input(player.last_room)
-            if len(direction) > 1:
-                cmd_changed = direction[0] + "_" + direction[1]
-                del direction[0:len(direction)-1]
-                direction[0] = cmd_changed
-            return direction[0]
+        if direction == "back" :
+            if player.last_room:
+                direction = player.last_room[len(player.last_room) - 1]
+                if len(direction) > 1:
+                    cmd_changed = direction[0] + "_" + direction[1]
+                    # del direction[0:len(direction)-1]
+                    direction[0] = cmd_changed
+                    del player.last_room[len(player.last_room)-1]
+                    print(player.last_room)
+                return direction[0]
+            else:
+                print("There is nowhere to go back!")
+                break
         else:
             if is_valid_exit(exits, direction):
+                player.last_room.append(normalise_input(player.current_room["name_ID"]))
                 return direction
             else:
                 cmd = random.randint(0, 3)
@@ -206,15 +213,11 @@ def command_go_superior(exits, in_room, cmd):
                     direction = command_go(exits, cmd[1])
                     if direction in rooms[in_room]["exits"]:
                         return direction
-                    elif cmd[1] == "back":
-                        print("I cannot go back.")
                     break
                 elif cmd[0] in rooms[in_room]["exits"] or cmd[0] == "back":
                     direction = command_go(exits, cmd[0])
                     if direction in rooms[in_room]["exits"]:
                         return direction
-                    elif cmd[0] == "back":
-                        print("I cannot go back.")
                     break
                 else:
                     while True:

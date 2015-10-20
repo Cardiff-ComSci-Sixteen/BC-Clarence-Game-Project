@@ -13,7 +13,7 @@ armor = 0
 is_naked = 0
 
 # Whenever the player moves to a new room, last_room is changed to the previous one so that the player can use "go back" to go back
-last_room = "None"
+last_room = []
 
 # Updates the room the player is currently in (happens before room is displayed)
 current_room = rooms["Wrecked Ship"]

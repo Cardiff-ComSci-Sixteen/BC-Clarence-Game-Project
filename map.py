@@ -36,8 +36,8 @@ hangar_1 = {
                     "\nHairs on the back of your neck stand strong as you feel like your not the only one"
                     "\nHere. You shout 'Hello!!', but get no response.",
 
-    "exits": OrderedDict([("wrecked_ship", "Wrecked Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
-("vehicle_storage", "Vehicle Storage"), ("crew_quarters", "Crew Quarters")]),
+    "exits": {"crew_quarters": "Crew Quarters", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
+                          "vehicle_storage": "Vehicle Storage", "wrecked_ship": "Wrecked Ship"},
 
     "items": [],
 
@@ -53,8 +53,7 @@ hangar_2 = {
                     "\nsimilar to Hangar #1 except, it is not very badly damaged, the"
                     "\nmain door is also closed and there is a fighter docked here.",
 
-    "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance",
-              "vehicle_storage": "Vehicle Storage"},
+    "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance", "vehicle_storage": "Vehicle Storage"},
 
     "items": [],
 
@@ -70,8 +69,8 @@ vehicle_maintenance = {
                     "\npower lifters smashed together. You also notice a pools of blood near"
                     "\nto where to lifter are, but no bodies.",
 
-    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
-              "power_generator": "Power Generator"},
+    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "power_generator": "Power Generator",
+                          "vehicle_storage": "Vehicle Storage"},
 
     "objects": [object_powerlifter, object_damagedfighters],
 
@@ -85,8 +84,8 @@ vehicle_storage = {
     "description":  "You enter the Vehicle Storage, there is not much to see in here"
                     "\nother than some fighters and bombers that kind of look like H's.",
 
-    "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
-              "crew_quarters": "Crew Quarters"},
+    "exits": {"crew_quarters": "Crew Quarters", "hangar_1": "Hangar 1", "hangar_2": "Hangar 2",
+               "vehicle_maintenance": "Vehicle Maintenance"},
 
     "items": [],
 
