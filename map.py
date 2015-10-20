@@ -102,7 +102,7 @@ crew_quarters = {
                     "\nbunkbeds.",
 
     "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
-              "room_5": "Room 5", "detention_centre": "Detention Centre", "med_bay": "Med Bay"},
+              "room_5": "Room 5", "detention_centre": "Detention Centre", "med_bay": "Med Bay", "hangar_1": "Hangar 1"},
 
     "items": [item_vodka],
 
@@ -188,7 +188,7 @@ officer_deck = {
                     "\na dead body with keys to the Detention Centre.",
 
     "exits": {"engineering": "Main Engineering", "weapons_control": "Weapons Control",
-              "bridge": "Bridge", "systems_control": "Systems Control"},
+              "bridge": "Bridge", "systems_control": "Systems Control", "med_bay": "Med Bay"},
 
     "items": [armor_heavyarmour2, item_keyD],
 
