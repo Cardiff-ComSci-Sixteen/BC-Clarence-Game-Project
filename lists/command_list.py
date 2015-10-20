@@ -133,6 +133,33 @@ def is_valid_exit(exits, user_input):
         return False
 
 
+def exit_leads_to(exits, direction):
+    if direction not in exits:
+        return 0
+    return exits[direction]
+
+
+def print_menu_line(leads_to):
+    if leads_to == 0:
+        return 0
+    else:
+        return leads_to
+
+
+def print_menu(exits):
+    print("\n┌-----┐")
+    print("╣EXITS│")
+    print("└-----┘")
+    exit_list = []
+    for ch in rooms[player.in_room]["exits"]:
+        if ch not in exits:
+            pass
+        else:
+            exit_list.append(ch)
+            print(print_menu_line(rooms[exit_leads_to(exits, ch)]["name"]))
+    return exit_list
+
+
 # Actually returns the direction.
 def command_go(exits, direction):
     while True:
@@ -587,3 +614,17 @@ def print_room(room):
     print(room["description"])
     print()
     print_room_items(room)
+
+
+def game_over():
+    print("Game Over!\n")
+    input("Press Enter to exit the game.")
+    quit()
+    # user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
+    # while True:
+    #     if user_input.strip() == "quit":
+    #         return True
+    #     elif user_input.strip() == "new":
+    #         return False
+    #     else:
+    #         user_input = input("Type 'quit' or 'new': ")

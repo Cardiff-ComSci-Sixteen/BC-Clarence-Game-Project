@@ -152,7 +152,7 @@ def event_update():
 
 
 # Events checked each time you give input
-def input_event_update(user_input):
+def input_event_update(user_input, exits):
     if (user_input == ['eat', 'biscuits'] or user_input == ['eat', 'pack_biscuits'] or user_input == ['eat', 'pack']) and item_biscuits in inventory:
         inventory.remove(item_biscuits)
         print("You ate the biscuits and soon start feeling ill. As a result you lose 10 hp!")
@@ -160,6 +160,8 @@ def input_event_update(user_input):
         return True
     if user_input == ["battle"]:
         combat_system.main_fight(monster_kirill_minion)
+        print_room(player.current_room)
+        print_menu(exits)
         return True
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")

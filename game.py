@@ -57,33 +57,6 @@ def display_room(room):
     print_room_items(room)
 
 
-def exit_leads_to(exits, direction):
-    if direction not in exits:
-        return 0
-    return exits[direction]
-
-
-def print_menu_line(leads_to):
-    if leads_to == 0:
-        return 0
-    else:
-        return leads_to
-
-
-def print_menu(exits):
-    print("\n┌-----┐")
-    print("╣EXITS│")
-    print("└-----┘")
-    exit_list = []
-    for ch in rooms[player.in_room]["exits"]:
-        if ch not in exits:
-            pass
-        else:
-            exit_list.append(ch)
-            print(print_menu_line(rooms[exit_leads_to(exits, ch)]["name"]))
-    return exit_list
-
-
 def is_valid_command(user_input):
     if user_input in commands:
         return True
@@ -164,7 +137,7 @@ def command_execute(exits):
                                 print("There is no charge in the scanner at the moment. I need to recharge it somehow.")
                         else:
                             print("I need something to scan this with!")
-                elif events.input_event_update(cmd):
+                elif events.input_event_update(cmd, exits):
                     pass
                 else:
                     i = random.randint(0, len(command_unknown) - 1)

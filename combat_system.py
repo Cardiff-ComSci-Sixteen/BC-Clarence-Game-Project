@@ -1,6 +1,7 @@
 from random import randint
 from lists.command_list import normalise_input
 from lists.command_list import enter
+from lists.command_list import game_over
 from lists.feedback_lists import *
 import player
 
@@ -88,12 +89,13 @@ def move_prompt():
             attack_input = normalise_input(attack_input)
 
 
-def damage_dealt(weapon_input, enemy, hp):
+def damage_dealt(weapon_input, enemy):
     while True:
         print("\n-----========[BATTLE ROUND]========-----")
         if (enemy["dodge"] - randint(1, 100)) < 0:
-            damage = weapon_input["attributes"]["damage"] + randint(-8, 2)
-            hp -= damage
+            damage = weapon_input["attributes"]["damage"] + randint(-5, 3)
+            player.in_battle_enemy_hp -= damage
+            hp = player.in_battle_enemy_hp
             alpha = randint(0, 2)
             print()
             print(weapon_power_sword_attack[alpha])
@@ -101,6 +103,8 @@ def damage_dealt(weapon_input, enemy, hp):
             if hp <= 0:
                 print("With the last blow you deal to your opponent" +
                       "\nyou come out victorious as " + enemy["name"] + " is slain!")
+                print("\n---====[BATTLE OVER]====---")
+                enter()
                 return False
             else:
                 print(enemy["name"] + " is still alive.")
@@ -130,17 +134,19 @@ def damage_got(enemy):
 
 
 def main_fight(enemy):
-    hp = enemy["hp"]
+    player.in_battle_enemy_hp = enemy["hp"]
     print()
     print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
     print()
     print("You must fight " + enemy["name"] + " to proceed with the game.")
-    while hp >= 1:
+    while player.in_battle_enemy_hp >= 1:
         move = move_prompt()
         if move == 1:
             weapon_choice = valid_weapon()
             # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-            if damage_dealt(weapon_choice, enemy, hp):
+            if damage_dealt(weapon_choice, enemy):
                 print()
                 damage_got(enemy)
+                if player.hp <= 0:
+                    game_over()
                 enter()
