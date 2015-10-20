@@ -117,7 +117,7 @@ weapon_saber = {
     "The weapon consisted of a blade of pure plasma emitted from the hilt and suspended in a force containment field.\n"
     "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape."
 
-    "attributes": {"damage": }
+    "attributes": {"damage": 40}
 }
 
 weapon_blaster = {
@@ -131,4 +131,6 @@ weapon_blaster = {
 
     "description":
     "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy, "
+
+    "attributes": {"damage": 30}
 }
