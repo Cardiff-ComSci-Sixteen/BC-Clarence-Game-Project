@@ -1,5 +1,6 @@
 from lists.command_list import *
 import combat_system
+from items.monsters import *
 
 def player_name():
     player.player_name = input("What is your name? ")
@@ -161,7 +162,8 @@ def input_event_update(user_input):
         player.hp -= 10
         return True
     if user_input == ["battle"]:
-        combat_system.main_fight()
+        monster_kirill_minion["hp"] = 100
+        combat_system.main_fight(monster_kirill_minion)
         return True
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")

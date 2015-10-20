@@ -9,7 +9,9 @@ armor_basic_spacesuit = {
     "name": "a basic spacesuit",
 
     "description":
-    "Just a simple spacesuit to prevent me from dying out in the open and cold space."
+    "Just a simple spacesuit to prevent me from dying out in the open and cold space.",
+
+    "attributes": {"armor": 2}
 
 }
 
@@ -24,7 +26,9 @@ armor_basic_armor = {
 
     "description":
     "This armor is nothing more than a couple of iron plates stuck together."
-    "\nIt can't hold against the pressure of space vacuum for a long time."
+    "\nIt can't hold against the pressure of space vacuum for a long time.",
+
+    "attributes": {"armor": 5}
 }
 
 armor_lightarmour1 = {

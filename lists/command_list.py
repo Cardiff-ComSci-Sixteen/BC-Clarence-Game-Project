@@ -290,6 +290,7 @@ def command_stats(room):
     print("Items: " + str(len(inventory)))
     print("Room: " + room)
     print("Score: " + str(player.score))
+    print("Armor: " + str(player.armor))
 
 
 def item_class(item):
@@ -517,6 +518,8 @@ def update_player_stats():
     player.weight = 0
     for item in inventory:
         player.weight = player.weight + item["weight"]
+        if item["class"] == 2:
+            player.armor = player.armor + item["attributes"]["armor"]
 
 
 def print_room(room):

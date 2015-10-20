@@ -7,6 +7,7 @@ hp = 100
 weight = 0
 inventory = []
 score = 0
+armor = 0
 
 is_naked = 0
 

@@ -2,7 +2,6 @@ from random import randint
 from lists.command_list import normalise_input
 from lists.feedback_lists import *
 import player
-import player
 
 # def list_of_weapons():
 
@@ -42,59 +41,72 @@ def valid_weapon():
                     print("You have chosen " + weapon["name"] + "!")
                     print("It has got " + str(weapon["attributes"]["damage"]) + " base damage!\n")
                     return weapon
-        print("You have not entered a valid weapon name from the list!")
+            print("You have not entered a valid weapon name from the list!")
 
 
-def damage_dealt(weapon_input, attack_input):
+def damage_dealt(weapon_input, attack_input, enemy):
     while True:
         if "attack" in attack_input:
-            damage = weapon_input["attributes"]["damage"] + randint(-8, 2)
-            player.enemy["HP"] -= damage
-            alpha = randint(0, 2)
-            print()
-            print(weapon_power_sword_attack[alpha])
-            print()
-            if player.enemy["HP"] <= 0:
-                print("With the last blow you deal to " + player.enemy["Name"] +
-                      "\nyou come out victorious as " + player.enemy["Name"] + " is slain!")
-                return False
+            print("\n-------------------------------------------------")
+            if (enemy["dodge"] - randint(1, 100)) < 0:
+                damage = weapon_input["attributes"]["damage"] + randint(-8, 2)
+                enemy["hp"] -= damage
+                alpha = randint(0, 2)
+                print()
+                print(weapon_power_sword_attack[alpha])
+                print()
+                if enemy["hp"] <= 0:
+                    print("With the last blow you deal to your opponent" +
+                          "\nyou come out victorious as " + enemy["name"] + " is slain!")
+                    return False
+                else:
+                    print(enemy["name"] + " is still alive.")
+                    print(str(enemy["hp"]) + " HP Left.")
+                    return True
             else:
-                print(player.enemy["Name"] + " is still alive.")
-                print(str(player.enemy["HP"]) + " HP Left.")
+                print("Your opponent dodges your attack.")
                 return True
         elif "defend" in attack_input:
             print("There is no point defending yourself, go all out attack!!")
             attack_input = input("Would you like to attack or defend?: ")
             attack_input = normalise_input(attack_input)
+        elif "quit" in attack_input:
+            quit()
         else:
             attack_input = input("You need to choose either 'attack' or 'defend': ")
             attack_input = normalise_input(attack_input)
 
 
-def damage_got():
-    print(player.enemy["Name"] + " swings at you with his spoon with extreme aggression.")
-    damage = randint(4, 20)
-    player.hp += - damage
-    if player.hp <= 0:
-        print(player.player_name + " has been killed.")
+def damage_got(enemy):
+    e_w_r = randint(0, len(enemy["weapon"]) - 1)
+    print(enemy["name"] + " " + enemy["weapon"][e_w_r]["description"])
+    if (enemy["weapon"][e_w_r]["accuracy"] - randint(1, 100)) >= 0:
+        damage = enemy["weapon"][e_w_r]["damage"] - randint(0, enemy["weapon"][e_w_r]["damage"] - enemy["weapon"][e_w_r]["damage_bottom"])
+        if damage > player.armor:
+            player.hp -= damage
+            if player.hp <= 0:
+                print(player.player_name + " has been killed by " + enemy["name"])
+            else:
+                print(player.player_name + " is still alive.")
+                print(str(player.hp) + " HP Left.")
+        else:
+            print("Your armor has deflected the entire opponent's damage!")
     else:
-        print(player.player_name + " is still alive.")
-        print(str(player.hp) + " HP Left.")
+        print("Due to your opponent being rather inaccurate, their attack misses you.")
 
 
-def main_fight():
+def main_fight(enemy):
     print()
-    print("You have stumbled across " + player.enemy["Name"] + " and he does not look a happy bunny.")
+    print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
     print()
-    print("You must fight " + player.enemy["Name"] + " to proceed with the game.")
+    print("You must fight " + enemy["name"] + " to proceed with the game.")
     print()
     print_list_of_weapons()
-    while player.enemy["HP"] >= 1:
+    while enemy["hp"] >= 1:
         weapon_choice = valid_weapon()
-        # weapons()
         attack_input = input("Would you like to attack or defend?: ")
         attack_input = normalise_input(attack_input)
         # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-        if damage_dealt(weapon_choice, attack_input):
+        if damage_dealt(weapon_choice, attack_input, enemy):
             print()
-            damage_got()
+            damage_got(enemy)

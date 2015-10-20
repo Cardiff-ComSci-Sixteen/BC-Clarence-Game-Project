@@ -75,5 +75,5 @@ scanner_deny = ["The scanner does not show anything.",
                 "It says 'no new information found'."]
 
 weapon_power_sword_attack = ["You swing your sword with fierce force in for a successful strike!",
-                             "You charge at the enemy, swinging your Power Sword at the enemy!",
+                             "You charge at the enemy, swinging your Power Sword at them!",
                              "You spin 360 degrees with your Power Sword, striking the enemy!"]
