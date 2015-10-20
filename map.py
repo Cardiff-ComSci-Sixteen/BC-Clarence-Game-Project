@@ -21,9 +21,9 @@ wrecked_ship = {
 
     "exits": {"hangar_1": "Hangar 1"},
 
-    "objects": [object_board_AI, object_ceiling, object_wrecked_ship],
+    "objects": [object_board_AI, object_ceiling],
 
-    "items": [item_scanner]
+    "items": []
 
 }
 
@@ -39,7 +39,7 @@ hangar_1 = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_wrecked_ship]
 }
 
 hangar_2 = {
@@ -53,7 +53,7 @@ hangar_2 = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_xfighter]
 }
 
 vehicle_maintenance = {
@@ -65,9 +65,9 @@ vehicle_maintenance = {
     "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
               "power_generator": "Power Generator"},
 
-    "objects": [],
+    "objects": [object_powerlifter, object_damagedfighters],
 
-    "items": []
+    "items": [weapon_pulse]
 }
 
 vehicle_storage = {
@@ -82,7 +82,7 @@ vehicle_storage = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_oddfighters]
 }
 
 crew_quarters = {
@@ -95,9 +95,9 @@ crew_quarters = {
     "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
               "room_5": "Room 5", "detention_centre": "Detention Centre"},
 
-    "items": [],
+    "items": [item_vodka],
 
-    "objects": []
+    "objects": [object_emptyvodka, object_bunks]
 }
 
 power_generator = {
@@ -112,7 +112,7 @@ power_generator = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_mainreactor]
 }
 
 power_control = {
@@ -126,7 +126,7 @@ power_control = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_powercontrol]
 }
 
 main_engineering = {
@@ -139,9 +139,9 @@ main_engineering = {
     "exits": {"power_generator": "Power Generator", "engine_room": "Engine Room",
               "weapons_control": "Weapons Control", "officer_deck": "Officer Deck"},
 
-    "items": [],
+    "items": [item_scanner],
 
-    "objects": []
+    "objects": [object_warpcore]
 }
 
 engine_room = {
@@ -170,7 +170,7 @@ weapons_control = {
 
     "items": [],
 
-    "objects": []
+    "objects": [object_weaponcontrol]
 }
 
 officer_deck = {
@@ -183,7 +183,7 @@ officer_deck = {
     "exits": {"main_engineering": "Main Engineering", "weapons_control": "Weapons Control",
               "bridge": "Bridge", "systems_control": "Systems Control"},
 
-    "items": [],
+    "items": [armor_heavyarmour2, item_keyD],
 
     "objects": []
 }
@@ -197,9 +197,9 @@ bridge = {
 
     "exits": {"officer_deck": "Officer Deck", "systems_control": "Systems Control"},
 
-    "items": [],
+    "items": [item_keyP],
 
-    "objects": []
+    "objects": [object_bridgecontrols, object_window]
 }
 
 systems_control = {
@@ -211,9 +211,9 @@ systems_control = {
 
     "exits": {"officer_deck": "Officer Deck", "bridge": "Bridge"},
 
-    "items": [],
+    "items": [item_biscuits],
 
-    "objects": []
+    "objects": [object_lifecontrols]
 }
 
 armory = {
@@ -225,7 +225,7 @@ armory = {
 
     "exits": {"weapons_control": "Weapons Control"},
 
-    "items": [],
+    "items": [weapon_phaser, weapon_saber, weapon_blaster, armor_lightarmour3, armor_heavyarmour3],
 
     "objects": []
 }
@@ -239,7 +239,7 @@ med_bay = {
 
     "exits": {"officer_deck": "Officer Deck", "crew_quarters": "Crew Quarters"},
 
-    "items": [],
+    "items": [item_medkit, item_medkit, item_medkit, weapon_sonicemitter],
 
     "objects": []
 }
@@ -253,7 +253,7 @@ room_5 = {
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": [],
+    "items": [armor_lightarmour2],
 
     "objects": []
 }
@@ -281,7 +281,7 @@ room_12 = {
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": [],
+    "items": [weapon_energysword],
 
     "objects": []
 }
@@ -295,7 +295,7 @@ room_203 = {
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": [],
+    "items": [item_coffee],
 
     "objects": []
 }
@@ -309,7 +309,7 @@ detention_centre = {
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
-    "items": [],
+    "items": [item_keyA],
 
     "objects": []
 }
