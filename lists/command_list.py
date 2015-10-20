@@ -464,14 +464,13 @@ def command_inspect(room, element, player_name, inventory):
                 else:
                     print("DEBUG_NOTICE: 'items' dict Key not in " + room["name_ID"])
                     break
-                if "room" in element or "rooms" in element:
-                    if "items" in element:
-                        print_room_items(room)
-                        break
-                    else:
-                        print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
-                        print_room_items(room)
-                        break
+                if "room_items" in element:
+                    print_room_items(room)
+                    break
+                if "room" in element:
+                    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
+                    print_room_items(room)
+                    break
                 if len(element) > 1:
                     element[0] = str(element[0]) + "_" + str(element[1])
                     element = element[:1]
@@ -591,6 +590,7 @@ def print_room_items(room):
 
 def update_player_stats():
     player.weight = 0
+    player.armor = 0
     for item in inventory:
         player.weight = player.weight + item["weight"]
         if item["class"] == 2:
