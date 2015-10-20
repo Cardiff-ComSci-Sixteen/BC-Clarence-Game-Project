@@ -53,7 +53,7 @@ weapon_pulse = {
     "name": "M41A Pulse Rifle",
 
     "description":
-    "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition."
+    "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition.",
 
     "attributes": {"damage": 26}
 }
@@ -68,7 +68,7 @@ weapon_energysword = {
     "name": "The Energy Sword",
 
     "description":
-    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade."
+    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade.",
 
     "attributes": {"damage": 22}
 }
@@ -84,7 +84,7 @@ weapon_sonicemitter = {
 
     "description":
     "The Soniic Emitter chassis is composed of a gray metallic tube outfitted with four vacuum tubes, a housing for a small energy cell, a conical muzzle,\n"
-    "and a rear-mounted oscilloscope, all attached to a pistol grip."
+    "and a rear-mounted oscilloscope, all attached to a pistol grip.",
 
     "attributes": {"damage": 50}
 }
@@ -99,7 +99,7 @@ weapon_phaser = {
     "name": "Phaser",
 
     "description":
-    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
+    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it",
 
     "attributes": {"damage": 20}
 }
@@ -115,7 +115,7 @@ weapon_saber = {
 
     "description":
     "The weapon consisted of a blade of pure plasma emitted from the hilt and suspended in a force containment field.\n"
-    "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape."
+    "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape.",
 
     "attributes": {"damage": 40}
 }
@@ -130,7 +130,7 @@ weapon_blaster = {
     "name": "The DL-44 Blaster Pistol",
 
     "description":
-    "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy, "
+    "The DL-44 was a powerful, highly modifiable and accurate blaster pistol. It packs a heavy punch compared to other pistols without losing accuracy",
 
     "attributes": {"damage": 30}
 }
