@@ -1,36 +1,3 @@
-
-armor_basic_spacesuit = {
-    "id": ["spacesuit", "basic_spacesuit", "suit"],
-
-    "class": 2,
-
-    "weight": 20,
-
-    "name": "a basic spacesuit",
-
-    "description":
-    "Just a simple spacesuit to prevent me from dying out in the open and cold space.",
-
-    "attributes": {"armor": 2}
-
-}
-
-armor_basic_armor = {
-    "id": ["basic_armor"],
-
-    "class": 2,
-
-    "weight": 20,
-
-    "name": "basic armor",
-
-    "description":
-    "This armor is nothing more than a couple of iron plates stuck together."
-    "\nIt can't hold against the pressure of space vacuum for a long time.",
-
-    "attributes": {"armor": 5}
-}
-
 armor_lightarmour1 = {
     "id": ["reconsuit", "recon_suit", "recon"],
 
@@ -42,6 +9,9 @@ armor_lightarmour1 = {
 
     "description":
     "This suit seems light enough for me to be able to dodge some attacks"
+
+    "attributes": {"armor": 2}
+
 
 }
 
@@ -56,6 +26,8 @@ armor_heavyarmour1 = {
 
     "description":
     "This suit is quite strong, I should be able to take a few more hits, but I can't move as fast"
+
+    "attributes": {"armor": 5}
 
 }
 
@@ -72,6 +44,8 @@ armor_lightarmour2 = {
     "This suit seems light enough for me to be able to dodge some attacks, it is also kinda of strong\n"
     "so I should be able to take some hits"
 
+    "attributes": {"armor": 6}
+
 }
 
 armor_heavyarmour2 = {
@@ -85,6 +59,8 @@ armor_heavyarmour2 = {
 
     "description":
     "This suit is strong, I should be able to take a more more hits, but I can't move that fast"
+
+    "attributes": {"armor": 10}
 
 }
 
@@ -101,6 +77,8 @@ armor_lightarmour3 = {
     "This suit seems very light I should be able to dodge most attacks, it is also kinda of strong\n"
     "so I should be able to take a few hits"
 
+    "attributes": {"armor": 9}
+
 }
 
 armor_heavyarmour3 = {
@@ -114,5 +92,7 @@ armor_heavyarmour3 = {
 
     "description":
     "This suit is very strong, I should be able to take a lots of hits, but I can't move that fast"
+
+    "attributes": {"armor": 13}
 
 }

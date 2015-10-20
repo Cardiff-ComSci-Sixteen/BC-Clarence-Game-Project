@@ -112,16 +112,16 @@ def post_intro_prompt():
         else:
             weapon_choice = input("Type 1, 2 or 3 to select weapon. ")
     print("\nPick armor: ")
-    print("1. Basic Spacesuit")
-    print("2. Basic Armor")
+    print("1. Recon Suit")
+    print("2. Engineering Suit")
     print("3. No Clothing")
     armor_choice = input()
     while True:
         if armor_choice == "1":
-            inventory.append(armor_basic_spacesuit)
+            inventory.append(armor_lightarmour1)
             break
         if armor_choice == "2":
-            inventory.append(armor_basic_armor)
+            inventory.append(armor_heavyarmour1)
             break
         if armor_choice == "3":
             player.is_naked = 1
