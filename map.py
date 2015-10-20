@@ -32,7 +32,9 @@ hangar_1 = {
 
     "name": "Hangar #1",
 
-    "description": """needs description2""",
+    "description":  "Stepping foot into Hangar #1, you can see it has been abandoned, silence everywhere."
+                    "\nHairs on the back of your neck stand strong as you feel like your not the only one"
+                    "\nHere. You should 'Hello!!', but get no response.",
 
     "exits": OrderedDict([("wrecked_ship", "Wrecked Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
 ("vehicle_storage", "Vehicle Storage")]),
@@ -46,7 +48,10 @@ hangar_2 = {
     "name_ID": "Hangar 2",
     "name": "Hangar #2",
 
-    "description": """needs description3""",
+    "description":  "You walk into Hangar #2, it also to appears to be on emergancy"
+                    "\npower, so can't see very much. From what you can see, it is very"
+                    "\nsimilar to Hangar #1 except, it is not very badly damaged, the"
+                    "\nmain door is also closed and there is a fighter docked here.",
 
     "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance",
               "vehicle_storage": "Vehicle Storage"},
@@ -60,7 +65,10 @@ vehicle_maintenance = {
     "name_ID": "Vehicle Maintenance",
     "name": "Vehicle Maintenance",
 
-    "description": """needs description4""",
+    "description":  "When you walk into Vehicle Maintence you immediately notice several"
+                    "\nheavly damaged fighters. It is very chaotic, with what appears to be"
+                    "\npower lifters smashed together. You also notice a pools of blood near"
+                    "\nto where to lifter are, but no bodies.",
 
     "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_storage": "Vehicle Storage",
               "power_generator": "Power Generator"},
@@ -74,8 +82,8 @@ vehicle_storage = {
     "name_ID": "Vehicle Storage",
     "name": "Vehicle Storage",
 
-    "description":
-    """needs description5""",
+    "description":  "You enter the Vehicle Storage, there is not much to see in here"
+                    "\nother than some fighters and bombers that kind of look like H's.",
 
     "exits": {"hangar_1": "Hangar 1", "hangar_2": "Hangar 2", "vehicle_maintenance": "Vehicle Maintenance",
               "crew_quarters": "Crew Quarters"},
@@ -89,8 +97,9 @@ crew_quarters = {
     "name_ID": "Crew Quarters",
     "name": "Crew Quarters",
 
-    "description":
-    """needs description6""",
+    "description":  "You are in the Crew Quarters, you notice that there is a few empty"
+                    "\nvodka bottles on a table with one full one. There is also lots of"
+                    "\nbunkbeds.",
 
     "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
               "room_5": "Room 5", "detention_centre": "Detention Centre"},
@@ -104,8 +113,7 @@ power_generator = {
     "name_ID": "Power Generator",
     "name": "Power Generator",
 
-    "description":
-    """needs description7""",
+    "description": "As you enter the Power Generator you see a large reactor, and a few radation suits.",
 
     "exits": {"crew_quarters": "Crew Quarters", "vehicle_maintenance": "Vehicle Maintenance",
               "power_control": "Power Control", "main_engineering": "Main Engineering"},
@@ -119,8 +127,7 @@ power_control = {
     "name_ID": "Power Control",
     "name": "Power Control",
 
-    "description":
-    """needs description8""",
+    "description": "You are in Power Control there is a large console in here, and some hard hats.",
 
     "exits": {"power_generator": "Power Generator"},
 
@@ -133,8 +140,9 @@ main_engineering = {
     "name_ID": "Main Engineering",
     "name": "Main Engineering",
 
-    "description":
-    """needs description9""",
+    "description":  "When you enter Main Engineering you are greeted by quiet hum, which you"
+                    "\nrealise is the warp core for the ship. As you wander further into Main"
+                    "\nEngineering you see what appears to be some sort of scanner on a console.",
 
     "exits": {"power_generator": "Power Generator", "engine_room": "Engine Room",
               "weapons_control": "Weapons Control", "officer_deck": "Officer Deck"},
@@ -148,8 +156,7 @@ engine_room = {
     "name_ID": "Engine Room",
     "name": "Engine Room",
 
-    "description":
-    """needs description10""",
+    "description": "You are in the engine room, there is not much in here other than large cooling tanks.",
 
     "exits": {"main_engineering": "Main Engineering"},
 
@@ -162,8 +169,8 @@ weapons_control = {
     "name_ID": "Weapons Control",
     "name": "Weapons Control",
 
-    "description":
-    """needs description10""",
+    "description":  "You are in Weapons control, other than the large number of terminals, there is"
+                    "\nnot much to see.",
 
     "exits": {"main_engineering": "Main Engineering", "armory": "Armory",
               "officer_deck": "Officer Deck"},
@@ -177,8 +184,8 @@ officer_deck = {
     "name_ID": "Officer Deck",
     "name": "Officer Deck",
 
-    "description":
-    """needs description10""",
+    "description":  "You enter the Officers Deck, there is what appears to be a large meeting table and"
+                    "\na dead body with keys to the Detention Centre.",
 
     "exits": {"main_engineering": "Main Engineering", "weapons_control": "Weapons Control",
               "bridge": "Bridge", "systems_control": "Systems Control"},
@@ -192,8 +199,8 @@ bridge = {
     "name_ID": "Bridge",
     "name": "Bridge",
 
-    "description":
-    """needs description10""",
+    "description":  "When you walk into the Bridge, you are greeted with a full view of the outside of the ship."
+                    "\nThere a large window here and lots of control panels.",
 
     "exits": {"officer_deck": "Officer Deck", "systems_control": "Systems Control"},
 
@@ -206,8 +213,7 @@ systems_control = {
     "name_ID": "Systems Control",
     "name": "Systems Control",
 
-    "description":
-    """needs description10""",
+    "description": "You are in life support, there are lots of small consoles with one large one in the middle of the room.",
 
     "exits": {"officer_deck": "Officer Deck", "bridge": "Bridge"},
 
@@ -220,8 +226,9 @@ armory = {
     "name_ID": "Armory",
     "name": "Armory",
 
-    "description":
-    """needs description10""",
+    "description":  "You are in the armory, there are lots of weapons and armour in here, but only a few catch"
+                    "\nyour eye; a phaser, a blaster pistol, a chainsword, power armour, heavy space suit and a"
+                    "\ncylindrical object.",
 
     "exits": {"weapons_control": "Weapons Control"},
 
@@ -234,8 +241,7 @@ med_bay = {
     "name_ID": "Med Bay",
     "name": "Med Bay",
 
-    "description":
-    """needs description10""",
+    "description": "You enter the med-bay, there are lots of medical beds. You also notice a pile of what look like med kits.",
 
     "exits": {"officer_deck": "Officer Deck", "crew_quarters": "Crew Quarters"},
 
@@ -248,8 +254,7 @@ room_5 = {
     "name_ID": "Room 5",
     "name": "Room 5",
 
-    "description":
-    """needs description10""",
+    "description": "As you enter Room 5 you notice that there is blood everywhere, but no body.",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
@@ -262,8 +267,7 @@ room_139 = {
     "name_ID": "Room 139",
     "name": "Room 139",
 
-    "description":
-    """needs description10""",
+    "description": "Congratulations, you have found a secret, however there is nothing here. -_-",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
@@ -276,8 +280,7 @@ room_12 = {
     "name_ID": "Room 12",
     "name": "Room 12",
 
-    "description":
-    """needs description10""",
+    "description": "You enter Room 12, there is a large bed, console, some fish tanks and an offical looking jacket.",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
@@ -290,8 +293,7 @@ room_203 = {
     "name_ID": "Room 203",
     "name": "Room 203",
 
-    "description":
-    """needs description10""",
+    "description": "You are in Room 203, there is a cup of coffee here and some biscuits.",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
@@ -304,8 +306,7 @@ detention_centre = {
     "name_ID": "Detention Centre",
     "name": "Detention Centre",
 
-    "description":
-    """needs description10""",
+    "description": "You have entered the Detention Centre, there is a very off putting smell in here and lots of pools of blood.",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 
