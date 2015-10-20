@@ -4,7 +4,7 @@ from random import randint
 
 # Variables are dynamic - they change as the game progresses.
 player_name = ""
-hp = 100
+hp = 20
 weight = 0
 inventory = []
 score = 0

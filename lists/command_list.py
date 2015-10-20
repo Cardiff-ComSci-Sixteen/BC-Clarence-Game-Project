@@ -616,15 +616,19 @@ def print_room(room):
     print_room_items(room)
 
 
-def game_over():
-    print("Game Over!\n")
-    input("Press Enter to exit the game.")
-    quit()
-    # user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
-    # while True:
-    #     if user_input.strip() == "quit":
-    #         return True
-    #     elif user_input.strip() == "new":
-    #         return False
-    #     else:
-    #         user_input = input("Type 'quit' or 'new': ")
+class GameOver(Exception):
+    pass
+
+
+def game_over_prompt():
+
+    print("GAME OVER")
+    print()
+    user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
+    while True:
+        if user_input.strip() == "quit":
+            return "quit"
+        elif user_input.strip() == "new":
+            return "new"
+        else:
+            user_input = input("Type 'quit' or 'new': ")

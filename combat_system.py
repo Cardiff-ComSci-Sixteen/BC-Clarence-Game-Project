@@ -1,7 +1,7 @@
 from random import randint
 from lists.command_list import normalise_input
 from lists.command_list import enter
-from lists.command_list import game_over
+from lists.command_list import GameOver
 from lists.feedback_lists import *
 import player
 
@@ -148,5 +148,5 @@ def main_fight(enemy):
                 print()
                 damage_got(enemy)
                 if player.hp <= 0:
-                    game_over()
+                    raise GameOver
                 enter()

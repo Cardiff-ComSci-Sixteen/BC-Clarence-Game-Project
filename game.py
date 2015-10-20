@@ -12,22 +12,22 @@ import events
 def loading(rate):
     a = 0
     b = random.randint(0, 10)
+    rate_ratio = rate/100
     while a < 100:
             if a > (15 - b):
-                rate = 80
+                rate = 80*rate_ratio
                 if a > (25 + b):
-                    rate = 75
+                    rate = 75*rate_ratio
                     if a > (50 - b):
-                        rate = 20
+                        rate = 20*rate_ratio
                         if a > (70 - b/2):
-                            rate = 150
+                            rate = 150*rate_ratio
                             if a > (80 - b):
-                                rate = 50
+                                rate = 50*rate_ratio
             seconds = random.randint(1, rate)
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
             time.sleep(seconds/1000)
-# loading(100)
 
 
 def remove_punct(text):
@@ -183,4 +183,17 @@ def main():
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]
         events.event_update()
-main()
+
+loading(100)
+
+while True:
+    try:
+        main()
+    except GameOver:
+        a = game_over_prompt()
+        if a == "quit":
+            quit()
+        else:
+            print("\n" * 20)
+            print("Starting a new game!\n")
+            loading(30)
