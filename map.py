@@ -116,7 +116,7 @@ power_generator = {
     "description": "As you enter the Power Generator you see a large reactor, and a few radation suits.",
 
     "exits": {"crew_quarters": "Crew Quarters", "vehicle_maintenance": "Vehicle Maintenance",
-              "power_control": "Power Control", "main_engineering": "Main Engineering"},
+              "power_control": "Power Control", "engineering": "Main Engineering"},
 
     "items": [],
 
@@ -136,7 +136,7 @@ power_control = {
     "objects": [object_powercontrol]
 }
 
-main_engineering = {
+engineering = {
     "name_ID": "Main Engineering",
     "name": "Main Engineering",
 
@@ -158,7 +158,7 @@ engine_room = {
 
     "description": "You are in the engine room, there is not much in here other than large cooling tanks.",
 
-    "exits": {"main_engineering": "Main Engineering"},
+    "exits": {"engineering": "Main Engineering"},
 
     "items": [],
 
@@ -172,7 +172,7 @@ weapons_control = {
     "description":  "You are in Weapons control, other than the large number of terminals, there is"
                     "\nnot much to see.",
 
-    "exits": {"main_engineering": "Main Engineering", "armory": "Armory",
+    "exits": {"engineering": "Main Engineering", "armory": "Armory",
               "officer_deck": "Officer Deck"},
 
     "items": [],
@@ -187,7 +187,7 @@ officer_deck = {
     "description":  "You enter the Officers Deck, there is what appears to be a large meeting table and"
                     "\na dead body with keys to the Detention Centre.",
 
-    "exits": {"main_engineering": "Main Engineering", "weapons_control": "Weapons Control",
+    "exits": {"engineering": "Main Engineering", "weapons_control": "Weapons Control",
               "bridge": "Bridge", "systems_control": "Systems Control"},
 
     "items": [armor_heavyarmour2, item_keyD],
@@ -327,7 +327,7 @@ rooms = {
     "Crew Quarters": crew_quarters,
     "Power Generator": power_generator,
     "Power Control": power_control,
-    "Main Engineering": main_engineering,
+    "Main Engineering": engineering,
     "Engine Room": engine_room,
     "Weapons Control": weapons_control,
     "Officer Deck": officer_deck,
