@@ -37,7 +37,7 @@ hangar_1 = {
                     "\nHere. You should 'Hello!!', but get no response.",
 
     "exits": OrderedDict([("wrecked_ship", "Wrecked Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
-("vehicle_storage", "Vehicle Storage")]),
+("vehicle_storage", "Vehicle Storage"), ("crew_quarters", "Crew Quarters")]),
 
     "items": [],
 
@@ -102,7 +102,7 @@ crew_quarters = {
                     "\nbunkbeds.",
 
     "exits": {"vehicle_storage": "Vehicle Storage", "power_generator": "Power Generator", "room_203": "Room 203", "room_12": "Room 12", "room_139": "Room 139",
-              "room_5": "Room 5", "detention_centre": "Detention Centre"},
+              "room_5": "Room 5", "detention_centre": "Detention Centre", "med_bay": "Med Bay"},
 
     "items": [item_vodka],
 

@@ -100,7 +100,7 @@ item_note = {
 }
 
 item_keyA = {
-    "id": ["keyA", "armory_key_card", "armorykeycard"],
+    "id": ["keyA", "armory_key_card", "armorykeycard", "armory key card"],
 
     "class": 4,
 
