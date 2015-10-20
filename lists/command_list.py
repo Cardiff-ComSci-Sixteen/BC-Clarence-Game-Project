@@ -23,6 +23,43 @@ skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at'
               'wish', 'with', 'would']
 
 
+# Combines the user's input keywords into one variable to be parsed to the commands themselves
+def input_combine(cmd):
+    if len(cmd) < 3:
+        pass
+    elif len(cmd) >= 5:
+        cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3] + "_" + cmd[4]
+        del cmd[1:len(cmd) - 1]
+        cmd[1] = cmd_combined
+    elif len(cmd) >= 4:
+        cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3]
+        del cmd[1:len(cmd) - 1]
+        cmd[1] = cmd_combined
+    elif len(cmd) >= 3:
+        cmd_combined = cmd[1] + "_" + cmd[2]
+        del cmd[1:len(cmd) - 1]
+        cmd[1] = cmd_combined
+    return cmd
+
+
+def input_combine_commands(cmd):
+    if len(cmd) < 2:
+        pass
+    elif len(cmd) >= 4:
+        cmd_combined = cmd[0] + "_" + cmd[1] + "_" + cmd[2] + "_" + cmd[3]
+        del cmd[0:len(cmd) - 1]
+        cmd[0] = cmd_combined
+    elif len(cmd) >= 3:
+        cmd_combined = cmd[0] + "_" + cmd[1] + "_" + cmd[2]
+        del cmd[0:len(cmd) - 1]
+        cmd[0] = cmd_combined
+    elif len(cmd) >= 2:
+        cmd_combined = cmd[0] + "_" + cmd[1]
+        del cmd[0:len(cmd) - 1]
+        cmd[0] = cmd_combined
+    return cmd
+
+
 # Turns all input to a simple string of ONLY lowercase letters.
 def normalise_input(user_input):
     """
@@ -212,8 +249,10 @@ def command_take(player_name, room, item):
                     item = normalise_input(item)
                     if "take" in item:
                         item.remove("take")
+                        input_combine_commands(item)
                         break
                     else:
+                        input_combine_commands(item)
                         break
         elif len(item) > 0:
             for a in rooms[room]["items"]:
@@ -252,8 +291,10 @@ def command_drop(player_name, room, item):
                     item = normalise_input(item)
                     if "drop" in item:
                         item.remove("drop")
+                        input_combine_commands(item)
                         break
                     else:
+                        input_combine_commands(item)
                         break
         elif len(item) > 0:
             if "bass" in item:
@@ -332,8 +373,6 @@ def scan_element(room, element, player_name, inventory):
                             a = random.randint(0, 2)
                             print(scanner_deny[a])
                             return 1
-                        # print()
-                        # print(item["name"].upper() + ":")
                         print()
                         print(item["description_scan"])
                         return 1
@@ -344,8 +383,6 @@ def scan_element(room, element, player_name, inventory):
                             a = random.randint(0, 2)
                             print(scanner_deny[a])
                             return 1
-                        # print()
-                        # print(item["name"].upper() + ":")
                         print()
                         print(item["description_scan"])
                         return 1
@@ -356,8 +393,6 @@ def scan_element(room, element, player_name, inventory):
                             a = random.randint(0, 2)
                             print(scanner_deny[a])
                             return 1
-                        # print()
-                        # print(item["name"].upper() + ":")
                         print()
                         print(item["description_scan"])
                         return 1
@@ -374,11 +409,13 @@ def scan_element(room, element, player_name, inventory):
                         element = normalise_input(element)
                         if "scan" in element:
                             element.remove("scan")
+                            input_combine_commands(element)
                             break
                         else:
                             for alpha in commands_aliases:
                                 if alpha in element:
                                     element.remove(alpha)
+                            input_combine_commands(element)
                             break
             else:
                 print("I need something to scan this with!")
@@ -442,11 +479,13 @@ def command_inspect(room, element, player_name, inventory):
                         element = normalise_input(element)
                         if "inspect" in element:
                             element.remove("inspect")
+                            input_combine_commands(element)
                             break
                         else:
                             for alpha in commands_aliases:
                                 if alpha in element:
                                     element.remove(alpha)
+                            input_combine_commands(element)
                             break
 # Function gets the current state of the room.
 

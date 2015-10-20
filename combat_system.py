@@ -44,24 +44,28 @@ def valid_weapon():
             print("You have not entered a valid weapon name from the list!")
 
 
-def damage_dealt(weapon_input, attack_input, enemy):
+def reset_enemy_hp(enemy, health):
+    enemy["hp"] = health
+
+
+def damage_dealt(weapon_input, attack_input, enemy, hp):
     while True:
         if "attack" in attack_input:
             print("\n-------------------------------------------------")
             if (enemy["dodge"] - randint(1, 100)) < 0:
                 damage = weapon_input["attributes"]["damage"] + randint(-8, 2)
-                enemy["hp"] -= damage
+                hp -= damage
                 alpha = randint(0, 2)
                 print()
                 print(weapon_power_sword_attack[alpha])
                 print()
-                if enemy["hp"] <= 0:
+                if hp <= 0:
                     print("With the last blow you deal to your opponent" +
                           "\nyou come out victorious as " + enemy["name"] + " is slain!")
                     return False
                 else:
                     print(enemy["name"] + " is still alive.")
-                    print(str(enemy["hp"]) + " HP Left.")
+                    print(str(hp) + " HP Left.")
                     return True
             else:
                 print("Your opponent dodges your attack.")
@@ -96,17 +100,18 @@ def damage_got(enemy):
 
 
 def main_fight(enemy):
+    hp = enemy["hp"]
     print()
     print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
     print()
     print("You must fight " + enemy["name"] + " to proceed with the game.")
     print()
     print_list_of_weapons()
-    while enemy["hp"] >= 1:
+    while hp >= 1:
         weapon_choice = valid_weapon()
         attack_input = input("Would you like to attack or defend?: ")
         attack_input = normalise_input(attack_input)
         # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-        if damage_dealt(weapon_choice, attack_input, enemy):
+        if damage_dealt(weapon_choice, attack_input, enemy, hp):
             print()
             damage_got(enemy)

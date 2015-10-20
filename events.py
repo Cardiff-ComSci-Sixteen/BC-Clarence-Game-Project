@@ -162,7 +162,6 @@ def input_event_update(user_input):
         player.hp -= 10
         return True
     if user_input == ["battle"]:
-        monster_kirill_minion["hp"] = 100
         combat_system.main_fight(monster_kirill_minion)
         return True
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":

@@ -108,20 +108,7 @@ def command_execute(exits):
             if len(cmd) >= 1:
                 # Checks if user input (command) is less or more than 3 words in length. If less, does nothing, if more, makes the second word
                 # the same as the second and third word combined, so if we have ["go", "hangar", "1"] it will give ["go", "hangar_1"]
-                if len(cmd) < 3:
-                    pass
-                elif len(cmd) >= 5:
-                    cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3] + "_" + cmd[4]
-                    del cmd[1:len(cmd) - 1]
-                    cmd[1] = cmd_combined
-                elif len(cmd) >= 4:
-                    cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3]
-                    del cmd[1:len(cmd) - 1]
-                    cmd[1] = cmd_combined
-                elif len(cmd) >= 3:
-                    cmd_combined = cmd[1] + "_" + cmd[2]
-                    del cmd[1:len(cmd) - 1]
-                    cmd[1] = cmd_combined
+                cmd = input_combine(cmd)
                 cmdn = cmd[0]
                 # Actually checks and executes the requested by the player command.
                 if is_valid_command(cmdn) or cmdn in commands_aliases or ((user_input.find("scan") >= 0) and (user_input.find("scanner") < 0)):
@@ -147,6 +134,7 @@ def command_execute(exits):
                     if cmdn == "inspect":
                         user_input = user_input.replace("inspect", "")
                         cmd = normalise_input(user_input)
+                        cmd = input_combine_commands(cmd)
                         command_inspect(rooms[player.in_room], cmd, player.player_name, inventory)
                         user_input = "a"
                     if cmdn == "quit":
@@ -158,6 +146,7 @@ def command_execute(exits):
                         for alpha in commands_aliases:
                             user_input = user_input.replace(alpha, "")
                         cmd = normalise_input(user_input)
+                        cmd = input_combine_commands(cmd)
                         power = item_scanner["attributes"]["power"]
                         if item_scanner in inventory:
                             if power >= 1:
@@ -205,9 +194,10 @@ def main():
     print()
 
     print("""IMPORTANT: Things to remove which are currently put just for testing purposes:"
-    - Security Suit from Hangar 1
+    - Security Suit, Detention Key, Scanner from Hangar 1
     - DEBUG NOTICE from menu()
     - This Message
+    - "battle" from events
           """)
 
     print("Hello " + player.player_name + "!")
