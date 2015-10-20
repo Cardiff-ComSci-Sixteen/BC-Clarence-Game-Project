@@ -658,10 +658,8 @@ def continue_from_save():
     while True:
         a = input().strip()
         if a == "1":
-            return True
+            return False
         elif a == "2":
-            load()
-            print("Game loaded from save file!")
             return True
         elif a == "3":
             quit()

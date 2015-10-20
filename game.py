@@ -163,7 +163,12 @@ def menu(current_room):
 
 def main():
     if save_exists():
-        continue_from_save()
+        if continue_from_save():
+            load()
+            print("Game loaded from save file!")
+        else:
+            events.intro_prompt()
+            events.post_intro_prompt(player.inventory)
     else:
         events.intro_prompt()
         events.post_intro_prompt(player.inventory)
