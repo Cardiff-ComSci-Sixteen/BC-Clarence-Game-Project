@@ -179,6 +179,7 @@ def menu(current_room):
     display_room(current_room)
     exits = current_room["exits"]
     print_menu(exits)
+    print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
     command_input = command_execute(exits)
     player.last_room = current_room["name_ID"]
     print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
@@ -198,6 +199,7 @@ def main():
     - DEBUG NOTICE from menu()
     - This Message
     - "battle" from events
+    - "Type Battle" from menu()
           """)
 
     print("Hello " + player.player_name + "!")

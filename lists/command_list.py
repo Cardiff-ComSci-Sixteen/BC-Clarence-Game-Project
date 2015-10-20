@@ -23,6 +23,11 @@ skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at'
               'wish', 'with', 'would']
 
 
+# Asks user to press anything to continue.
+def enter():
+    input("\nPress ENTER to continue.\n")
+
+
 # Combines the user's input keywords into one variable to be parsed to the commands themselves
 def input_combine(cmd):
     if len(cmd) < 3:

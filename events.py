@@ -2,6 +2,7 @@ from lists.command_list import *
 import combat_system
 from items.monsters import *
 
+
 def player_name():
     player.player_name = input("What is your name? ")
     while True:
@@ -15,10 +16,6 @@ def player_name():
             player.player_name = input("\nType a player name: ")
         else:
             break
-
-
-def enter():
-    input("\nPress to continue.\n")
 
 
 def intro_help_prompt():
