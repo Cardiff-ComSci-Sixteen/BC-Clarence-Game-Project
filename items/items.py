@@ -46,7 +46,7 @@ item_biscuits = {
 }
 
 item_coffee = {
-    "id": ["coffee"],
+    "id": ["coffee", "cup_coffee", "cup"],
 
     "class": 3,
 
@@ -100,7 +100,7 @@ item_note = {
 }
 
 item_keyA = {
-    "id": ["keyA", "armory_key_card", "armorykeycard", "armory key card"],
+    "id": ["keyA", "armory_key_card", "key_card", "keycard"],
 
     "class": 4,
 
@@ -113,7 +113,7 @@ item_keyA = {
 }
 
 item_keyD = {
-    "id": ["keyD", "detention_centre_key_card", "detentioncentrekeycard"],
+    "id": ["keyD", "detention_centre_key_card", "key_card", "keycard"],
 
     "class": 4,
 
@@ -126,7 +126,7 @@ item_keyD = {
 }
 
 item_keyP = {
-    "id": ["keyP", "power_control_key_card", "powercontrolkeycard"],
+    "id": ["keyP", "power_control_key_card", "key_card", "keycard"],
 
     "class": 4,
 

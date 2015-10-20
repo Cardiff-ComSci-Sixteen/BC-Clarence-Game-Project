@@ -23,7 +23,7 @@ wrecked_ship = {
 
     "objects": [object_board_AI, object_ceiling],
 
-    "items": []
+    "items": [armor_heavyarmour2]
 
 }
 

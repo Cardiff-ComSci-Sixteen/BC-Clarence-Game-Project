@@ -110,6 +110,14 @@ def command_execute(exits):
                 # the same as the second and third word combined, so if we have ["go", "hangar", "1"] it will give ["go", "hangar_1"]
                 if len(cmd) < 3:
                     pass
+                elif len(cmd) >= 5:
+                    cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3] + "_" + cmd[4]
+                    del cmd[1:len(cmd) - 1]
+                    cmd[1] = cmd_combined
+                elif len(cmd) >= 4:
+                    cmd_combined = cmd[1] + "_" + cmd[2] + "_" + cmd[3]
+                    del cmd[1:len(cmd) - 1]
+                    cmd[1] = cmd_combined
                 elif len(cmd) >= 3:
                     cmd_combined = cmd[1] + "_" + cmd[2]
                     del cmd[1:len(cmd) - 1]
@@ -195,6 +203,13 @@ def main():
     # Start game at the room_1
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
+
+    print("""IMPORTANT: Things to remove which are currently put just for testing purposes:"
+    - Security Suit from Hangar 1
+    - DEBUG NOTICE from menu()
+    - This Message
+          """)
+
     print("Hello " + player.player_name + "!")
     # Main game loop
     while True:

@@ -219,6 +219,10 @@ def command_take(player_name, room, item):
             for a in rooms[room]["items"]:
                 for id_index in a["id"]:
                     if id_index in item:
+                        for inventory_item in inventory:
+                            if "suit" in a["id"] and "suit" in inventory_item["id"]:
+                                print("You cannot wear more armor - you have to remove the current one first!")
+                                return
                         if a["weight"] + player.weight <= 100:
                             rooms[room]["items"].remove(a)
                             inventory.append(a)

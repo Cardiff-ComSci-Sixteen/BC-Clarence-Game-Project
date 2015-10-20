@@ -1,5 +1,5 @@
 armor_lightarmour1 = {
-    "id": ["reconsuit", "recon_suit", "recon"],
+    "id": ["reconsuit", "recon_suit", "recon", "suit"],
 
     "class": 2,
 
@@ -8,7 +8,7 @@ armor_lightarmour1 = {
     "name": "Recon Suit",
 
     "description":
-    "This suit seems light enough for me to be able to dodge some attacks",
+    "This suit is light enough for me to be able to dodge some attacks.",
 
     "attributes": {"armor": 2}
 
@@ -16,7 +16,7 @@ armor_lightarmour1 = {
 }
 
 armor_heavyarmour1 = {
-    "id": ["engineeringsuit", "engineering_suit", "engineering"],
+    "id": ["engineeringsuit", "engineering_suit", "engineering", "suit"],
 
     "class": 2,
 
@@ -32,7 +32,7 @@ armor_heavyarmour1 = {
 }
 
 armor_lightarmour2 = {
-    "id": ["sharpshootersuit", "sharpshooter_suit", "sharpshooter"],
+    "id": ["sharpshootersuit", "sharpshooter_suit", "sharpshooter", "suit"],
 
     "class": 2,
 
@@ -49,7 +49,7 @@ armor_lightarmour2 = {
 }
 
 armor_heavyarmour2 = {
-    "id": ["securitysuit", "security_suit", "security"],
+    "id": ["securitysuit", "security_suit", "security", "suit"],
 
     "class": 2,
 
@@ -65,7 +65,7 @@ armor_heavyarmour2 = {
 }
 
 armor_lightarmour3 = {
-    "id": ["legionarysuit", "legionary_suit", "legionary"],
+    "id": ["legionarysuit", "legionary_suit", "legionary", "suit"],
 
     "class": 2,
 
@@ -82,7 +82,7 @@ armor_lightarmour3 = {
 }
 
 armor_heavyarmour3 = {
-    "id": ["hostileenviromentsuit", "hostile_enviroment_suit", "hostile_enviroment", "hostileenviroment"],
+    "id": ["hostileenviromentsuit", "hostile_enviroment_suit", "hostile_enviroment", "hostileenviroment", "suit"],
 
     "class": 2,
 
