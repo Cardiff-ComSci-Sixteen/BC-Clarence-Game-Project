@@ -1,5 +1,4 @@
 from lists.command_list import *
-from player import inventory
 import player
 from map import rooms
 import time
@@ -92,14 +91,17 @@ def command_execute(exits):
                             return valid
                     if cmdn == "playername":
                         player.player_name = command_name_change()
+                    if cmdn == "save":
+                        save()
+                        print("Your game has been saved!")
                     if cmdn == "take":
-                        command_take(player.player_name, player.in_room, cmd)
-                        update_player_stats()
+                        command_take(player.player_name, player.in_room, cmd, player.inventory)
+                        update_player_stats(player.inventory)
                     if cmdn == "drop":
-                        command_drop(player.player_name, player.in_room, cmd)
-                        update_player_stats()
+                        command_drop(player.player_name, player.in_room, cmd, player.inventory)
+                        update_player_stats(player.inventory)
                     if cmdn == "stats":
-                        command_stats(player.in_room)
+                        command_stats(player.in_room, player.inventory)
                     if cmdn == "exits":
                         print_menu(exits)
                     if cmdn == "help":
@@ -108,12 +110,12 @@ def command_execute(exits):
                         user_input = user_input.replace("inspect", "")
                         cmd = normalise_input(user_input)
                         cmd = input_combine_commands(cmd)
-                        command_inspect(rooms[player.in_room], cmd, player.player_name, inventory)
+                        command_inspect(rooms[player.in_room], cmd, player.player_name, player.inventory)
                         user_input = "a"
                     if cmdn == "quit":
                         quit()
                     if cmdn == "inventory":
-                        command_inventory(inventory)
+                        command_inventory(player.inventory)
                     if (user_input.find("scan") >= 0 or cmdn in commands_aliases) and (user_input.find("take") < 0) and (user_input.find("drop") < 0):
                         user_input = user_input.replace("scan", "")
                         for alpha in commands_aliases:
@@ -121,9 +123,9 @@ def command_execute(exits):
                         cmd = normalise_input(user_input)
                         cmd = input_combine_commands(cmd)
                         power = item_scanner["attributes"]["power"]
-                        if item_scanner in inventory:
+                        if item_scanner in player.inventory:
                             if power >= 1:
-                                if command_scan(rooms[player.in_room], cmd, player.player_name, inventory):
+                                if command_scan(rooms[player.in_room], cmd, player.player_name, player.inventory):
                                     item_scanner["attributes"]["power"] -= 1
                                     power -= 1
                                     if power > 10:
@@ -137,7 +139,7 @@ def command_execute(exits):
                                 print("There is no power in the scanner at the moment. I need to recharge it somehow!")
                         else:
                             print("I need something to scan this with!")
-                elif events.input_event_update(cmd, exits):
+                elif events.input_event_update(cmd, exits, player.inventory):
                     pass
                 else:
                     i = random.randint(0, len(command_unknown) - 1)
@@ -160,8 +162,11 @@ def menu(current_room):
 
 
 def main():
-    events.intro_prompt()
-    events.post_intro_prompt()
+    if save_exists():
+        continue_from_save()
+    else:
+        events.intro_prompt()
+        events.post_intro_prompt(player.inventory)
 
     # Start game at the room_1
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
@@ -179,12 +184,12 @@ def main():
     # Main game loop
     while True:
         # update_room_state(player.current_room["name_ID"])
-        update_player_stats()
+        update_player_stats(player.inventory)
         player.current_room = menu(player.current_room)
         player.in_room = player.current_room["name_ID"]
         events.event_update()
 
-loading(100)
+# loading(100)
 
 while True:
     try:

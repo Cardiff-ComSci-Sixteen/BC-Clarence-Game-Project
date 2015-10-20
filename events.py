@@ -85,7 +85,7 @@ def intro_prompt():
             intro_input = input_hang(intro_input, "Yes or No? ")
 
 
-def post_intro_prompt():
+def post_intro_prompt(inventory):
     print()
     print("You prepare for a crash landing as there is no other option for you."
           "\nYou go to the emergency bay of your ship and decide to take some"
@@ -152,7 +152,7 @@ def event_update():
 
 
 # Events checked each time you give input
-def input_event_update(user_input, exits):
+def input_event_update(user_input, exits, inventory):
     if (user_input == ['eat', 'biscuits'] or user_input == ['eat', 'pack_biscuits'] or user_input == ['eat', 'pack']) and item_biscuits in inventory:
         inventory.remove(item_biscuits)
         print("You ate the biscuits and soon start feeling ill. As a result you lose 10 hp!")

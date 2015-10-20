@@ -1,11 +1,10 @@
 from lists.feedback_lists import *
 # from room_states import rooms_states
 import string
-from player import inventory
 from map import rooms
 from items.items import *
 import player
-
+import json
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
@@ -269,7 +268,7 @@ def command_name_change():
 
 # Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
 
-def command_take(player_name, room, item):
+def command_take(player_name, room, item, inventory):
     while True:
         if len(item) == 0 or (item[0] == "take" and len(item) == 1):
             print("What do you want me to take?")
@@ -311,7 +310,7 @@ def command_take(player_name, room, item):
             break
 
 
-def command_drop(player_name, room, item):
+def command_drop(player_name, room, item, inventory):
     while True:
         if len(item) == 0 or (item[0] == "drop" and len(item) == 1):
             print("What do you want me to drop?")
@@ -359,7 +358,7 @@ def command_drop(player_name, room, item):
             break
 
 
-def command_stats(room):
+def command_stats(room, inventory):
     print()
     print("Name: " + player.player_name)
     print("Health: " + str(player.hp))
@@ -387,7 +386,7 @@ def item_class(item):
 
 # The main logic through which objects (elements) are inspected.
 # If an unknown element is requested to be inspected, the function will return a deny message.
-def command_scan(room, element, player_name, inventory):
+def command_scan(room, element, player_name, container):
     while True:
         if len(element) > 0:
             if "objects" in room:
@@ -418,7 +417,7 @@ def command_scan(room, element, player_name, inventory):
                         print()
                         print(item["description_scan"])
                         return 1
-            for item in inventory:
+            for item in container:
                 for id_index in item["id"]:
                     if id_index in element:
                         if "description_scan" not in item:
@@ -431,7 +430,7 @@ def command_scan(room, element, player_name, inventory):
             print("I'm afraid I cannot scan that.")
             break
         elif len(element) == 0:
-            if item_scanner in inventory:
+            if item_scanner in container:
                 print("What do you want to scan?")
                 while True:
                     element = input(player_name + ": ")
@@ -454,7 +453,7 @@ def command_scan(room, element, player_name, inventory):
                 break
 
 
-def command_inspect(room, element, player_name, inventory):
+def command_inspect(room, element, player_name, container):
     while True:
             if len(element) > 0:
                 if "item" in element:
@@ -475,7 +474,7 @@ def command_inspect(room, element, player_name, inventory):
                     element[0] = str(element[0]) + "_" + str(element[1])
                     element = element[:1]
                 if element[0] == "inventory":
-                    command_inventory(inventory)
+                    command_inventory(container)
                     break
                 for item in room["objects"]:
                     for id_index in item["id"]:
@@ -490,7 +489,7 @@ def command_inspect(room, element, player_name, inventory):
                             print("Class: " + item_class(alpha["class"]))
                             print(alpha["description"])
                             return
-                for bravo in inventory:
+                for bravo in container:
                     for id_index_1 in bravo["id"]:
                         if id_index_1 == "scanner":
                             print()
@@ -527,22 +526,21 @@ def command_inspect(room, element, player_name, inventory):
 # Function gets the current state of the room.
 
 
+def command_inventory(container):
+    # This function takes a list of inventory items and displays it nicely, in a
+    # manner similar to print_room_items(). The only difference is in formatting:
+    if list_of_items(container):
+        print("I am carrying " + list_of_items(container) + ".")
+    else:
+        print("I don't have anything on me at the moment.")
+
+
 def get_room_state(room):
     n = room["state"]
     return n
 
 
-
-def command_inventory(inventory):
-    # This function takes a list of inventory items and displays it nicely, in a
-    # manner similar to print_room_items(). The only difference is in formatting:
-    if list_of_items(inventory):
-        print("I am carrying " + list_of_items(inventory) + ".")
-    else:
-        print("I don't have anything on me at the moment.")
-
-
-def update_player_stats():
+def update_player_stats(inventory):
     player.weight = 0
     player.armor = 0
     for item in inventory:
@@ -604,9 +602,10 @@ def print_room(room):
     print()
     print_room_items(room)
 
-
+# Class that is raised whenever the player is dead.
 class GameOver(Exception):
     pass
+# Tells player what's next after they died.
 def game_over_prompt():
     print()
     print("╔═══════════╗")
@@ -623,3 +622,70 @@ def game_over_prompt():
     #         return "new"
     #     else:
     #         user_input = input("Type 'quit' or 'new': ")
+# Write player and room data into save file.
+def save():
+    data = {
+        "player_name": player.player_name,
+        "hp": player.hp,
+        "weight": player.weight,
+        "inventory": player.inventory,
+        "score": player.score,
+        "armor": player.armor,
+        "is_naked": player.is_naked,
+        "last_room": player.last_room,
+        "current_room": player.current_room,
+        "in_room": player.in_room,
+        "in_battle_enemy_hp": player.in_battle_enemy_hp
+    }
+    for key, value in rooms.items():
+        data[key] = value
+    with open("data.json", "w") as f:
+        json.dump(data, f)
+# Checks if save file exists in directory. Returns True if it exists.
+def save_exists():
+    try:
+        with open("data.json") as file:
+            return True
+    except IOError as e:
+        return False
+# Prompts player if they want to continue from save, start a new game or quit at the beginning.
+def continue_from_save():
+    print()
+    print("Do you want to start a 'New Game' or 'Continue' from save file?")
+    print("1. New Game")
+    print("2. Continue")
+    print("3. Quit")
+    while True:
+        a = input().strip()
+        if a == "1":
+            return True
+        elif a == "2":
+            load()
+            print("Game loaded from save file!")
+            return True
+        elif a == "3":
+            quit()
+        else:
+            print("You need to enter 1 or 2!")
+# Loads data from save file.
+def load():
+    with open("data.json", "r") as f:
+        data = json.load(f)
+        player.player_name = data["player_name"]
+        player.hp = data["hp"]
+        player.weight = data["weight"]
+        player.inventory = list(data["inventory"])
+        for a in player.inventory:
+            print(a["name"])
+        player.score = data["score"]
+        player.armor = data["armor"]
+        player.is_naked = data["is_naked"]
+        player.last_room = data["last_room"]
+        player.current_room = data["current_room"]
+        player.in_room = data["in_room"]
+        player.in_battle_enemy_hp = data["in_battle_enemy_hp"]
+        b = 0
+        for key, value in data.items():
+            if key in rooms:
+                rooms[key] = value
+                print("Room " + key + " updated!")
