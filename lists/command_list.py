@@ -387,7 +387,7 @@ def item_class(item):
 
 # The main logic through which objects (elements) are inspected.
 # If an unknown element is requested to be inspected, the function will return a deny message.
-def scan_element(room, element, player_name, inventory):
+def command_scan(room, element, player_name, inventory):
     while True:
         if len(element) > 0:
             if "objects" in room:
@@ -492,6 +492,12 @@ def command_inspect(room, element, player_name, inventory):
                             return
                 for bravo in inventory:
                     for id_index_1 in bravo["id"]:
+                        if id_index_1 == "scanner":
+                            print()
+                            print("Class: " + item_class(bravo["class"]))
+                            print(bravo["description"])
+                            print("Power: " + str(bravo["attributes"]["power"]) + "%")
+                            return
                         if id_index_1 in element:
                             print()
                             print("Class: " + item_class(bravo["class"]))

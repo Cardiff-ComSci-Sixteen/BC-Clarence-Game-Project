@@ -123,18 +123,18 @@ def command_execute(exits):
                         power = item_scanner["attributes"]["power"]
                         if item_scanner in inventory:
                             if power >= 1:
-                                if scan_element(rooms[player.in_room], cmd, player.player_name, inventory):
+                                if command_scan(rooms[player.in_room], cmd, player.player_name, inventory):
                                     item_scanner["attributes"]["power"] -= 1
                                     power -= 1
                                     if power > 10:
-                                        print(str(power) + "% Charge Left")
+                                        print(str(power) + "% Power Left")
                                     elif power > 0:
-                                        print("\nWARNING: Charge Low!\n" + str(power) + "% Charge Left")
+                                        print("\nWARNING: Power Low!\n" + str(power) + "% Power Left")
                                     else:
                                         print("No Charge Left")
                                 user_input = str(cmd)
                             else:
-                                print("There is no charge in the scanner at the moment. I need to recharge it somehow.")
+                                print("There is no power in the scanner at the moment. I need to recharge it somehow!")
                         else:
                             print("I need something to scan this with!")
                 elif events.input_event_update(cmd, exits):
