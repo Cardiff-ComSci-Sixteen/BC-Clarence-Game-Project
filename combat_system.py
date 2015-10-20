@@ -103,7 +103,9 @@ def damage_dealt(weapon_input, enemy):
             if hp <= 0:
                 print("With the last blow you deal to your opponent" +
                       "\nyou come out victorious as " + enemy["name"] + " is slain!")
-                print("\n---====[BATTLE OVER]====---")
+                print("╔═════════╗")
+                print("╣ VICTORY ║")
+                print("╚═════════╝")
                 enter()
                 return False
             else:

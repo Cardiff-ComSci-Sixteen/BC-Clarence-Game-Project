@@ -65,6 +65,25 @@ def input_combine_commands(cmd):
     return cmd
 
 
+def input_hang(user_input, feed):
+    while True:
+        if str(user_input).strip() == "":
+            user_input = input(player.player_name + ": ")
+        else:
+            user_input = input(feed + ": ")
+        if str(user_input).strip() == "":
+            pass
+        else:
+            user_input = user_input.lower()
+            cmd = user_input
+            cmd = normalise_input(cmd)
+            if cmd:
+                return cmd
+            else:
+                cmd = ["null"]
+                return cmd
+
+
 # Turns all input to a simple string of ONLY lowercase letters.
 def normalise_input(user_input):
     """
@@ -246,25 +265,6 @@ def command_name_change():
         else:
             break
     return user_input
-
-
-def input_hang(user_input, feed):
-    while True:
-        if str(user_input).strip() == "":
-            user_input = input(player.player_name + ": ")
-        else:
-            user_input = input(feed + ": ")
-        if str(user_input).strip() == "":
-            pass
-        else:
-            user_input = user_input.lower()
-            cmd = user_input
-            cmd = normalise_input(cmd)
-            if cmd:
-                return cmd
-            else:
-                cmd = ["null"]
-                return cmd
 
 
 # Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
@@ -526,23 +526,6 @@ def get_room_state(room):
     return n
 
 
-# Function changes the room state depending on input
-# def change_room_state(room, index):
-#     rooms_states[room]["state"] = index
-#     a = rooms_states[room]["state"]
-#     return a
-
-
-# Checks the current state of the room and initializes its contents depending on that
-# every time the main() function is ran. Objects will also be initialized.
-# Function returns errors IF:
-# 1. "description" is not present under room_states (room_states.py)
-# 2. "objects" is not present in room information (map.py)
-# def update_room_state(room):
-#     current_state = get_room_state(rooms_states[room])
-#     # Makes the actual changes based on the current room state.
-#     rooms[room]["description"] = rooms_states[room]["state_" + str(current_state)]["description"]
-
 
 def command_inventory(inventory):
     # This function takes a list of inventory items and displays it nicely, in a
@@ -551,6 +534,15 @@ def command_inventory(inventory):
         print("I am carrying " + list_of_items(inventory) + ".")
     else:
         print("I don't have anything on me at the moment.")
+
+
+def update_player_stats():
+    player.weight = 0
+    player.armor = 0
+    for item in inventory:
+        player.weight = player.weight + item["weight"]
+        if item["class"] == 2:
+            player.armor = player.armor + item["attributes"]["armor"]
 
 
 def list_of_items(items):
@@ -588,15 +580,6 @@ def print_room_items(room):
         print("There is no special item in the room.")
 
 
-def update_player_stats():
-    player.weight = 0
-    player.armor = 0
-    for item in inventory:
-        player.weight = player.weight + item["weight"]
-        if item["class"] == 2:
-            player.armor = player.armor + item["attributes"]["armor"]
-
-
 def print_room(room):
     # This function takes a room as an input and nicely displays its name
     # and description. The room argument is a dictionary with entries "name",
@@ -618,17 +601,19 @@ def print_room(room):
 
 class GameOver(Exception):
     pass
-
-
 def game_over_prompt():
-
-    print("GAME OVER")
     print()
-    user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
-    while True:
-        if user_input.strip() == "quit":
-            return "quit"
-        elif user_input.strip() == "new":
-            return "new"
-        else:
-            user_input = input("Type 'quit' or 'new': ")
+    print("╔═══════════╗")
+    print("╣ GAME OVER ║")
+    print("╚═══════════╝")
+    print()
+    input("Press ENTER to quit the game.")
+    quit()
+    # user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
+    # while True:
+    #     if user_input.strip() == "quit":
+    #         return "quit"
+    #     elif user_input.strip() == "new":
+    #         return "new"
+    #     else:
+    #         user_input = input("Type 'quit' or 'new': ")

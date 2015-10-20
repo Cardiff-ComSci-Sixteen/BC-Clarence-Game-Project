@@ -24,7 +24,7 @@ def loading(rate):
                             rate = 150*rate_ratio
                             if a > (80 - b):
                                 rate = 50*rate_ratio
-            seconds = random.randint(1, rate)
+            seconds = random.randint(1, int(rate))
             print("Loading: " + str(a) + "% done", end="\r")
             a += 1
             time.sleep(seconds/1000)
@@ -190,10 +190,14 @@ while True:
     try:
         main()
     except GameOver:
-        a = game_over_prompt()
-        if a == "quit":
-            quit()
-        else:
-            print("\n" * 20)
-            print("Starting a new game!\n")
-            loading(30)
+        game_over_prompt()
+        # a = game_over_prompt()
+        # if a == "quit":
+        #     quit()
+        # else:
+        #     print("\n" * 50)
+        #     print("┌──────────────────────┐")
+        #     print("│ Starting a new game! │")
+        #     print("└──────────────────────┘")
+        #     print()
+        #     loading(30)
