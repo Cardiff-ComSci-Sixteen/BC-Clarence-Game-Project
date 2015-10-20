@@ -23,7 +23,7 @@ wrecked_ship = {
 
     "objects": [object_board_AI, object_ceiling],
 
-    "items": [armor_heavyarmour2, item_scanner, item_keyD]
+    "items": []
 
 }
 
@@ -34,7 +34,7 @@ hangar_1 = {
 
     "description":  "Stepping foot into Hangar #1, you can see it has been abandoned, silence everywhere."
                     "\nHairs on the back of your neck stand strong as you feel like your not the only one"
-                    "\nHere. You should 'Hello!!', but get no response.",
+                    "\nHere. You shout 'Hello!!', but get no response.",
 
     "exits": OrderedDict([("wrecked_ship", "Wrecked Ship"), ("hangar_2", "Hangar 2"), ("vehicle_maintenance", "Vehicle Maintenance"),
 ("vehicle_storage", "Vehicle Storage"), ("crew_quarters", "Crew Quarters")]),
