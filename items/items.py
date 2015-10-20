@@ -100,7 +100,7 @@ item_note = {
 }
 
 item_keyA = {
-    "id": ["keyA"],
+    "id": ["keyA", "armory_key_card", "armorykeycard"],
 
     "class": 4,
 
@@ -113,7 +113,7 @@ item_keyA = {
 }
 
 item_keyD = {
-    "id": ["keyD"],
+    "id": ["keyD", "detention_centre_key_card", "detentioncentrekeycard"],
 
     "class": 4,
 
@@ -126,7 +126,7 @@ item_keyD = {
 }
 
 item_keyP = {
-    "id": ["keyP"],
+    "id": ["keyP", "power_control_key_card", "powercontrolkeycard"],
 
     "class": 4,
 

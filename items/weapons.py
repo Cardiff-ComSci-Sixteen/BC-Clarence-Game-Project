@@ -10,7 +10,7 @@ weapon_powersword = {
     "description":
     "This sword is powered, it should be able to slice enemies up",
 
-    "attributes": {"damage": 15}
+    "attributes": {"damage": 12}
 }
 
 weapon_laspistol = {
@@ -25,7 +25,7 @@ weapon_laspistol = {
     "description":
     "This pistol fires a concentrated beam of light, however due to its size it is not very powerful",
 
-    "attributes": {"damage": 25}
+    "attributes": {"damage": 15}
 }
 
 weapon_swordgun = {
@@ -40,7 +40,7 @@ weapon_swordgun = {
     "description":
     "Its a sword with a small gun attached to it",
 
-    "attributes": {"damage": 10}
+    "attributes": {"damage": 7}
 }
 
 weapon_pulse = {
@@ -54,6 +54,8 @@ weapon_pulse = {
 
     "description":
     "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault rifle chambered for 10×24mm Caseless ammunition."
+
+    "attributes": {"damage": 26}
 }
 
 weapon_energysword = {
@@ -66,7 +68,9 @@ weapon_energysword = {
     "name": "The Energy Sword",
 
     "description":
-    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade. "
+    "The Energy Sword consists of a curved hilt, housing an energy storage module and a device for projecting the plasma which forms the blade."
+
+    "attributes": {"damage": 22}
 }
 
 weapon_sonicemitter = {
@@ -81,6 +85,8 @@ weapon_sonicemitter = {
     "description":
     "The Soniic Emitter chassis is composed of a gray metallic tube outfitted with four vacuum tubes, a housing for a small energy cell, a conical muzzle,\n"
     "and a rear-mounted oscilloscope, all attached to a pistol grip."
+
+    "attributes": {"damage": 50}
 }
 
 weapon_phaser = {
@@ -94,6 +100,8 @@ weapon_phaser = {
 
     "description":
     "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it"
+
+    "attributes": {"damage": 20}
 }
 
 weapon_saber = {
@@ -108,6 +116,8 @@ weapon_saber = {
     "description":
     "The weapon consisted of a blade of pure plasma emitted from the hilt and suspended in a force containment field.\n"
     "The field contained the immense heat of the plasma, protecting the wielder, and allowed the blade to keep its shape."
+
+    "attributes": {"damage": }
 }
 
 weapon_blaster = {
