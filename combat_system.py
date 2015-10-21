@@ -147,10 +147,10 @@ def main_fight(enemy):
     player.in_battle_enemy_hp = enemy["hp"]
     print()
     print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
-    print()
     print("You must fight " + enemy["name"] + " to proceed with the game (you cannot save during battle).")
+    print()
     while True:
-        a = input("Heads or Tails (winner goes first)?")
+        a = input("Heads or Tails (winner goes first)? ")
         normalise_input(a)
         while True:
             if "tails" in a:
@@ -175,7 +175,6 @@ def main_fight(enemy):
                     damage_got(enemy, move)
                     if player.hp <= 0:
                         raise GameOver
-                    enter()
             break
         else:
             print("\nEnemy goes first!")
@@ -190,5 +189,5 @@ def main_fight(enemy):
                 move = move_prompt()
                 # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
                 if damage_dealt(weapon_choice, enemy, move):
-                    print()
-                enter()
+                    enter()
+            break

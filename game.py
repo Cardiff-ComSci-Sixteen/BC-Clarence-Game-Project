@@ -159,7 +159,6 @@ def menu(current_room, exits):
     print_menu(exits)
     print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
     command_input = command_execute(exits)
-    print("DEBUG NOTICE: COMMAND_INPUT " + command_input)
     return move(exits, command_input)
 
 
@@ -180,8 +179,6 @@ def main():
     print()
 
     print("""IMPORTANT: Things to remove which are currently put just for testing purposes:"
-    - Security Suit, Detention Key, Scanner from Hangar 1
-    - DEBUG NOTICE from menu()
     - This Message
     - "battle" from events
     - "Type Battle" from menu()

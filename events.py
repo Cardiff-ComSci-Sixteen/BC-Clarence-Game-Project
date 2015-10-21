@@ -149,32 +149,25 @@ def event_update(exits):
     if player.current_room["name_ID"] == "Hangar 1" and player.last_room == "Hangar 2":
         print("You hear a loud bang behind you. You turn around and see that the exit to Hangar 2 has collapsed.")
         del player.current_room["exits"]["hangar_2"]
-    # if player.current_room["name_ID"] == "Vehicle Storage" and player.current_room["name_ID"] not in player.encounters:
-    #     combat_system.main_fight(monster_kirill_minion)
-    #     print_room(player.current_room)
-    #     print_menu(exits)
-    #     player.encounters.append(player.current_room["name_ID"])
-    #     print("LIST " + str(player.encounters))
+    if player.current_room["name_ID"] == "Vehicle Storage" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(monster_kirill_minion)
+        player.encounters.append(player.current_room["name_ID"])
+
     if player.current_room["name_ID"] == "Crew Quarters" and player.current_room["name_ID"] not in player.encounters:
         combat_system.main_fight(monster_kirill_minion)
-        print_room(player.current_room)
-        print_menu(exits)
         player.encounters.append(player.current_room["name_ID"])
-    # if player.current_room["name_ID"] == "Bridge" and player.current_room["name_ID"] not in player.encounters:
-    #     combat_system.main_fight(enemy_matt)
-    #     print_room(player.current_room)
-    #     print_menu(exits)
-    #     player.encounters.append(player.current_room["name_ID"])
-    # if player.current_room["name_ID"] == "Detention Centre" and player.current_room["name_ID"] not in player.encounters:
-    #     combat_system.main_fight(enemy_potter)
-    #     print_room(player.current_room)
-    #     print_menu(exits)
-    #     player.encounters.append(player.current_room["name_ID"])
-    # if player.current_room["name_ID"] == "Armory" and player.current_room["name_ID"] not in player.encounters:
-    #     combat_system.main_fight(enemy_volderwart)
-    #     print_room(player.current_room)
-    #     print_menu(exits)
-    #     player.encounters.append(player.current_room["name_ID"])
+
+    if player.current_room["name_ID"] == "Bridge" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(enemy_matt)
+        player.encounters.append(player.current_room["name_ID"])
+
+    if player.current_room["name_ID"] == "Detention Centre" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(enemy_potter)
+        player.encounters.append(player.current_room["name_ID"])
+
+    if player.current_room["name_ID"] == "Armory" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(enemy_volderwart)
+        player.encounters.append(player.current_room["name_ID"])
 
 
 # Events checked each time you give input
