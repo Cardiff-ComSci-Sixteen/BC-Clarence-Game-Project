@@ -79,3 +79,7 @@ scanner_deny = ["The scanner does not show anything.",
 weapon_power_sword_attack = ["You swing your sword with fierce force in for a successful strike!",
                              "You charge at the enemy, swinging your Power Sword at them!",
                              "You spin 360 degrees with your Power Sword, striking the enemy!"]
+
+weapon_laspistol_attack = ["You aim at the enemy and pull the trigger.",
+                           "You pull out your Laspistol straight from the pocket and shoot at the enemy.",
+                           "Using your Laspistol you attempt a 360 no-scope."]

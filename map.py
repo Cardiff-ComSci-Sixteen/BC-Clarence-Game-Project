@@ -297,7 +297,8 @@ room_203 = {
     "name_ID": "Room 203",
     "name": "Room 203",
 
-    "description": "You are in Room 203, there is a cup of coffee here and some biscuits.",
+    "description": "You are in Room 203, there are a lot of coffee cups here, chilling on the desk counter,"
+                   "\nbut for all intents and purposes I can take only one and no more!",
 
     "exits": {"crew_quarters": "Crew Quarters"},
 

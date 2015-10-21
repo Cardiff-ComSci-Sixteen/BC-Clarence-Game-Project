@@ -1,3 +1,5 @@
+from lists.feedback_lists import *
+
 weapon_powersword = {
     "id": ["power_sword", "power"],
 
@@ -10,7 +12,9 @@ weapon_powersword = {
     "description":
     "This sword is powered, it should be able to slice enemies up",
 
-    "attributes": {"damage": 12}
+    "attributes": {"damage": 12},
+
+    "feedback": weapon_power_sword_attack
 }
 
 weapon_laspistol = {
@@ -26,7 +30,9 @@ weapon_laspistol = {
     "This pistol fires a concentrated beam of light,"
     "\nhowever due to its size it is not very powerful",
 
-    "attributes": {"damage": 15}
+    "attributes": {"damage": 15},
+
+    "feedback": weapon_laspistol_attack
 }
 
 weapon_swordgun = {

@@ -1,4 +1,3 @@
-from lists.feedback_lists import *
 # from room_states import rooms_states
 import string
 from map import rooms

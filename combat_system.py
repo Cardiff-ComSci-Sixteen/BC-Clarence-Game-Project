@@ -54,7 +54,7 @@ def valid_weapon():
                 if 0 < int(weapon_input[0]) <= len(list_of_weapons()):
                     weapon = list_of_weapons()[int(weapon_input[0]) - 1]
                     print()
-                    print("You have chosen " + weapon["name"] + "with " + str(weapon["attributes"]["damage"]) + " base damage!\n")
+                    print("You have chosen " + weapon["name"] + " with " + str(weapon["attributes"]["damage"]) + " base damage!\n")
                     return weapon
                 else:
                     a = input("You have not entered a valid weapon number from the list!\n" + player.player_name + ": ")
@@ -97,14 +97,13 @@ def damage_dealt(weapon_input, enemy, move):
         a = 2
     while True:
         print("\n-----========[BATTLE ROUND]========-----")
+        alpha = randint(0, len(weapon_input["feedback"]) - 1)
+        print()
+        print(weapon_input["feedback"][alpha])
         if (enemy["dodge"] - randint(1, 100)) < 0:
             damage = int((weapon_input["attributes"]["damage"] + randint(-5, 3))/a)
             player.in_battle_enemy_hp -= damage
             hp = player.in_battle_enemy_hp
-            alpha = randint(0, 2)
-            print()
-            print(weapon_power_sword_attack[alpha])
-            print()
             if hp <= 0:
                 print("With the last blow you deal to your opponent" +
                       "\nyou come out victorious as " + enemy["name"] + " is slain!")
