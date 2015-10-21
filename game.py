@@ -232,19 +232,6 @@ while True:
     try:
         main()
     except events.Victory:
-        print()
-        print("You are victorious! Congratulations!")
-        print("Your score is: " + str(player.score) + " bits!")
-        break
+        victory_prompt()
     except GameOver:
         game_over_prompt()
-        # a = game_over_prompt()
-        # if a == "quit":
-        #     quit()
-        # else:
-        #     print("\n" * 50)
-        #     print("┌──────────────────────┐")
-        #     print("│ Starting a new game! │")
-        #     print("└──────────────────────┘")
-        #     print()
-        #     loading(30)

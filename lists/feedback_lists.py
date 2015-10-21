@@ -83,3 +83,39 @@ weapon_power_sword_attack = ["You swing your sword with fierce force in for a su
 weapon_laspistol_attack = ["You aim at the enemy and pull the trigger.",
                            "You pull out your Laspistol straight from the pocket and shoot at the enemy.",
                            "Using your Laspistol you attempt a 360 no-scope."]
+
+weapon_swordgun_attack = ["You point the small gun at the enemy and shoot.",
+                          "You move the blade in front of you and charge towards your enemy.",
+                          "You make a weird combo by using both the blade and the"
+                          "\ngun against your enemy"]
+
+weapon_pulse_attack = ["You crouch and take a deep breath, sending a bolt at your enemy.",
+                       "You make a 360 no-scope with the rifle.",
+                       "You load some ammunition in the rifle and shoot multiple times."]
+
+weapon_energysword_attack = ["You focus your mind on the plasma blade and charge at the enemy.",
+                             "You swing your sword in a rapid fashion.",
+                             "You leap and attempt to stab your opponent's back."]
+
+weapon_sonicemitter_attack = ["You tune the oscilloscope to a sine and blast bass at your opponent.",
+                              "You cut all high frequencies and amplify the sound, forming a sonic boom.",
+                              "Setting the Sonic Emitter to HIGH and covering your ears you shoot at the opponent."]
+
+weapon_phaser_attack = ["You accumulate energy and send a blast of particles at the enemy.",
+                        "With the Phaser you fire a neon-blue beam of proton particles.\n",
+                        "The Phaser glows red as you release its payload onto your enemy."]
+
+weapon_saber_attack = ["With the beam protruded you charge at your opponent, slicing at sight.",
+                       "You charge Jackie-Chan style at your enemy, swinging the Lightsaber.",
+                       "You Throw the Lightsaber at your enemy, returning it using the force."]
+
+weapon_blaster_attack = ["You aim and shoot with your Blaster Pistol at your enemy.",
+                         "You charge the Blaster's power and then unload its force at your enemy.",
+                         "With the Blaster Pistol in your hand you shoot ferociously."]
+
+encounter_fill = [" and he does not look a happy bunny!",
+                  " and he wants you to pay for your tuition fees!",
+                  ". They want to steal your underwear!",
+                  " and they are ready to fight!",
+                  " and you have no option but to fight them!",
+                  ". Now is the time to prove yourself!"]

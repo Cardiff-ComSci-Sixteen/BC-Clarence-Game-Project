@@ -47,7 +47,9 @@ weapon_swordgun = {
     "description":
     "Its a sword with a small gun attached to it",
 
-    "attributes": {"damage": 7}
+    "attributes": {"damage": 7},
+
+    "feedback": weapon_swordgun_attack
 }
 
 weapon_pulse = {
@@ -63,7 +65,9 @@ weapon_pulse = {
     "The M41A Pulse Rifle is a pulse-action, air-cooled, automatic assault"
     "\nrifle chambered for 10×24mm case-less ammunition.",
 
-    "attributes": {"damage": 26}
+    "attributes": {"damage": 26},
+
+    "feedback": weapon_pulse_attack
 }
 
 weapon_energysword = {
@@ -79,7 +83,9 @@ weapon_energysword = {
     "The Energy Sword consists of a curved hilt, housing an energy storage"
     "\nmodule and a device for projecting the plasma which forms the blade.",
 
-    "attributes": {"damage": 22}
+    "attributes": {"damage": 22},
+
+    "feedback": weapon_energysword_attack
 }
 
 weapon_sonicemitter = {
@@ -96,7 +102,9 @@ weapon_sonicemitter = {
     "\noutfitted with four vacuum tubes, a housing for a small energy cell,"
     "\na conical muzzle and a rear-mounted oscilloscope, all attached to a pistol grip.",
 
-    "attributes": {"damage": 50}
+    "attributes": {"damage": 50},
+
+    "feedback": weapon_sonicemitter_attack
 }
 
 weapon_phaser = {
@@ -109,9 +117,11 @@ weapon_phaser = {
     "name": "Phaser",
 
     "description":
-    "Its a particle-beam weapon that is small enough to fit in the user's palm. It has stun function on it",
+    "Its a particle-beam weapon that is small enough to fit in the user's palm.",
 
-    "attributes": {"damage": 20}
+    "attributes": {"damage": 20},
+
+    "feedback": weapon_phaser_attack
 }
 
 weapon_saber = {
@@ -129,7 +139,9 @@ weapon_saber = {
     "\nThe field that contains the immense heat of the plasma"
     "\nprotects the wielder whilst allowing the blade to keep its shape.",
 
-    "attributes": {"damage": 40}
+    "attributes": {"damage": 40},
+
+    "feedback": weapon_saber_attack
 }
 
 weapon_blaster = {
@@ -145,5 +157,7 @@ weapon_blaster = {
     "The DL-44 was a powerful, highly modifiable and accurate blaster pistol."
     "\nIt packs a heavy punch compared to other pistols without losing accuracy",
 
-    "attributes": {"damage": 30}
+    "attributes": {"damage": 30},
+
+    "feedback": weapon_blaster_attack
 }

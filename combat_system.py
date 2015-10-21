@@ -2,6 +2,7 @@ from random import randint
 from lists.command_list import normalise_input
 from lists.command_list import enter
 from lists.command_list import GameOver
+from lists.command_list import quit_test
 from lists.feedback_lists import *
 import player
 
@@ -33,6 +34,7 @@ def valid_weapon():
     weapon_input = input(player.player_name + ": ")
     weapon_input = normalise_input(weapon_input)
     while True:
+        quit_test(weapon_input)
         # Checks if weapon_input list after being normalised has more than 1 word. If yes, combines 0 and 1 index of list into a 0-index list.
         if len(weapon_input) > 1:
             weapon_input[0] = weapon_input[0] + "_" + weapon_input[1]
@@ -45,8 +47,6 @@ def valid_weapon():
             print()
             print_list_of_weapons()
             print()
-        elif weapon_input[0] == "quit":
-            quit()
         else:
             # for weapon in list_of_weapons():
             #     if weapon_input[0] in weapon["id"]:
@@ -77,14 +77,13 @@ def move_prompt():
     attack_input = input(player.player_name + ": ")
     attack_input = normalise_input(attack_input)
     while True:
+        quit_test(attack_input)
         if "1" in attack_input:
             print("\nYou take on an offensive stance! You deal normal damage.")
             return 1
         elif "2" in attack_input:
             print("\nYou take on a defensive stance! You deal less damage but gain more armor!")
             return 2
-        elif "quit" in attack_input:
-            quit()
         else:
             attack_input = input("You need to choose an option from the list (number): ")
             attack_input = normalise_input(attack_input)
@@ -107,9 +106,12 @@ def damage_dealt(weapon_input, enemy, move):
             if hp <= 0:
                 print("With the last blow you deal to your opponent" +
                       "\nyou come out victorious as " + enemy["name"] + " is slain!")
-                print("╔═════════╗")
-                print("╣ VICTORY ║")
-                print("╚═════════╝")
+                print("    ______________________________________________    _______________________________")
+                print("   / __ )  /   | /__  __/ /__  __/ / /     / ____/    | |     / / / __ \  / | / / / /")
+                print("  / __  | / /| |   / /      / /   / /     / __/       | | /| / / / / / / /  |/ / / / ")
+                print(" / /_/ / / ___ |  / /      / /   / /___  / /___       | |/ |/ / / /_/ / / /|  / /_/  ")
+                print("/_____/ /_/  |_| /_/      /_/   /_____/ /_____/       |__/|__/  \____/ /_/ |_/ (_)   ")
+                print()
                 player.score += enemy["score"]
                 enter()
                 return False
@@ -146,13 +148,21 @@ def damage_got(enemy, move):
 def main_fight(enemy):
     player.in_battle_enemy_hp = enemy["hp"]
     print()
-    print("You have stumbled across " + enemy["name"] + "and he does not look a happy bunny.")
+    print("    ___________________________________________________________________  ")
+    print("   / ____/ / | / / / ___\ / __ \  / / / / / | / / /_  __/ / ____/ / __ \ ")
+    print("  / __/   /  |/ / / /    / / / / / / / / /  |/ /   / /   / __/   / /_/ / ")
+    print(" / /___  / /|  / / /__  / /_/ / / /_/ / / /|  /   / /   / /___  / _, _/  ")
+    print("/_____/ /_/ |_/  \____/ \____/  \____/ /_/ |_/   /_/   /_____/ /_/ |_|   ")
+    print()
+    alpha = randint(0, len(encounter_fill) - 1)
+    print("You have encountered " + enemy["name"] + encounter_fill[alpha])
     print("You must fight " + enemy["name"] + "to proceed (you cannot save during battle).")
     print()
     while True:
         a = input("Heads or Tails (winner goes first)? ")
         normalise_input(a)
         while True:
+            quit_test(a)
             if "tails" in a:
                 a = 0
                 break

@@ -146,15 +146,12 @@ def post_intro_prompt(inventory):
             consumable_choice = input("Type 1, 2 or 3 to select consumable. ")
 
 
-class Victory(Exception):
-    pass
-
-
 # Events checked each time you change rooms
 def event_update(exits):
     if player.current_room["name_ID"] == "Hangar 2":
         raise Victory
-
+    if player.current_room["name_ID"] == "Vehicle Maintenance":
+        raise GameOver
     if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 1:
         print()
         print("As you enter Hangar 2 you see the room completely lit. The hangar"

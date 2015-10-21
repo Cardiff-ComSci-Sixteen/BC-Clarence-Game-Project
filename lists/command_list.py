@@ -649,26 +649,50 @@ def print_room(room):
     print()
     print_room_items(room)
 
+
+def quit_test(text):
+    if "quit" in text:
+        quit()
+
 # Class that is raised whenever the player is dead.
 class GameOver(Exception):
     pass
+# Similar to GameOver
+class Victory(Exception):
+    pass
+
 # Tells player what's next after they died.
 def game_over_prompt():
+    print("     _____                                     _____                             ")
+    print("  __|___  |__  ____    ____    __  ______   __|__   |__  __    _ ______  _____   ")
+    print(" |   ___|    ||    \  |    \  /  ||   ___| /     \     |\  \  //|   ___||     |  ")
+    print(" |   |  |    ||     \ |     \/   ||   ___| |     |     | \  \// |   ___||     \  ")
+    print(" |______|  __||__|\__\|__/\__/|__||______| \_____/   __|  \__/  |______||__|\__\ ")
+    print("    |_____|                                   |_____|                            ")
     print()
-    print("╔═══════════╗")
-    print("╣ GAME OVER ║")
-    print("╚═══════════╝")
+    print("You have died... Congratulations!")
     print()
-    input("Press ENTER to quit the game.")
+    print("Your score is: " + str(player.score) + " bits!")
+    print()
+    input("Press ENTER to quit game!")
     quit()
-    # user_input = input("Type 'quit' to exit game or 'new' to start a new game: ")
-    # while True:
-    #     if user_input.strip() == "quit":
-    #         return "quit"
-    #     elif user_input.strip() == "new":
-    #         return "new"
-    #     else:
-    #         user_input = input("Type 'quit' or 'new': ")
+# Similar to game_over_prompt
+def victory_prompt():
+    print("     _____                                               ")
+    print("  __|   _ |__  ____  ______   __    _____  _____ __    _ ")
+    print(" \  \  //    ||    ||   ___|_|  |_ /     \|     |\ \  // ")
+    print(" |\  \//     ||    ||   |__|_    _||     ||     \ \ \//  ")
+    print(" |_\__/    __||____||______| |__|  \_____/|__|\__\/__/   ")
+    print("    |_____|                                              ")
+    print()
+    print("You managed to escape and won! Congratulations!")
+    print()
+    print("Your score is: " + str(player.score) + " bits!")
+    print()
+    input("Press ENTER to quit game!")
+    print()
+    quit()
+
 # Loads data from save file.
 def continue_from_save():
     print()
@@ -699,6 +723,7 @@ def continue_choice(file_list, a):
     print()
     user = input("Choose a number from list: ").strip()
     while True:
+        quit_test(user)
         if user == "0":
             return False
         elif user.isdigit():
@@ -740,6 +765,7 @@ def save(file_name):
     if save_exists(file) and file_name != "auto_save":
         user = input("Overwrite previous save (yes/no)? ").lower().strip()
         while True:
+            quit_test(user)
             if user == "yes":
                 break
             elif user == "no":
