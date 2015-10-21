@@ -39,8 +39,9 @@ object_xfighter = {
 
     "name": "X-Fighter",
 
-    "description": "This fighter is odd in it's design, as it appears its wings open to form an 'x' shape.\n"
-    "I could probably scan this to see if it works",
+    "description": "This fighter is odd in it's design,"
+                   "\nas it appears its wings open to form an 'x' shape."
+                   "\nI could probably scan this to see if it works",
 
     "description_scan": "This fighter appears to be functional I could use it to escape"
 }
@@ -58,7 +59,8 @@ object_powerlifter = {
 
     "name": "Power Lifters",
 
-    "description": "There must have been some sort of Power Lifter fight for these to be in that position"
+    "description": "There must have been some sort of Power Lifter"
+                   "\nfight for these to be in that position"
 }
 
 object_oddfighters = {
@@ -66,7 +68,8 @@ object_oddfighters = {
 
     "name": "Odd shaped fighters",
 
-    "description": "These fighters are shaped like a 'H' for some reason maybe I could scan them to see if they work.",
+    "description": "These fighters are shaped like a 'H' for some"
+                   "\nreason maybe I could scan them to see if they work.",
 
     "description_scan": "None of them seem to be functional"
 }
@@ -88,7 +91,7 @@ object_bunks = {
 }
 
 object_mainreactor = {
-    "id": ["mainreactor"],
+    "id": ["mainreactor", "main_reactor"],
 
     "name": "Main Reactor",
 
@@ -98,21 +101,23 @@ object_mainreactor = {
 }
 
 object_powercontrol = {
-    "id": ["powercontrol"],
+    "id": ["powercontrol", "power_control"],
 
     "name": "Power Controls",
 
-    "description": "This looks like the controls for power distribution, I could probably turn on Hargar 2's power from here",
+    "description": "This looks like the controls for power distribution,"
+                   "\nI could probably turn on Hangar 2's power from here",
 }
 
 object_warpcore = {
-    "id": ["warpcore"],
+    "id": ["warpcore", "warp_core"],
 
     "name": "Warp Core",
 
-    "description": "It's the warp core for the ship, I could probably scan it for more infomation",
+    "description": "It's the warp core for the ship,"
+                   "\nI could probably scan it for more information",
 
-    "description_scan": "It doesn't seem to be operational, it's miss aligned"
+    "description_scan": "It doesn't seem to be operational, it's miss aligned."
 }
 
 object_weaponcontrol = {
@@ -120,11 +125,12 @@ object_weaponcontrol = {
 
     "name": "Weapon Controls",
 
-    "description": "These are the main controls for the weapons, one of these must control the tractor beam",
+    "description": "These are the main controls for the weapons,"
+                   "\none of these must control the tractor beam",
 }
 
 object_bridgecontrols = {
-    "id": ["bridgecontrols"],
+    "id": ["bridgecontrols", "bridge_controls"],
 
     "name": "Bridge Controls",
 
@@ -140,7 +146,7 @@ object_window = {
 }
 
 object_lifecontrols = {
-    "id": ["lifecontrols"],
+    "id": ["lifecontrols", "life_controls"],
 
     "name": "Life Support Controls",
 
