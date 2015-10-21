@@ -12,7 +12,7 @@ commands = OrderedDict([
     ("inventory", "see what you are carrying"),
     ("playername", "change your name"),
     ("quit", "quits the game"),
-    ("save", "saves your current progress"),
+    ("save", "save your current progress"),
     ("scan", "analyze an object for more information"),
     ("stats", "view valuable information about your character"),
     ("take", "pick up an item to your inventory")])
@@ -32,7 +32,7 @@ commands_detailed = OrderedDict([
                   "\n            that you are currently carrying in your inventory"),
     ("playername", "use this if you don't like your name and want to change it"),
     ("quit", "quits the game"),
-    ("save", "saves your current progress"),
+    ("save", "saves your progress to saves\ with the name you have types"),
     ("scan", "use your SCANNER to further analyze an object in the room/inventory"
              "\nto get more information about it, if there is any"),
     ("stats", "view information about your character such as"
