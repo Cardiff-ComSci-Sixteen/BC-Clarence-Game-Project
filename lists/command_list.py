@@ -539,9 +539,13 @@ def command_inventory(container):
         print("I don't have anything on me at the moment.")
 
 
-def get_room_state(room):
-    n = room["state"]
-    return n
+def heal(amount):
+    if player.hp + amount > 100:
+        player.hp = 100
+        print("You healed back at maximum health!")
+    else:
+        player.hp += amount
+        print("You healed for " + str(amount) + " health.")
 
 
 def update_player_stats(inventory):

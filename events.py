@@ -190,6 +190,10 @@ def input_event_update(user_input, exits, inventory):
         print("You ate the biscuits and soon start feeling ill. As a result you lose 10 hp!")
         player.hp -= 10
         return True
+    if (user_input == ['use', 'medkit'] or user_input == ['use', 'med_kit'] or user_input == ['use', 'kit']) and item_medkit in inventory:
+        inventory.remove(item_medkit)
+        heal(25)
+        return True
     if user_input == ["battle"]:
         combat_system.main_fight(monster_kirill_minion)
         print_room(player.current_room)

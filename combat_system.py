@@ -175,6 +175,7 @@ def main_fight(enemy):
                     damage_got(enemy, move)
                     if player.hp <= 0:
                         raise GameOver
+                    enter()
             break
         else:
             print("\nEnemy goes first!")
