@@ -16,7 +16,7 @@ scanner_power = 12
 # Used to calculate and change current enemy hp instead of the enemy declaration itself
 in_battle_enemy_hp = 0
 encounters = []
-
+auto_save_count = 0
 # Whenever the player moves to a new room, last_room is changed to the previous one so that the player can use "go back" to go back
 last_room = []
 

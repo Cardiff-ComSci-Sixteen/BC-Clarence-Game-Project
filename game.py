@@ -3,6 +3,7 @@ import player
 from map import rooms
 import time
 import events
+import os
 
 # Variable included as rooms change. Similar to current_room but used a bit differently.
 # player.in_room = "Player Ship"
@@ -95,8 +96,16 @@ def command_execute(exits):
                     if cmdn == "playername":
                         player.player_name = command_name_change()
                     if cmdn == "save":
-                        save()
-                        print("Your game has been saved!")
+                        file_name = input("Type the name of your save (use only numbers, letters, spaces, ' and '_'): ")
+                        for char in file_name:
+                            if char in string.punctuation and char != "_" and char != "'":
+                                file_name = file_name.replace(char, "")
+                        if file_name.strip() == "":
+                            file_name = "save_data"
+                        if save(file_name):
+                            print("Your game has been saved to '" + file_name + ".json'.")
+                        else:
+                            print("Save canceled.")
                     if cmdn == "take":
                         command_take(player.player_name, player.in_room, cmd, player.inventory)
                         update_player_stats(player.inventory)
@@ -155,25 +164,47 @@ def move(exits, direction):
 
 def menu(current_room, exits):
     display_room(current_room)
-
     print_menu(exits)
     print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
+    if player.auto_save_count == 5:
+        player.auto_save_count = 0
+        save("auto_save")
+        print("Progress has been auto-saved!")
     command_input = command_execute(exits)
     return move(exits, command_input)
 
 
-def main():
-    if save_exists():
-        if continue_from_save():
-            load()
-            print("Game loaded from save file!")
+# Called whenever there is a save file. If none - New game is started.
+def main_menu():
+    if not os.path.isdir("saves"):
+        os.makedirs("saves")
+    file_list = os.listdir("saves")
+    while True:
+        if file_list:
+            if continue_from_save():
+                print()
+                print("Your current saves:")
+                a = 0
+                # Print Continue Menu
+                print("0. Return")
+                for file in file_list:
+                    a += 1
+                    print(str(a) + ". " + file)
+                if continue_choice(file_list, a):
+                    break
+
+            else:
+                events.intro_prompt()
+                events.post_intro_prompt(player.inventory)
+                break
         else:
             events.intro_prompt()
             events.post_intro_prompt(player.inventory)
-    else:
-        events.intro_prompt()
-        events.post_intro_prompt(player.inventory)
+            break
 
+
+def main():
+    main_menu()
     # Start game at the room_1
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
@@ -191,6 +222,7 @@ def main():
         update_player_stats(player.inventory)
         exits = player.current_room["exits"]
         player.current_room = menu(player.current_room, exits)
+        player.auto_save_count += 1
         player.in_room = player.current_room["name_ID"]
         events.event_update(exits)
 
