@@ -165,7 +165,6 @@ def move(exits, direction):
 def menu(current_room, exits):
     display_room(current_room)
     print_menu(exits)
-    print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
     if player.auto_save_count == 5:
         player.auto_save_count = 0
         save("auto_save")
@@ -208,13 +207,6 @@ def main():
     # Start game at the room_1
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
-
-    print("""IMPORTANT: Things to remove which are currently put just for testing purposes:"
-    - This Message
-    - "battle" from events
-    - "Type Battle" from menu()
-          """)
-
     print("Hello " + player.player_name + "!")
     # Main game loop
     while True:
@@ -226,7 +218,7 @@ def main():
         player.in_room = player.current_room["name_ID"]
         events.event_update(exits)
 
-# loading(100)
+loading(100)
 
 while True:
     try:

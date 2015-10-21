@@ -231,11 +231,6 @@ def input_event_update(user_input, exits, inventory):
         print("You open your Med-Kit and take out a bunch of medication and bandages to use.")
         heal(25)
         return True
-    if user_input == ["battle"]:
-        combat_system.main_fight(monster_kirill_minion)
-        print_room(player.current_room)
-        print_menu(exits)
-        return True
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")
         item_scanner["attributes"]["power"] = 50
