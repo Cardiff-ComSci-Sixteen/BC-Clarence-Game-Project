@@ -5,6 +5,7 @@ from map import rooms
 from items.items import *
 import player
 import json
+import os
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
@@ -626,8 +627,52 @@ def game_over_prompt():
     #     else:
     #         user_input = input("Type 'quit' or 'new': ")
 # Loads data from save file.
-def load():
-    with open("data.json", "r") as f:
+def continue_from_save():
+    print()
+    print("Do you want to start a 'New Game' or 'Continue' from save file?")
+    print("0. Quit")
+    print("1. New Game (keep saves)")
+    print("2. New Game (delete saves)")
+    print("3. Continue")
+    print()
+    a = input("Choose a number from list: ").strip()
+    while True:
+        if a == "0":
+            quit()
+        elif a == "1":
+            return False
+        elif a == "2":
+            for file in os.listdir("saves"):
+                os.remove(os.path.join("saves", file))
+            print("All save data has been deleted! New game will be started.")
+            enter()
+            return False
+        elif a == "3":
+            return True
+        else:
+            a = input("You need to choose a number from the list: ").strip()
+# Takes player input and if player loads a file, returns True, else it returns False and returns back to main menu.
+def continue_choice(file_list, a):
+    print()
+    user = input("Choose a number from list: ").strip()
+    while True:
+        if user == "0":
+            return False
+        elif user.isdigit():
+            if 0 < int(user) <= a:
+                file_choice = file_list[int(user) - 1]
+                load(file_choice)
+                print(file_choice + " loaded!")
+                enter()
+                return True
+            else:
+                user = input("You need to type a valid number from the list: ")
+        else:
+            user = input("You need to type a number from the list: ")
+# Prompts player if they want to continue from save, start a new game or quit at the beginning.
+def load(file_name):
+    file = os.path.join("saves", file_name)
+    with open(file, "r") as f:
         data = json.load(f)
         player.player_name = data["player_name"]
         player.hp = data["hp"]
@@ -640,12 +685,23 @@ def load():
         player.current_room = data["current_room"]
         player.in_room = data["in_room"]
         player.in_battle_enemy_hp = data["in_battle_enemy_hp"]
+        player.encounters = data["encounters"]
         player.scanner_power = data["scanner_power"]
         for key, value in data.items():
             if key in rooms:
                 rooms[key] = value
 # Write player and room data into save file.
-def save():
+def save(file_name):
+    file = os.path.join("saves", file_name + ".json")
+    if save_exists(file) and file_name != "auto_save":
+        user = input("Overwrite previous save (yes/no)? ").lower().strip()
+        while True:
+            if user == "yes":
+                break
+            elif user == "no":
+                return False
+            else:
+                user = input("You have to type 'yes' or 'no'.")
     data = {
         "player_name": player.player_name,
         "hp": player.hp,
@@ -658,33 +714,18 @@ def save():
         "current_room": player.current_room,
         "in_room": player.in_room,
         "in_battle_enemy_hp": player.in_battle_enemy_hp,
+        "encounters": player.encounters,
         "scanner_power": player.scanner_power
     }
     for key, value in rooms.items():
         data[key] = value
-    with open("data.json", "w") as f:
+    with open(file, "w") as f:
         json.dump(data, f)
+    return True
 # Checks if save file exists in directory. Returns True if it exists.
-def save_exists():
+def save_exists(file_name):
     try:
-        with open("data.json") as file:
+        with open(file_name) as file:
             return True
     except IOError as e:
         return False
-# Prompts player if they want to continue from save, start a new game or quit at the beginning.
-def continue_from_save():
-    print()
-    print("Do you want to start a 'New Game' or 'Continue' from save file?")
-    print("1. New Game")
-    print("2. Continue")
-    print("3. Quit")
-    while True:
-        a = input().strip()
-        if a == "1":
-            return False
-        elif a == "2":
-            return True
-        elif a == "3":
-            quit()
-        else:
-            print("You need to enter 1 or 2!")
