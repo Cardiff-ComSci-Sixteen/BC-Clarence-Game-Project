@@ -110,6 +110,7 @@ def damage_dealt(weapon_input, enemy, move):
                 print("╔═════════╗")
                 print("╣ VICTORY ║")
                 print("╚═════════╝")
+                player.score += enemy["score"]
                 enter()
                 return False
             else:
@@ -145,8 +146,8 @@ def damage_got(enemy, move):
 def main_fight(enemy):
     player.in_battle_enemy_hp = enemy["hp"]
     print()
-    print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
-    print("You must fight " + enemy["name"] + " to proceed (you cannot save during battle).")
+    print("You have stumbled across " + enemy["name"] + "and he does not look a happy bunny.")
+    print("You must fight " + enemy["name"] + "to proceed (you cannot save during battle).")
     print()
     while True:
         a = input("Heads or Tails (winner goes first)? ")

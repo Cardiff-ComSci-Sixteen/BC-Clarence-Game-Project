@@ -10,8 +10,10 @@ inventory = []
 score = 0
 armor = 0
 
+# States
 is_naked = 0
 scanner_power = 12
+hangar_2_power = 0
 
 # Used to calculate and change current enemy hp instead of the enemy declaration itself
 in_battle_enemy_hp = 0
@@ -25,5 +27,3 @@ current_room = rooms["Wrecked Ship"]
 
 # For certain commands, tells the player in which room he is. Variable is set to room's name_ID value
 in_room = "Wrecked Ship"
-#Boss enemy, maybe change the variable name to enemy_boss?
-enemy = {"name": "Kirill", "hp": 100, "weapon": "spoon"}

@@ -231,6 +231,11 @@ def main():
 while True:
     try:
         main()
+    except events.Victory:
+        print()
+        print("You are victorious! Congratulations!")
+        print("Your score is: " + str(player.score) + " bits!")
+        break
     except GameOver:
         game_over_prompt()
         # a = game_over_prompt()

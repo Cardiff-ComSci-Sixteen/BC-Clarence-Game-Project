@@ -100,13 +100,15 @@ object_mainreactor = {
     "description_scan": "It is a nuclear reactor, better not get to close."
 }
 
-object_powercontrol = {
-    "id": ["powercontrol", "power_control"],
+object_powerconsole = {
+    "id": ["console", "large_console"],
 
-    "name": "Power Controls",
+    "name": "Power Console",
 
-    "description": "This looks like the controls for power distribution,"
-                   "\nI could probably turn on Hangar 2's power from here",
+    "description": "Power is distributed using this. Every room has a 'START' and 'STOP' button"
+                   "\nto control its power. All 'START' buttons are green besides where"
+                   "\nthe generator for Hangar #2 is. Starting the generator may be my"
+                   "\nonly chance out of here!"
 }
 
 object_warpcore = {

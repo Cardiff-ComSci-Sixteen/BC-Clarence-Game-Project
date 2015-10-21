@@ -407,7 +407,7 @@ def command_stats(room, inventory):
     print("Weight: " + str(player.weight) + " space units")
     print("Items: " + str(len(inventory)))
     print("Room: " + room)
-    print("Score: " + str(player.score))
+    print("Score: " + str(player.score) + " bits")
     print("Armor: " + str(player.armor))
 
 
@@ -521,6 +521,7 @@ def command_inspect(room, element, player_name, container):
                 for item in room["objects"]:
                     for id_index in item["id"]:
                         if id_index in element:
+                            print()
                             print(item["name"] + ":")
                             print(item["description"])
                             return
@@ -729,6 +730,7 @@ def load(file_name):
         player.in_battle_enemy_hp = data["in_battle_enemy_hp"]
         player.encounters = data["encounters"]
         player.scanner_power = data["scanner_power"]
+        player.hangar_2_power = data["hangar_power"]
         for key, value in data.items():
             if key in rooms:
                 rooms[key] = value
@@ -757,7 +759,8 @@ def save(file_name):
         "in_room": player.in_room,
         "in_battle_enemy_hp": player.in_battle_enemy_hp,
         "encounters": player.encounters,
-        "scanner_power": player.scanner_power
+        "scanner_power": player.scanner_power,
+        "hangar_power": player.hangar_2_power
     }
     for key, value in rooms.items():
         data[key] = value

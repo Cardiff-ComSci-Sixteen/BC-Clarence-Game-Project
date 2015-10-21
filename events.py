@@ -1,6 +1,8 @@
 from lists.command_list import *
 import combat_system
 from items.monsters import *
+from items.objects import *
+import player
 
 
 def player_name():
@@ -144,11 +146,48 @@ def post_intro_prompt(inventory):
             consumable_choice = input("Type 1, 2 or 3 to select consumable. ")
 
 
+class Victory(Exception):
+    pass
+
+
 # Events checked each time you change rooms
 def event_update(exits):
-    if player.current_room["name_ID"] == "Hangar 1" and player.last_room == "Hangar 2":
-        print("You hear a loud bang behind you. You turn around and see that the exit to Hangar 2 has collapsed.")
-        del player.current_room["exits"]["hangar_2"]
+    if player.current_room["name_ID"] == "Hangar 2":
+        raise Victory
+
+    if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 1:
+        print()
+        print("As you enter Hangar 2 you see the room completely lit. The hangar"
+              "\ndoor is closed and there is a big fighter plane inside the room with an open"
+              "\ncockpit. You hear noise from the left where a whole stash of Vodka is laying"
+              "\nand as you look there you see someone walking out. Someone rather familiar..."
+              )
+        enter()
+        print("As the unknown man approaches you, not wearing any top clothing,"
+              "\nholding a bottle of Vodka, you pull back against the wall.")
+        enter()
+        print("Do you remember me, " + player.player_name + "?"
+              "\n10 years ago you imprisoned me on this ship, apparently because I was"
+              "\nsome kind of a scary man! Well, the time has come to settle this."
+              "\n"
+              "\nI brought you here, using my super amazing computer skills and"
+              "\nnow it is YOUR turn to die for 10 years... Or more!"
+              "\nXaxaxaxa! That will be fun~")
+        print("...")
+        print("I better get ready to fight!")
+        enter()
+        player.hp = 100
+        combat_system.main_fight(enemy_kirill)
+        player.encounters.append(player.current_room["name_ID"])
+        print()
+        print("As Kirill has been slain after an exhausting battle,"
+              "\nblood stains covering your arms, you get up and look at the fighter."
+              "\nYou open the hangar doors from the console on the right and get inside"
+              "\nthe fighter's cockpit."
+              "\n\nAs You are a Computer Scientist, with your brain big, you"
+              "\nmanage to hack into the console of the ship and take off, freely escaping"
+              "\nBC Clarence alive and full of stories to tell!")
+        raise Victory
 
     if player.current_room["name_ID"] == "Vehicle Storage" and player.current_room["name_ID"] not in player.encounters:
         combat_system.main_fight(monster_kirill_minion)
@@ -203,4 +242,21 @@ def input_event_update(user_input, exits, inventory):
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")
         item_scanner["attributes"]["power"] = 50
+        return True
+    if (user_input == ["start", "generator"] or
+        user_input == ["press", "button"] or
+        user_input == ["press", "start"] or
+       user_input == ["start", "power_generator"]) and player.current_room["name"] == "Power Control":
+            if player.hangar_2_power == 0:
+                print("\nYou turn on the power generator for Hangar #2. After a few seconds the button"
+                      "\nunder the 'Hangar #2' label turns green, meaning there is power in the Hangar.")
+                object_powerconsole["description"] = "All the buttons are green now! There should be power in Hangar #2."
+                rooms["Power Control"]["description"] = ("Power is distributed using this. Every room has a 'START' and 'STOP' button"
+                                                         "\nto control its power. All 'START' buttons are green besides where"
+                                                         "\nthe generator for Hangar #2 is. Starting the generator may be my"
+                                                         "\nonly chance out of here!")
+                player.hangar_2_power = 1
+            else:
+                print("\nThe generator is already on!")
+            return True
     return False

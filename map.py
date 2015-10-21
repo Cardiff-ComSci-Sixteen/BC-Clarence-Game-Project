@@ -48,10 +48,12 @@ hangar_2 = {
     "name_ID": "Hangar 2",
     "name": "Hangar #2",
 
-    "description":  "You walk into Hangar #2, it also to appears to be on emergancy"
-                    "\npower, so can't see very much. From what you can see, it is very"
-                    "\nsimilar to Hangar #1 except, it is not very badly damaged, the"
-                    "\nmain door is also closed and there is a fighter docked here.",
+    "description":  "You walk into Hangar #2 - there is no power lighting up the room."
+                    "\nFrom what you can barely see, it seems to be very"
+                    "\nsimilar to Hangar #1, except it is not that badly damaged."
+                    "\nThe deployment door at the end is closed  as there are no stars."
+                    "\nThere appears to be a fighter docked here. I need to find a way"
+                    "\nto power up the hangar so I would be able to escape from here!",
 
     "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance", "vehicle_storage": "Vehicle Storage"},
 
@@ -126,13 +128,15 @@ power_control = {
     "name_ID": "Power Control",
     "name": "Power Control",
 
-    "description": "You are in Power Control there is a large console in here, and some hard hats.",
+    "description": "You are in Power Control room. All power in Clarence is controlled from here."
+    "\nThere is a large console in here with many buttons, and some hard hats."
+    "\nI think I should look at the console to see if I find anything.",
 
     "exits": {"power_generator": "Power Generator"},
 
     "items": [],
 
-    "objects": [object_powercontrol],
+    "objects": [object_powerconsole],
 
     "requirement": item_keyP
 }
