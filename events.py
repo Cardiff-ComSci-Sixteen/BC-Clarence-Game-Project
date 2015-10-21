@@ -153,6 +153,18 @@ def event_update(exits):
         combat_system.main_fight(monster_kirill_minion)
         player.encounters.append(player.current_room["name_ID"])
 
+    if player.current_room["name_ID"] == "Power Generator" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(monster_kirill_minion)
+        player.encounters.append(player.current_room["name_ID"])
+
+    if player.current_room["name_ID"] == "Main Engineering" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(monster_kirill_minion)
+        player.encounters.append(player.current_room["name_ID"])
+
+    if player.current_room["name_ID"] == "Officer Deck" and player.current_room["name_ID"] not in player.encounters:
+        combat_system.main_fight(monster_kirill_minion)
+        player.encounters.append(player.current_room["name_ID"])
+
     if player.current_room["name_ID"] == "Crew Quarters" and player.current_room["name_ID"] not in player.encounters:
         combat_system.main_fight(monster_kirill_minion)
         player.encounters.append(player.current_room["name_ID"])
