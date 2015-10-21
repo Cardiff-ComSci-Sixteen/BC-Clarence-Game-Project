@@ -498,7 +498,7 @@ def command_inspect(room, element, player_name, container):
                             print()
                             print("Class: " + item_class(bravo["class"]))
                             print(bravo["description"])
-                            print("Power: " + str(bravo["attributes"]["power"]) + "%")
+                            print("Power: " + str(player.scanner_power) + "%")
                             return
                         if id_index_1 in element:
                             print()
@@ -625,6 +625,25 @@ def game_over_prompt():
     #         return "new"
     #     else:
     #         user_input = input("Type 'quit' or 'new': ")
+# Loads data from save file.
+def load():
+    with open("data.json", "r") as f:
+        data = json.load(f)
+        player.player_name = data["player_name"]
+        player.hp = data["hp"]
+        player.weight = data["weight"]
+        player.inventory = list(data["inventory"])
+        player.score = data["score"]
+        player.armor = data["armor"]
+        player.is_naked = data["is_naked"]
+        player.last_room = data["last_room"]
+        player.current_room = data["current_room"]
+        player.in_room = data["in_room"]
+        player.in_battle_enemy_hp = data["in_battle_enemy_hp"]
+        player.scanner_power = data["scanner_power"]
+        for key, value in data.items():
+            if key in rooms:
+                rooms[key] = value
 # Write player and room data into save file.
 def save():
     data = {
@@ -638,7 +657,8 @@ def save():
         "last_room": player.last_room,
         "current_room": player.current_room,
         "in_room": player.in_room,
-        "in_battle_enemy_hp": player.in_battle_enemy_hp
+        "in_battle_enemy_hp": player.in_battle_enemy_hp,
+        "scanner_power": player.scanner_power
     }
     for key, value in rooms.items():
         data[key] = value
@@ -668,25 +688,3 @@ def continue_from_save():
             quit()
         else:
             print("You need to enter 1 or 2!")
-# Loads data from save file.
-def load():
-    with open("data.json", "r") as f:
-        data = json.load(f)
-        player.player_name = data["player_name"]
-        player.hp = data["hp"]
-        player.weight = data["weight"]
-        player.inventory = list(data["inventory"])
-        for a in player.inventory:
-            print(a["name"])
-        player.score = data["score"]
-        player.armor = data["armor"]
-        player.is_naked = data["is_naked"]
-        player.last_room = data["last_room"]
-        player.current_room = data["current_room"]
-        player.in_room = data["in_room"]
-        player.in_battle_enemy_hp = data["in_battle_enemy_hp"]
-        b = 0
-        for key, value in data.items():
-            if key in rooms:
-                rooms[key] = value
-                print("Room " + key + " updated!")

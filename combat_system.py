@@ -140,7 +140,7 @@ def main_fight(enemy):
     print()
     print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
     print()
-    print("You must fight " + enemy["name"] + " to proceed with the game.")
+    print("You must fight " + enemy["name"] + " to proceed with the game (you cannot save during battle).")
     while True:
         a = input("Heads or Tails (winner goes first)?")
         normalise_input(a)

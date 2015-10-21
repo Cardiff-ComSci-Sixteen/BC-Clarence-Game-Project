@@ -122,11 +122,11 @@ def command_execute(exits):
                             user_input = user_input.replace(alpha, "")
                         cmd = normalise_input(user_input)
                         cmd = input_combine_commands(cmd)
-                        power = item_scanner["attributes"]["power"]
+                        power = player.scanner_power
                         if item_scanner in player.inventory:
                             if power >= 1:
                                 if command_scan(rooms[player.in_room], cmd, player.player_name, player.inventory):
-                                    item_scanner["attributes"]["power"] -= 1
+                                    player.scanner_power -= 1
                                     power -= 1
                                     if power > 10:
                                         print(str(power) + "% Power Left")
