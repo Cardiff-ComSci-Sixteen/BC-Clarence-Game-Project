@@ -67,6 +67,9 @@ def is_valid_command(user_input):
 def command_execute(exits):
     user_input = "a"
     while True:
+        # time.sleep(3)
+        # save()
+        # print("Your game has been saved!")
         if user_input.strip() == "":
             user_input = input(player.player_name + ": ")
         else:
@@ -150,9 +153,9 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 
-def menu(current_room):
+def menu(current_room, exits):
     display_room(current_room)
-    exits = current_room["exits"]
+
     print_menu(exits)
     print("\nTESTING: Type 'battle' to initiate a test battle with Kirill's Minion!")
     command_input = command_execute(exits)
@@ -189,9 +192,10 @@ def main():
     while True:
         # update_room_state(player.current_room["name_ID"])
         update_player_stats(player.inventory)
-        player.current_room = menu(player.current_room)
+        exits = player.current_room["exits"]
+        player.current_room = menu(player.current_room, exits)
         player.in_room = player.current_room["name_ID"]
-        events.event_update()
+        events.event_update(exits)
 
 # loading(100)
 

@@ -53,8 +53,8 @@ def valid_weapon():
             if weapon_input[0].isdigit():
                 if 0 < int(weapon_input[0]) <= len(list_of_weapons()):
                     weapon = list_of_weapons()[int(weapon_input[0]) - 1]
-                    print("You have chosen " + weapon["name"] + "!")
-                    print("It has got " + str(weapon["attributes"]["damage"]) + " base damage!\n")
+                    print()
+                    print("You have chosen " + weapon["name"] + "with " + str(weapon["attributes"]["damage"]) + " base damage!\n")
                     return weapon
                 else:
                     a = input("You have not entered a valid weapon number from the list!\n" + player.player_name + ": ")
@@ -70,7 +70,7 @@ def reset_enemy_hp(enemy, health):
 
 def move_prompt():
     print()
-    print("-----========[CHOOSE ACTION]========-----")
+    print("-----========[CHOOSE STANCE]========-----")
     print("1. Attack")
     print("2. Defend")
     print()
@@ -78,10 +78,11 @@ def move_prompt():
     attack_input = normalise_input(attack_input)
     while True:
         if "1" in attack_input:
+            print("\nYou take on an offensive stance! You deal normal damage.")
             return 1
         elif "2" in attack_input:
-            print("There is no point defending yourself, go all out attack!!")
-            attack_input = normalise_input(input(player.player_name + ": "))
+            print("\nYou take on a defensive stance! You deal less damage but gain more armor!")
+            return 2
         elif "quit" in attack_input:
             quit()
         else:
@@ -89,11 +90,15 @@ def move_prompt():
             attack_input = normalise_input(attack_input)
 
 
-def damage_dealt(weapon_input, enemy):
+def damage_dealt(weapon_input, enemy, move):
+    if move == 1:
+        a = 1
+    else:
+        a = 2
     while True:
         print("\n-----========[BATTLE ROUND]========-----")
         if (enemy["dodge"] - randint(1, 100)) < 0:
-            damage = weapon_input["attributes"]["damage"] + randint(-5, 3)
+            damage = int((weapon_input["attributes"]["damage"] + randint(-5, 3))/a)
             player.in_battle_enemy_hp -= damage
             hp = player.in_battle_enemy_hp
             alpha = randint(0, 2)
@@ -109,26 +114,29 @@ def damage_dealt(weapon_input, enemy):
                 enter()
                 return False
             else:
-                print(enemy["name"] + " is still alive.")
-                print(str(hp) + " HP Left.")
+                print(enemy["name"] + " is still alive with " + str(hp) + " HP Left.")
                 return True
         else:
             print("Your opponent dodges your attack.")
             return True
 
 
-def damage_got(enemy):
+def damage_got(enemy, move):
+    if move == 1:
+        a = 1
+    else:
+        a = 1.5
+    armor = int(player.armor * a)
     e_w_r = randint(0, len(enemy["weapon"]) - 1)
     print(enemy["name"] + " " + enemy["weapon"][e_w_r]["description"])
     if (enemy["weapon"][e_w_r]["accuracy"] - randint(1, 100)) >= 0:
         damage = enemy["weapon"][e_w_r]["damage"] - randint(0, enemy["weapon"][e_w_r]["damage"] - enemy["weapon"][e_w_r]["damage_bottom"])
-        if damage > player.armor:
-            player.hp -= damage
+        if damage > armor:
+            player.hp = player.hp + armor - damage
             if player.hp <= 0:
                 print(player.player_name + " has been killed by " + enemy["name"])
             else:
-                print(player.player_name + " is still alive.")
-                print(str(player.hp) + " HP Left.")
+                print("You have " + str(player.hp) + " HP Left.")
         else:
             print("Your armor has deflected the entire opponent's damage!")
     else:
@@ -159,29 +167,28 @@ def main_fight(enemy):
             print("\nYou go first!")
             enter()
             while player.in_battle_enemy_hp >= 1:
+                weapon_choice = valid_weapon()
                 move = move_prompt()
-                if move == 1:
-                    weapon_choice = valid_weapon()
-                    # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-                    if damage_dealt(weapon_choice, enemy):
-                        print()
-                        damage_got(enemy)
-                        if player.hp <= 0:
-                            raise GameOver
-                        enter()
+                # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
+                if damage_dealt(weapon_choice, enemy, move):
+                    print()
+                    damage_got(enemy, move)
+                    if player.hp <= 0:
+                        raise GameOver
+                    enter()
             break
         else:
             print("\nEnemy goes first!")
             enter()
             print()
+            move = 1
             while player.in_battle_enemy_hp >= 1:
-                damage_got(enemy)
+                damage_got(enemy, move)
                 if player.hp <= 0:
                     raise GameOver
+                weapon_choice = valid_weapon()
                 move = move_prompt()
-                if move == 1:
-                    weapon_choice = valid_weapon()
-                    # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-                    if damage_dealt(weapon_choice, enemy):
-                        print()
-                    enter()
+                # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
+                if damage_dealt(weapon_choice, enemy, move):
+                    print()
+                enter()
