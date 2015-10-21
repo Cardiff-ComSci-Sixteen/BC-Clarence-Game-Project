@@ -55,6 +55,10 @@ go_deny = ["Going there is not an option.",
            "Destination unknown!",
            "This location is unfamiliar to me."]
 
+go_back_deny = ["I can no longer go back.",
+                "Something is impeding with my way back!",
+                "What if I told you: I CANNOT GO BACK!"]
+
 take_deny = ["This looks scary, I do not want it.",
              "I will not take this.",
              "I do not like this object.",

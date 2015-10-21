@@ -142,16 +142,6 @@ def remove_punct(text):
     return text
 
 
-# Checks if chosen exit is valid
-# (is there an exit to the west or no when you type in 'west')?
-def is_valid_exit(exits, user_input):
-    # user_input = normalise_input(user_input)
-    if user_input in exits:
-        return True
-    else:
-        return False
-
-
 def exit_leads_to(exits, direction):
     if direction not in exits:
         return 0
@@ -179,26 +169,75 @@ def print_menu(exits):
     return exit_list
 
 
+# Checks if chosen exit is valid
+# (is there an exit to the west or no when you type in 'west')?
+def is_valid_exit(exits, user_input):
+    # user_input = normalise_input(user_input)
+    if "requirement" in player.current_room:
+        if player.current_room["requirement"] in player.inventory:
+            pass
+        else:
+            return 3
+    if user_input in exits:
+        alpha = exits[user_input]
+        if "requirement" in rooms[alpha]:
+            if rooms[alpha]["requirement"] in player.inventory:
+                return 1
+            else:
+                return 2
+        return 1
+    else:
+        return 0
+
+
 # Actually returns the direction.
 def command_go(exits, direction):
+    global went_back
+    went_back = 0
     while True:
-        if direction == "back" :
+        # if direction == "back":
+        #     if player.last_room:
+        #         direction = player.last_room[len(player.last_room) - 1]
+        #         if len(direction) > 1:
+        #             cmd_changed = direction[0] + "_" + direction[1]
+        #             # del direction[0:len(direction)-1]
+        #             direction[0] = cmd_changed
+        #             del player.last_room[len(player.last_room) - 1]
+        #             print(player.last_room)
+        #         return direction[0]
+        #     else:
+        #         print("There is nowhere to go back!")
+        #         break
+        if direction == "back":
+            went_back = 1
             if player.last_room:
                 direction = player.last_room[len(player.last_room) - 1]
                 if len(direction) > 1:
                     cmd_changed = direction[0] + "_" + direction[1]
-                    # del direction[0:len(direction)-1]
-                    direction[0] = cmd_changed
-                    del player.last_room[len(player.last_room)-1]
-                    print(player.last_room)
-                return direction[0]
+                    direction = cmd_changed
+                else:
+                    direction = direction[0]
             else:
                 print("There is nowhere to go back!")
                 break
         else:
-            if is_valid_exit(exits, direction):
-                player.last_room.append(normalise_input(player.current_room["name_ID"]))
+            chosen_exit = is_valid_exit(exits, direction)
+            if chosen_exit == 1:
+                if went_back == 0:
+                    player.last_room.append(normalise_input(player.current_room["name_ID"]))
+                else:
+                    del player.last_room[len(player.last_room) - 1]
                 return direction
+            elif chosen_exit == 2:
+                print("The doors are locked - I need a key card to enter the room!")
+                break
+            elif chosen_exit == 3:
+                if went_back == 0:
+                    print("I do not want to lock myself out of the room. I need the key card!")
+                else:
+                    cmd = random.randint(0, 2)
+                    print(go_back_deny[cmd])
+                break
             else:
                 cmd = random.randint(0, 3)
                 print(go_deny[cmd])

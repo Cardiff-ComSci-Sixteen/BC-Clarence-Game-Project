@@ -132,7 +132,9 @@ power_control = {
 
     "items": [],
 
-    "objects": [object_powercontrol]
+    "objects": [object_powercontrol],
+
+    "requirement": item_keyP
 }
 
 engineering = {
@@ -223,6 +225,7 @@ systems_control = {
 
 armory = {
     "name_ID": "Armory",
+
     "name": "Armory",
 
     "description":  "You are in the armory, there are lots of weapons and armour in here, but only a few catch"
@@ -233,7 +236,9 @@ armory = {
 
     "items": [weapon_phaser, weapon_saber, weapon_blaster, armor_lightarmour3, armor_heavyarmour3],
 
-    "objects": []
+    "objects": [],
+
+    "requirement": item_keyA
 }
 
 med_bay = {
@@ -311,7 +316,9 @@ detention_centre = {
 
     "items": [item_keyA],
 
-    "objects": []
+    "objects": [],
+
+    "requirement": item_keyD
 }
 
 

@@ -192,6 +192,7 @@ def input_event_update(user_input, exits, inventory):
         return True
     if (user_input == ['use', 'medkit'] or user_input == ['use', 'med_kit'] or user_input == ['use', 'kit']) and item_medkit in inventory:
         inventory.remove(item_medkit)
+        print("You open your Med-Kit and take out a bunch of medication and bandages to use.")
         heal(25)
         return True
     if user_input == ["battle"]:
@@ -202,5 +203,4 @@ def input_event_update(user_input, exits, inventory):
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")
         item_scanner["attributes"]["power"] = 50
-        return True
     return False
