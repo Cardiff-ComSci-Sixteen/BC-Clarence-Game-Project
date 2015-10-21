@@ -141,14 +141,47 @@ def main_fight(enemy):
     print("You have stumbled across " + enemy["name"] + " and he does not look a happy bunny.")
     print()
     print("You must fight " + enemy["name"] + " to proceed with the game.")
-    while player.in_battle_enemy_hp >= 1:
-        move = move_prompt()
-        if move == 1:
-            weapon_choice = valid_weapon()
-            # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
-            if damage_dealt(weapon_choice, enemy):
-                print()
+    while True:
+        a = input("Heads or Tails (winner goes first)?")
+        normalise_input(a)
+        while True:
+            if "tails" in a:
+                a = 0
+                break
+            elif "heads" in a:
+                a = 1
+                break
+            else:
+                a = input("You have to choose between Heads and Tails: ")
+                a = normalise_input(a)
+        b = randint(0, 1)
+        if b == a:
+            print("\nYou go first!")
+            enter()
+            while player.in_battle_enemy_hp >= 1:
+                move = move_prompt()
+                if move == 1:
+                    weapon_choice = valid_weapon()
+                    # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
+                    if damage_dealt(weapon_choice, enemy):
+                        print()
+                        damage_got(enemy)
+                        if player.hp <= 0:
+                            raise GameOver
+                        enter()
+            break
+        else:
+            print("\nEnemy goes first!")
+            enter()
+            print()
+            while player.in_battle_enemy_hp >= 1:
                 damage_got(enemy)
                 if player.hp <= 0:
                     raise GameOver
-                enter()
+                move = move_prompt()
+                if move == 1:
+                    weapon_choice = valid_weapon()
+                    # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
+                    if damage_dealt(weapon_choice, enemy):
+                        print()
+                    enter()
