@@ -23,7 +23,7 @@ wrecked_ship = {
 
     "objects": [object_board_AI, object_ceiling],
 
-    "items": [item_keyD, item_keyA, item_keyP]
+    "items": []
 
 }
 

@@ -63,11 +63,13 @@ def use_keyP():
 
 
 def use_medkit():
+    player.inventory.remove(item_medkit)
     print("You opened the Med-Kit box and took some bandages to put on yourself.")
     heal(25)
 
 
 def use_biscuits():
+    player.inventory.remove(item_biscuits)
     print("You opened a delicious-looking pack of biscuits, but little do you know - they are poisoned.")
     if not unheal(10):
         print("You are left on 1 hp!")
