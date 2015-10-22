@@ -247,7 +247,8 @@ def input_event_update(user_input, exits, inventory):
                                                          "\nthe generator for Hangar #2 is. Starting the generator may be my"
                                                          "\nonly chance out of here!")
                 player.hangar_2_power = 1
-                del player.objectives["power_up_hangar"]
+                if "power_up_hangar" in player.objectives:
+                    del player.objectives["power_up_hangar"]
                 player.objectives["escape_from_hangar"] = "I need to get to Hangar #2 and escape!"
                 print("\nOBJECTIVES UPDATED")
             else:
