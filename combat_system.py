@@ -3,8 +3,6 @@ from lists.command_list import normalise_input
 from lists.command_list import enter
 from lists.command_list import GameOver
 from lists.command_list import quit_test
-from lists.command_list import print_menu
-from lists.command_list import display_room
 from lists.feedback_lists import *
 import player
 
@@ -116,8 +114,6 @@ def damage_dealt(weapon_input, enemy, move):
                 print()
                 player.score += enemy["score"]
                 enter()
-                display_room(player.current_room)
-                print_menu(player.current_room["exits"])
                 return False
             else:
                 print(enemy["name"] + " is still alive with " + str(hp) + " HP Left.")

@@ -35,7 +35,7 @@ object_wrecked_ship = {
 }
 
 object_xfighter = {
-    "id": ["xfighter"],
+    "id": ["xfighter", "fighter"],
 
     "name": "X-Fighter",
 
