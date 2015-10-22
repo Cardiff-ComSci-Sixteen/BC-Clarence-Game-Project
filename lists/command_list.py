@@ -170,9 +170,9 @@ def display_room(room):
 
 
 def print_menu(exits):
-    print("\n┌─────┐")
-    print("╣EXITS│")
-    print("└─────┘")
+    print("\n╗ ┌─────┐")
+    print("╠═╣EXITS│")
+    print("╝ └─────┘")
     exit_list = []
     for ch in sorted(rooms[player.in_room]["exits"]):
         if ch not in exits:
@@ -302,10 +302,10 @@ def command_name_change():
 
 def command_objectives():
     if player.objectives_changed == 1:
-        print("OBJECTIVES UPDATED!")
-        print()
+        print("OBJECTIVES UPDATED:")
         player.objectives_changed = 0
-    print("OBJECTIVES:")
+    else:
+        print("OBJECTIVES:")
     for key, value in player.objectives.items():
         print(" - " + value)
 
@@ -855,3 +855,4 @@ def save_exists(file_name):
 
 def screen_flush():
     os.system('cls' if os.name == 'nt' else 'clear')
+    print()
