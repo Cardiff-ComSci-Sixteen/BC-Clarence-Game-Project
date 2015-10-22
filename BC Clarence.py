@@ -189,6 +189,7 @@ def main_menu():
             events.post_intro_prompt(player.inventory)
             break
 
+clear = lambda: os.system('cls')
 
 def main():
     main_menu()
@@ -199,6 +200,7 @@ def main():
     # Main game loop
     while True:
         # update_room_state(player.current_room["name_ID"])
+        clear()
         update_player_stats(player.inventory)
         exits = player.current_room["exits"]
         player.current_room = menu(player.current_room, exits)
