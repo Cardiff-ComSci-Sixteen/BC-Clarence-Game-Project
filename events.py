@@ -2,7 +2,6 @@ from lists.command_list import *
 import combat_system
 from items.monsters import *
 from items.objects import *
-import player
 from lists.use import *
 
 

@@ -1,8 +1,5 @@
 # from room_states import rooms_states
 import string
-from map import rooms
-from items.items import *
-import player
 import json
 import os
 from lists.use import *

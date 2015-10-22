@@ -1,6 +1,5 @@
 from items.items import *
 from items.objects import *
-from collections import OrderedDict
 
 # For our code to work the rooms MUST have an 'objects' and 'items' sub-list/dict, otherwise the functions cannot
 # address them and evaluate if there are any items/objects to interact with.

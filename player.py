@@ -1,6 +1,5 @@
 from items.items import *
 from map import rooms
-from random import randint 
 
 # Variables are dynamic - they change as the game progresses.
 player_name = ""
