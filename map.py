@@ -128,7 +128,7 @@ power_control = {
     "name_ID": "Power Control",
     "name": "Power Control",
 
-    "description": "You are in Power Control room. All power in Clarence is controlled from here."
+    "description": "You are in the Power Control room. All power in Clarence is controlled from here."
     "\nThere is a large console in here with many buttons, and some hard hats."
     "\nI think I should look at the console to see if I find anything.",
 
