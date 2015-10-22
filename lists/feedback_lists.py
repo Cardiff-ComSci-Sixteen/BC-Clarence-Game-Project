@@ -16,7 +16,8 @@ commands = OrderedDict([
     ("save", "save your current progress"),
     ("scan", "analyze an object for more information"),
     ("stats", "view valuable information about your character"),
-    ("take", "pick up an item to your inventory")])
+    ("take", "pick up an item to your inventory"),
+    ("use", "use an item if you can")])
 
 commands_detailed = OrderedDict([
     ("drop", "drop an item from your inventory,"
@@ -41,7 +42,9 @@ commands_detailed = OrderedDict([
              "\nto get more information about it, if there is any"),
     ("stats", "view information about your character such as"
               "\n            how many items you are carrying, their weight, health, etc."),
-    ("take", "pick up an item and add it to your inventory")])
+    ("take", "pick up an item and add it to your inventory"),
+    ("use", "if your item is usable or you meet the conditions for its usage,"
+            "\nyou will be prompted")])
 
 commands_aliases = ["look", "analyze"]
 
@@ -68,6 +71,12 @@ take_deny = ["This looks scary, I do not want it.",
              "I do not like this object.",
              "Taking this is not an option.",
              "What would be the point of that?"]
+
+use_deny = ["I cannot use this!",
+            "I do not know how to use this.",
+            "What if I told you - I won't use this?",
+            "Since when am I obliged to listen to you?",
+            "I cannot use something without instructions!"]
 
 drop_deny = ["I wish I had it in the first place.",
              "I'd love to, but nah.",

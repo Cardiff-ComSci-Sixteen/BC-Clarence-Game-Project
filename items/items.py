@@ -45,6 +45,20 @@ item_biscuits = {
     "description_scan": "The pack is contaminated!"
 }
 
+item_crowbar = {
+    "id": ["crowbar"],
+
+    "class": 5,
+
+    "weight": 5,
+
+    "name": "a crowbar",
+
+    "description": "A robust crowbar that can surely break almost anything - Russian style!",
+
+    "description_scan": "Blood stains on the crowbar are evident... Someone must have used this before!"
+}
+
 item_coffee = {
     "id": ["coffee", "cup_coffee", "cup"],
 

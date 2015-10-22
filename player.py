@@ -9,9 +9,11 @@ weight = 0
 inventory = []
 score = 0
 armor = 0
-objectives = {
-    "main_objective": "Find a way to escape from the ship! - Main Objective"
-}
+
+objectives_changed = 0
+objectives = OrderedDict([
+    ("main_objective", "Find a way to escape from the ship! - Main Objective")
+])
 
 # States
 is_naked = 0

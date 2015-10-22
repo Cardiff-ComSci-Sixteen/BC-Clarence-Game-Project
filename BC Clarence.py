@@ -93,6 +93,8 @@ def command_execute(exits):
                             print("Save canceled.")
                     if cmdn == "objectives":
                         command_objectives()
+                    if cmdn == "use":
+                        command_use(cmd, player.inventory)
                     if cmdn == "take":
                         command_take(player.player_name, player.in_room, cmd, player.inventory)
                         update_player_stats(player.inventory)
@@ -150,6 +152,8 @@ def move(exits, direction):
 
 
 def menu(current_room, exits):
+    command_objectives()
+    print()
     display_room(current_room)
     print_menu(exits)
     if player.auto_save_count == 5:
@@ -191,6 +195,7 @@ def main_menu():
 
 
 def main():
+    screen_flush()
     main_menu()
     # Start game at the room_1
     print()
@@ -201,7 +206,7 @@ def main():
     # Main game loop
     while True:
         # update_room_state(player.current_room["name_ID"])
-        os.system('cls' if os.name == 'nt' else 'clear')
+        screen_flush()
         update_player_stats(player.inventory)
         exits = player.current_room["exits"]
         player.current_room = menu(player.current_room, exits)
@@ -210,11 +215,12 @@ def main():
         events.event_update(exits)
 
 # loading(100)
-
 while True:
     try:
         main()
     except events.Victory:
+        screen_flush()
         victory_prompt()
     except GameOver:
+        screen_flush()
         game_over_prompt()

@@ -5,6 +5,7 @@ from items.items import *
 import player
 import json
 import os
+from lists.use import *
 
 # List of directions for the functions to check against.
 # Directions such as UP and DOWN could be used later.
@@ -169,9 +170,9 @@ def display_room(room):
 
 
 def print_menu(exits):
-    print("\n┌-----┐")
+    print("\n┌─────┐")
     print("╣EXITS│")
-    print("└-----┘")
+    print("└─────┘")
     exit_list = []
     for ch in sorted(rooms[player.in_room]["exits"]):
         if ch not in exits:
@@ -185,20 +186,15 @@ def print_menu(exits):
 # Checks if chosen exit is valid
 # (is there an exit to the west or no when you type in 'west')?
 def is_valid_exit(exits, user_input):
-    # user_input = normalise_input(user_input)
-    if "requirement" in player.current_room:
-        if player.current_room["requirement"] in player.inventory:
-            pass
-        else:
-            return 3
     if user_input in exits:
         alpha = exits[user_input]
         if "requirement" in rooms[alpha]:
-            if rooms[alpha]["requirement"] in player.inventory:
-                return 1
-            else:
+            if len(rooms[alpha]["requirement"]) > 0:
                 return 2
-        return 1
+            else:
+                return 1
+        else:
+            return 1
     else:
         return 0
 
@@ -208,19 +204,6 @@ def command_go(exits, direction):
     global went_back
     went_back = 0
     while True:
-        # if direction == "back":
-        #     if player.last_room:
-        #         direction = player.last_room[len(player.last_room) - 1]
-        #         if len(direction) > 1:
-        #             cmd_changed = direction[0] + "_" + direction[1]
-        #             # del direction[0:len(direction)-1]
-        #             direction[0] = cmd_changed
-        #             del player.last_room[len(player.last_room) - 1]
-        #             print(player.last_room)
-        #         return direction[0]
-        #     else:
-        #         print("There is nowhere to go back!")
-        #         break
         if direction == "back":
             went_back = 1
             if player.last_room:
@@ -242,14 +225,10 @@ def command_go(exits, direction):
                     del player.last_room[len(player.last_room) - 1]
                 return direction
             elif chosen_exit == 2:
-                print("The doors are locked - I need a key card to enter the room!")
-                break
-            elif chosen_exit == 3:
-                if went_back == 0:
-                    print("I do not want to lock myself out of the room. I need the key card!")
-                else:
-                    cmd = random.randint(0, 2)
-                    print(go_back_deny[cmd])
+                if direction == "bridge":
+                    print("The doors are jammed. I need something to use to break them apart with!")
+                if direction == "armory" or direction == "power_control" or direction == "detention_centre":
+                    print("The doors are locked - I need to use a key card to enter the room!")
                 break
             else:
                 cmd = random.randint(0, 3)
@@ -291,7 +270,6 @@ def command_go_superior(exits, in_room, cmd):
                             break
             elif len(cmd):
                 print("I did not quite get that.")
-                # return cmd
                 break
         else:
             break
@@ -323,11 +301,70 @@ def command_name_change():
 
 
 def command_objectives():
-    print()
+    if player.objectives_changed == 1:
+        print("OBJECTIVES UPDATED!")
+        print()
+        player.objectives_changed = 0
     print("OBJECTIVES:")
     for key, value in player.objectives.items():
         print(" - " + value)
 
+
+def use(item):
+    if item == item_crowbar and (player.current_room["name_ID"] == "Systems Control" or player.current_room["name_ID"] == "Officer Deck"):
+        use_crowbar()
+        return True
+    elif item == item_keyA and player.current_room["name_ID"] == "Weapons Control":
+        use_keyA()
+        return True
+    elif item == item_keyD and player.current_room["name_ID"] == "Crew Quarters":
+        use_keyD()
+        return True
+    elif item == item_keyP and player.current_room["name_ID"] == "Power Generator":
+        use_keyP()
+        return True
+    elif item == item_medkit:
+        use_medkit()
+        return True
+    elif item == item_biscuits:
+        use_biscuits()
+        return True
+    return False
+
+
+def command_use(user_input, inventory):
+    item = user_input
+    while True:
+        if len(item) == 0 or (item[0] == "use" and len(item) == 1):
+            print("What do you want me to use?")
+            while True:
+                item = input(player.player_name + ": ")
+                if len(item) == 0:
+                    pass
+                else:
+                    item = normalise_input(item)
+                    if "take" in item:
+                        item.remove("take")
+                        input_combine_commands(item)
+                        break
+                    else:
+                        input_combine_commands(item)
+                        break
+        elif len(item) > 0:
+            if "use" in item:
+                item.remove("use")
+            a = 0
+            for inv_item in inventory:
+                if item[0] in inv_item["id"]:
+                    a = 1
+                    if use(inv_item):
+                        return
+            if a == 1:
+                print("I cannot use this item here.")
+            else:
+                i = random.randint(0, len(use_deny) - 1)
+                print(use_deny[i])
+            break
 
 # Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
 
@@ -599,15 +636,6 @@ def command_inventory(container):
         print("I don't have anything on me at the moment.")
 
 
-def heal(amount):
-    if player.hp + amount > 100:
-        player.hp = 100
-        print("You healed back at maximum health!")
-    else:
-        player.hp += amount
-        print("You healed for " + str(amount) + " health.")
-
-
 def update_player_stats(inventory):
     player.weight = 0
     player.armor = 0
@@ -823,3 +851,7 @@ def save_exists(file_name):
             return True
     except IOError as e:
         return False
+
+
+def screen_flush():
+    os.system('cls' if os.name == 'nt' else 'clear')

@@ -3,6 +3,7 @@ import combat_system
 from items.monsters import *
 from items.objects import *
 import player
+from lists.use import *
 
 
 def player_name():
@@ -150,9 +151,9 @@ def post_intro_prompt(inventory):
 def event_update(exits):
     if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 0 and "power_up_hangar" not in player.objectives:
         player.objectives["power_up_hangar"] = "I need to power up Hangar #2 somehow."
-        print("\nOBJECTIVES UPDATED")
+        player.objectives_changed = 1
     if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 1:
-        print()
+        screen_flush()
         print("As you enter Hangar 2 you see the room completely lit. The hangar"
               "\ndoor is closed and there is a big fighter plane inside the room with an open"
               "\ncockpit. You hear noise from the left where a whole stash of Vodka is laying"
@@ -172,7 +173,6 @@ def event_update(exits):
         print("...")
         print("I better get ready to fight!")
         enter()
-        player.hp = 100
         combat_system.main_fight(enemy_kirill)
         player.encounters.append(player.current_room["name_ID"])
         print()
@@ -220,16 +220,6 @@ def event_update(exits):
 
 # Events checked each time you give input
 def input_event_update(user_input, exits, inventory):
-    if (user_input == ['eat', 'biscuits'] or user_input == ['eat', 'pack_biscuits'] or user_input == ['eat', 'pack']) and item_biscuits in inventory:
-        inventory.remove(item_biscuits)
-        print("You ate the biscuits and soon start feeling ill. As a result you lose 10 hp!")
-        player.hp -= 10
-        return True
-    if (user_input == ['use', 'medkit'] or user_input == ['use', 'med_kit'] or user_input == ['use', 'kit']) and item_medkit in inventory:
-        inventory.remove(item_medkit)
-        print("You open your Med-Kit and take out a bunch of medication and bandages to use.")
-        heal(25)
-        return True
     if (user_input == ["charge", "scanner"] or user_input == ["recharge", "scanner"]) and player.current_room["name"] == "Wrecked Ship":
         print("You have successfully recharged your scanner!")
         item_scanner["attributes"]["power"] = 50

@@ -3,6 +3,7 @@ from lists.command_list import normalise_input
 from lists.command_list import enter
 from lists.command_list import GameOver
 from lists.command_list import quit_test
+from lists.command_list import screen_flush
 from lists.feedback_lists import *
 import player
 
@@ -113,6 +114,7 @@ def damage_dealt(weapon_input, enemy, move):
                 print("/_____/ /_/  |_| /_/      /_/   /_____/ /_____/       |__/|__/  \____/ /_/ |_/ (_)   ")
                 print()
                 player.score += enemy["score"]
+                print("You have earned: " + str(enemy["score"]) + " bits!")
                 enter()
                 return False
             else:
@@ -145,8 +147,7 @@ def damage_got(enemy, move):
         print("Due to your opponent being rather inaccurate, their attack misses you.")
 
 
-def main_fight(enemy):
-    player.in_battle_enemy_hp = enemy["hp"]
+def print_encounter():
     print()
     print("    ___________________________________________________________________  ")
     print("   / ____/ / | / / / ___\ / __ \  / / / / / | / / /_  __/ / ____/ / __ \ ")
@@ -154,6 +155,19 @@ def main_fight(enemy):
     print(" / /___  / /|  / / /__  / /_/ / / /_/ / / /|  /   / /   / /___  / _, _/  ")
     print("/_____/ /_/ |_/  \____/ \____/  \____/ /_/ |_/   /_/   /_____/ /_/ |_|   ")
     print()
+
+
+def print_stats(enemy):
+    print("=============")
+    print("Your HP: " + str(player.hp))
+    print("Enemy HP: " + str(player.in_battle_enemy_hp))
+    print("=============")
+
+
+def main_fight(enemy):
+    screen_flush()
+    player.in_battle_enemy_hp = enemy["hp"]
+    print_encounter()
     alpha = randint(0, len(encounter_fill) - 1)
     print("You have encountered " + enemy["name"] + encounter_fill[alpha])
     print("You must fight " + enemy["name"] + " to proceed (you cannot save during battle).")
@@ -174,9 +188,14 @@ def main_fight(enemy):
                 a = normalise_input(a)
         b = randint(0, 1)
         if b == a:
-            print("\nYou go first!")
+            screen_flush()
+            print_encounter()
+            print("You go first!")
             enter()
             while player.in_battle_enemy_hp >= 1:
+                screen_flush()
+                print_encounter()
+                print_stats(enemy)
                 weapon_choice = valid_weapon()
                 move = move_prompt()
                 # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
@@ -186,13 +205,21 @@ def main_fight(enemy):
                     if player.hp <= 0:
                         raise GameOver
                     enter()
+                    screen_flush()
+
             break
         else:
-            print("\n" + enemy["name"] + " goes first!")
+            screen_flush()
+            print_encounter()
+            print(enemy["name"] + " goes first!")
             enter()
             print()
             move = 1
             while player.in_battle_enemy_hp >= 1:
+                screen_flush()
+                print_encounter()
+                print_stats(enemy)
+                print()
                 damage_got(enemy, move)
                 if player.hp <= 0:
                     raise GameOver
@@ -201,4 +228,5 @@ def main_fight(enemy):
                 # Damage_dealt would return FALSE if enemy is dead, therefore damage_got will not be further executed.
                 if damage_dealt(weapon_choice, enemy, move):
                     enter()
+                    screen_flush()
             break

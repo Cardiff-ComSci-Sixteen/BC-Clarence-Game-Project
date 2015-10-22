@@ -23,7 +23,7 @@ wrecked_ship = {
 
     "objects": [object_board_AI, object_ceiling],
 
-    "items": []
+    "items": [item_keyD, item_keyA, item_keyP]
 
 }
 
@@ -57,7 +57,7 @@ hangar_2 = {
 
     "exits": {"hangar_1": "Hangar 1", "vehicle_maintenance": "Vehicle Maintenance", "vehicle_storage": "Vehicle Storage"},
 
-    "items": [],
+    "items": [item_crowbar],
 
     "objects": [object_xfighter]
 }
@@ -138,7 +138,7 @@ power_control = {
 
     "objects": [object_powerconsole],
 
-    "requirement": item_keyP
+    "requirement": [item_keyP]
 }
 
 engineering = {
@@ -211,7 +211,9 @@ bridge = {
 
     "items": [item_keyP],
 
-    "objects": [object_bridgecontrols, object_window]
+    "objects": [object_bridgecontrols, object_window],
+
+    "requirement": [item_crowbar]
 }
 
 systems_control = {
@@ -242,7 +244,7 @@ armory = {
 
     "objects": [],
 
-    "requirement": item_keyA
+    "requirement": [item_keyA]
 }
 
 med_bay = {
@@ -323,7 +325,7 @@ detention_centre = {
 
     "objects": [],
 
-    "requirement": item_keyD
+    "requirement": [item_keyD]
 }
 
 
