@@ -185,10 +185,12 @@ def main_menu():
                     break
 
             else:
+                screen_flush()
                 events.intro_prompt()
                 events.post_intro_prompt(player.inventory)
                 break
         else:
+            screen_flush()
             events.intro_prompt()
             events.post_intro_prompt(player.inventory)
             break
