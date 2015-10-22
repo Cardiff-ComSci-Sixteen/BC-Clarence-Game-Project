@@ -39,12 +39,12 @@ commands_detailed = OrderedDict([
     ("quit", "quits the game"),
     ("save", "saves your progress to saves\ with the name you have types"),
     ("scan", "use your SCANNER to further analyze an object in the room/inventory"
-             "\nto get more information about it, if there is any"),
+             "\n            to get more information about it, if there is any"),
     ("stats", "view information about your character such as"
               "\n            how many items you are carrying, their weight, health, etc."),
     ("take", "pick up an item and add it to your inventory"),
     ("use", "if your item is usable or you meet the conditions for its usage,"
-            "\nyou will be prompted")])
+            "\n            you will be prompted")])
 
 commands_aliases = ["look", "analyze"]
 
