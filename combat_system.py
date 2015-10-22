@@ -156,7 +156,7 @@ def main_fight(enemy):
     print()
     alpha = randint(0, len(encounter_fill) - 1)
     print("You have encountered " + enemy["name"] + encounter_fill[alpha])
-    print("You must fight " + enemy["name"] + "to proceed (you cannot save during battle).")
+    print("You must fight " + enemy["name"] + " to proceed (you cannot save during battle).")
     print()
     while True:
         a = input("Heads or Tails (winner goes first)? ")
