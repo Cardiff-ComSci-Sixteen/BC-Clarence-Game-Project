@@ -152,7 +152,6 @@ def move(exits, direction):
 def menu(current_room, exits):
     display_room(current_room)
     print_menu(exits)
-    events.event_update(exits)
     if player.auto_save_count == 5:
         player.auto_save_count = 0
         save("auto_save")
@@ -205,6 +204,7 @@ def main():
         player.current_room = menu(player.current_room, exits)
         player.auto_save_count += 1
         player.in_room = player.current_room["name_ID"]
+        events.event_update(exits)
 
 # loading(100)
 

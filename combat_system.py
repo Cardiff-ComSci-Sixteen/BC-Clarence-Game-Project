@@ -192,7 +192,7 @@ def main_fight(enemy):
                     enter()
             break
         else:
-            print("\nEnemy goes first!")
+            print("\n" + enemy["name"] + " goes first!")
             enter()
             print()
             move = 1
