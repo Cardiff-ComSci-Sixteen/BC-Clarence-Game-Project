@@ -156,6 +156,7 @@ def menu(current_room, exits):
     if player.auto_save_count == 5:
         player.auto_save_count = 0
         save("auto_save")
+        print()
         print("Progress has been auto-saved!")
     command_input = command_execute(exits)
     return move(exits, command_input)
