@@ -193,9 +193,10 @@ def main_menu():
 def main():
     main_menu()
     # Start game at the room_1
-    print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
     print("Hello " + player.player_name + "!")
+    print()
+    print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     enter()
     # Main game loop
     while True:
