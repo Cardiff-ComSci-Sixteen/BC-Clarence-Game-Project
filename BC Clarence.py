@@ -42,21 +42,6 @@ def remove_spaces(text):
     print(text)
 
 
-def display_room(room):
-    # CMD Version
-    # print("\n    ╗ ┌" + (len(room["name"]) * "─") + "┐ ╔ ")
-    # print("    ╠═╣" + room["name"].upper() + "╠═╣")
-    # print("    ╝ └" + str(len(room["name"]) * "─") + "┘ ╚ ")
-
-    # Normal Version
-    print("\n    ╗┌" + (len(room["name"]) * "-") + "┐╔ ")
-    print("    ╠╣" + room["name"].upper() + "╠╣")
-    print("    ╝└" + str(len(room["name"]) * "-") + "┘╚ ")
-
-    print("\n" + room["description"] + "\n")
-    print_room_items(room)
-
-
 def is_valid_command(user_input):
     if user_input in commands:
         return True
@@ -106,6 +91,8 @@ def command_execute(exits):
                             print("Your game has been saved to '" + file_name + ".json'.")
                         else:
                             print("Save canceled.")
+                    if cmdn == "objectives":
+                        command_objectives()
                     if cmdn == "take":
                         command_take(player.player_name, player.in_room, cmd, player.inventory)
                         update_player_stats(player.inventory)
@@ -165,6 +152,7 @@ def move(exits, direction):
 def menu(current_room, exits):
     display_room(current_room)
     print_menu(exits)
+    events.event_update(exits)
     if player.auto_save_count == 5:
         player.auto_save_count = 0
         save("auto_save")
@@ -216,9 +204,8 @@ def main():
         player.current_room = menu(player.current_room, exits)
         player.auto_save_count += 1
         player.in_room = player.current_room["name_ID"]
-        events.event_update(exits)
 
-loading(100)
+# loading(100)
 
 while True:
     try:

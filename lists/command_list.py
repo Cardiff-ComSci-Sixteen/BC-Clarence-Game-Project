@@ -16,7 +16,7 @@ skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at'
               'from', 'good', 'have', 'her', 'here', 'hers', 'his', 'how',
               'i', 'if', 'in', 'into', 'is', 'it', 'its', 'large', 'later',
               'like', 'little', 'main', 'me', 'mine', 'more', 'my', 'now',
-              'of', 'off', 'oh', 'on', 'please', 'small', 'some', 'soon',
+              'of', 'off', 'oh', 'on', 'please', 'show', 'small', 'some', 'soon',
               'that', 'the', 'then', 'there', 'this', 'those', 'through', 'till', 'to',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
               'wish', 'with', 'would']
@@ -152,6 +152,20 @@ def print_menu_line(leads_to):
         return 0
     else:
         return leads_to
+
+def display_room(room):
+    # CMD Version
+    print("\n╗ ┌" + (len(room["name"]) * "─") + "┐")
+    print("╠═╣" + room["name"].upper() + "│")
+    print("╝ └" + str(len(room["name"]) * "─") + "┘")
+
+    # Normal Version
+    # print("\n    ╗┌" + (len(room["name"]) * "-") + "┐╔ ")
+    # print("    ╠╣" + room["name"].upper() + "╠╣")
+    # print("    ╝└" + str(len(room["name"]) * "-") + "┘╚ ")
+
+    print("\n" + room["description"] + "\n")
+    print_room_items(room)
 
 
 def print_menu(exits):
@@ -306,6 +320,13 @@ def command_name_change():
         else:
             break
     return user_input
+
+
+def command_objectives():
+    print()
+    print("OBJECTIVES:")
+    for key, value in player.objectives.items():
+        print(" - " + value)
 
 
 # Make user get prompted with a text based on their reaction (kjkafjajf - it hs to be (yes/no)
@@ -509,8 +530,8 @@ def command_inspect(room, element, player_name, container):
                     print_room_items(room)
                     break
                 if "room" in element:
-                    print("\n" + str(room["name"]).upper() + "\n\n" + room["description"] + "\n")
-                    print_room_items(room)
+                    display_room(room)
+                    print_menu(room["exits"])
                     break
                 if len(element) > 1:
                     element[0] = str(element[0]) + "_" + str(element[1])
@@ -756,6 +777,7 @@ def load(file_name):
         player.encounters = data["encounters"]
         player.scanner_power = data["scanner_power"]
         player.hangar_2_power = data["hangar_power"]
+        player.objectives = data["objectives"]
         for key, value in data.items():
             if key in rooms:
                 rooms[key] = value
@@ -786,7 +808,8 @@ def save(file_name):
         "in_battle_enemy_hp": player.in_battle_enemy_hp,
         "encounters": player.encounters,
         "scanner_power": player.scanner_power,
-        "hangar_power": player.hangar_2_power
+        "hangar_power": player.hangar_2_power,
+        "objectives": player.objectives
     }
     for key, value in rooms.items():
         data[key] = value

@@ -10,6 +10,7 @@ commands = OrderedDict([
     ("help", "show a list of available commands ('help detailed' for more info)"),
     ("inspect", "inspect the details of an object"),
     ("inventory", "see what you are carrying"),
+    ("objectives", "shows your current list of objectives"),
     ("playername", "change your name"),
     ("quit", "quits the game"),
     ("save", "save your current progress"),
@@ -27,9 +28,12 @@ commands_detailed = OrderedDict([
     ("help", "shows a list of available commands"),
     ("inspect", "you can inspect a room, item object in room or your inventory"
                 "\n            to get basic information about what the item/object is"
-                "\n            as well as what the inventory/room's contents are"),
+                "\n            as well as what the inventory/room's contents are"
+                "\n            type 'inspect room' to view room information again or"
+                "\n            'inspect room items' to see items in the room you can take."),
     ("inventory", "you can see a list of all the items"
                   "\n            that you are currently carrying in your inventory"),
+    ("objectives", "shows your current list of objectives"),
     ("playername", "use this if you don't like your name and want to change it"),
     ("quit", "quits the game"),
     ("save", "saves your progress to saves\ with the name you have types"),

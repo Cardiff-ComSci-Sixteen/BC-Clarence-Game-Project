@@ -148,10 +148,9 @@ def post_intro_prompt(inventory):
 
 # Events checked each time you change rooms
 def event_update(exits):
-    if player.current_room["name_ID"] == "Hangar 2":
-        raise Victory
-    if player.current_room["name_ID"] == "Vehicle Maintenance":
-        raise GameOver
+    if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 0 and "power_up_hangar" not in player.objectives:
+        player.objectives["power_up_hangar"] = "I need to power up Hangar #2 somehow."
+        print("\nOBJECTIVES UPDATED")
     if player.current_room["name_ID"] == "Hangar 2" and player.hangar_2_power == 1:
         print()
         print("As you enter Hangar 2 you see the room completely lit. The hangar"
@@ -248,6 +247,9 @@ def input_event_update(user_input, exits, inventory):
                                                          "\nthe generator for Hangar #2 is. Starting the generator may be my"
                                                          "\nonly chance out of here!")
                 player.hangar_2_power = 1
+                del player.objectives["power_up_hangar"]
+                player.objectives["escape_from_hangar"] = "I need to get to Hangar #2 and escape!"
+                print("\nOBJECTIVES UPDATED")
             else:
                 print("\nThe generator is already on!")
             return True

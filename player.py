@@ -14,6 +14,9 @@ armor = 0
 is_naked = 0
 scanner_power = 12
 hangar_2_power = 0
+objectives = {
+    "main_objective": "Find a way to escape from the ship! - Main Objective"
+}
 
 # Used to calculate and change current enemy hp instead of the enemy declaration itself
 in_battle_enemy_hp = 0
