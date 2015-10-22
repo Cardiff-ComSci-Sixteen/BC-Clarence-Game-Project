@@ -196,6 +196,7 @@ def main():
     print("Type 'help' to see a list of available commands (or 'help detailed' for more info).")
     print()
     print("Hello " + player.player_name + "!")
+    enter()
     # Main game loop
     while True:
         # update_room_state(player.current_room["name_ID"])
