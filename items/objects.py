@@ -101,7 +101,7 @@ object_mainreactor = {
 }
 
 object_powerconsole = {
-    "id": ["console", "large_console"],
+    "id": ["console", "large_console", "power_console"],
 
     "name": "Power Console",
 

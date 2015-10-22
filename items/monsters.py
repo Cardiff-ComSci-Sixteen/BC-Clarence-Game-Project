@@ -43,7 +43,7 @@ enemy_matt = {
 
 enemy_kirill = {
     "name": "Kirill the Menacing Bear",
-    "hp": 100,
+    "hp": 200,
     "weapon": [{"name": "Wooden Spoon", "damage": 15, "damage_bottom": 5, "accuracy": 50,
                 "description": "swings his Wooden spoon ferociously at you."},
                {"name": "Single Byte", "damage": 15, "damage_bottom": 5, "accuracy": 50,
@@ -52,6 +52,6 @@ enemy_kirill = {
                 "description": "pulls out his ak-47 and sprays at you."},
                {"name": "Stare", "damage": 20, "damage_bottom": 5, "accuracy": 75,
                 "description": "Kirill uses Stare to try and make you feel uncomfortable."}],
-    "dodge": 0,
+    "dodge": 10,
     "score": 150
 }
